@@ -1,0 +1,128 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Header",
+  "type": "header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "blocks": {
+        "colorize_46CzBC": {
+          "type": "colorize",
+          "settings": {
+            "line_2_bg": "#001c39",
+            "line_2_bd": "",
+            "btns_line_2_d_c": "",
+            "btns_line_2_d_h_c": "",
+            "line_1_bg": "",
+            "line_1_bd": "",
+            "btns_line_1_d_c": "",
+            "btns_line_1_d_h_c": "",
+            "search_btn_type": "auto",
+            "m_bg": "",
+            "m_bd": "",
+            "btns_m_c": "",
+            "menu_sticky_c": "",
+            "menu_sticky_h_c": "",
+            "btns_sticky_c": "",
+            "btns_sticky_h_c": "",
+            "line_additional_bg": "",
+            "line_additional_bd": "",
+            "line_additional_c": "",
+            "line_additional_highlighted_buttons_c": "",
+            "line_additional_h_c": "",
+            "info_line_bg": "",
+            "info_line_bd": "",
+            "info_line_c": "",
+            "info_line_media_c": "",
+            "info_line_media_h_c": "",
+            "tape_bg": "",
+            "tape_bd": "",
+            "tape_c": "",
+            "tape_btn_close_c": "",
+            "menu_c": "",
+            "menu_h_c": "",
+            "menu_h_bg": "",
+            "menu_title_c": "",
+            "menu_list_c": "",
+            "menu_list_h_c": "",
+            "menu_list_h_bg": "",
+            "menu_vertical_button_bg": "",
+            "menu_vertical_button_c": "",
+            "menu_vertical_d_bg": "",
+            "menu_vertical_d_bd": "",
+            "menu_vertical_d_c": "",
+            "menu_vertical_h_c": ""
+          }
+        },
+        "1525791872612": {
+          "type": "tape",
+          "disabled": true,
+          "settings": {
+            "delay": 0,
+            "style": "1",
+            "transparent_bg": false,
+            "content": "Telas estampadas para moda, decoración y vestidos de baño desde 1 mt en adelante"
+          }
+        },
+        "1527373220764": {
+          "type": "megamenu",
+          "settings": {
+            "for_item": "Telas",
+            "grid": 3,
+            "second_level_column": false,
+            "second_level_column_size": 24,
+            "wrap": true,
+            "wrapper_grid": 12,
+            "column_left_type": "none",
+            "column_left_size": 3,
+            "column_right_type": "none",
+            "column_right_size": 0,
+            "enable_width_limit": false,
+            "width_limit": 630
+          }
+        }
+      },
+      "block_order": [
+        "colorize_46CzBC",
+        "1525791872612",
+        "1527373220764"
+      ],
+      "custom_css": [
+        "/* Make announcement/header tape text white */.header__tape,.header__tape a {font-weight: 600; background-color: #88a9ce;}",
+        " /* Hide the X on the announcement/header tape */.header__tape .tape__close,.nt_tape .tape__close,.header__tape .js-close,.nt_tape .js-close,.announcement-bar .tape__close,.announcement-bar .js-close {display: none !important;}",
+        ".header__menu a,.header__menu-item,.header__menu-link,.header__nav a,.header__nav-link,.header__navigation a {text-transform: none !important;}"
+      ],
+      "settings": {
+        "type": "6",
+        "style": "3",
+        "transparent_bg": "disable",
+        "logo_mobile_centered": true,
+        "height": 110,
+        "items_padding": 12,
+        "menu": "main-menu",
+        "show_menu_arrows": true,
+        "show_menu_hover_underline": true,
+        "vertical_menu": "main-menu",
+        "fixed_vertical_menu": false,
+        "additional_line_info_page_content": "",
+        "enable_country_selector": true,
+        "show_country_name": false,
+        "country_selector_max_width": 140,
+        "sticky": "desktop_and_mobile",
+        "desktop_sticky_type": "slim",
+        "hide_sticky_when_scroll_down": true
+      }
+    }
+  },
+  "order": [
+    "header"
+  ]
+}

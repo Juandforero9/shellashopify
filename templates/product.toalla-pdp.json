@@ -1,0 +1,367 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "5675053d-3467-4746-963e-4514477aad42": {
+          "type": "title",
+          "settings": {}
+        },
+        "d250ceb2-23c9-4926-be00-8fcb455e62e9": {
+          "type": "reviews",
+          "settings": {}
+        },
+        "a5bd3c3b-9ef1-4cde-a923-54a7efc01c14": {
+          "type": "details",
+          "settings": {}
+        },
+        "d5e4b255-784c-4754-9cbe-eddd84c93af2": {
+          "type": "price",
+          "settings": {}
+        },
+        "5a6109f3-d35a-4f38-8da0-143bf0234539": {
+          "type": "countdown",
+          "settings": {}
+        },
+        "b85ba278-399a-4ad1-859d-7823852521f0": {
+          "type": "stock_countdown",
+          "settings": {}
+        },
+        "f7689ce9-d953-4a78-b2ca-74088d888a7f": {
+          "type": "border",
+          "settings": {}
+        },
+        "6d2130b9-35eb-4ec7-9832-b3555f913259": {
+          "type": "options",
+          "settings": {}
+        },
+        "548e2413-180e-4825-aba6-4f46e5ef4317": {
+          "type": "popups",
+          "settings": {}
+        },
+        "b033f3a3-2862-435c-8579-29bede720233": {
+          "type": "buttons_quantity",
+          "settings": {}
+        },
+        "border_Dr8AVh": {
+          "type": "border",
+          "settings": {}
+        },
+        "payments_custom_7p4zDa": {
+          "type": "payments_custom",
+          "settings": {
+            "image_1": "shopify://shop_images/Wompi_LogoSecundario.svg"
+          }
+        },
+        "e63a4691-7127-45d6-a8d8-191fe152dad6": {
+          "type": "payments",
+          "disabled": true,
+          "settings": {}
+        },
+        "261885ab-1671-4ab7-aafc-3bae58123846": {
+          "type": "notes",
+          "disabled": true,
+          "settings": {}
+        },
+        "72d08ef7-bfb9-4c2a-b18a-951575e7ce50": {
+          "type": "complementary_products",
+          "settings": {}
+        },
+        "07c447a5-98d7-4315-9048-ac172d3673dc": {
+          "type": "free_shipping",
+          "settings": {}
+        },
+        "d318ee16-4ffe-4001-8845-ecbed8fa0d1b": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "dcb960c0-aac1-469d-a4fd-e416a4a6ed4f": {
+          "type": "icon_with_text",
+          "settings": {
+            "style": "inline",
+            "icon_svg_1": "theme-089",
+            "text_1": "<p><strong>Producción local y personalizada:</strong> Cada pedido se imprime bajo demanda.</p>",
+            "icon_svg_2": "theme-127",
+            "text_2": "<p><strong>Envíos rápidos y seguros:</strong> Entregamos a nivel nacional con Servientrega.</p>",
+            "icon_svg_3": "",
+            "text_3": "",
+            "icon_svg_4": "",
+            "text_4": "",
+            "icon_svg_5": "",
+            "text_5": "",
+            "icon_svg_6": "",
+            "text_6": ""
+          }
+        },
+        "fe7b0507-5483-4956-ab0f-ea3a90f57b1f": {
+          "type": "social_share_buttons",
+          "settings": {}
+        },
+        "959240db-9a88-436b-8c09-b6c9e0ebb7a8": {
+          "type": "tab_custom",
+          "settings": {
+            "title": "Ancho útil de impresión y orillos",
+            "content": "<p>Cada diseño puede incluir un orillo sin imprimir, necesario para alimentar correctamente la tela en las máquinas. Este espacio también permite identificar dónde termina un pedido y comienza otro.</p><p>Debido al proceso de impresión digital, no es posible imprimir de extremo a extremo, por lo que todas nuestras telas indican un ancho útil de impresión. Esta medida te ayudará a calcular con precisión la cantidad de tela necesaria para tu proyecto.<br/><br/>El orillo no se cobra ni se incluye dentro de las medidas finales del producto.</p>",
+            "page_content": ""
+          }
+        }
+      },
+      "block_order": [
+        "5675053d-3467-4746-963e-4514477aad42",
+        "d250ceb2-23c9-4926-be00-8fcb455e62e9",
+        "a5bd3c3b-9ef1-4cde-a923-54a7efc01c14",
+        "d5e4b255-784c-4754-9cbe-eddd84c93af2",
+        "5a6109f3-d35a-4f38-8da0-143bf0234539",
+        "b85ba278-399a-4ad1-859d-7823852521f0",
+        "f7689ce9-d953-4a78-b2ca-74088d888a7f",
+        "6d2130b9-35eb-4ec7-9832-b3555f913259",
+        "548e2413-180e-4825-aba6-4f46e5ef4317",
+        "b033f3a3-2862-435c-8579-29bede720233",
+        "border_Dr8AVh",
+        "payments_custom_7p4zDa",
+        "e63a4691-7127-45d6-a8d8-191fe152dad6",
+        "261885ab-1671-4ab7-aafc-3bae58123846",
+        "72d08ef7-bfb9-4c2a-b18a-951575e7ce50",
+        "07c447a5-98d7-4315-9048-ac172d3673dc",
+        "d318ee16-4ffe-4001-8845-ecbed8fa0d1b",
+        "dcb960c0-aac1-469d-a4fd-e416a4a6ed4f",
+        "fe7b0507-5483-4956-ab0f-ea3a90f57b1f",
+        "959240db-9a88-436b-8c09-b6c9e0ebb7a8"
+      ],
+      "custom_css": [],
+      "settings": {
+        "gallery_size": "6",
+        "sidebar": "off",
+        "enable_sticky_sidebar": false,
+        "show_tabs": true,
+        "show_tab_description": true,
+        "show_tab_reviews": true,
+        "scrolling_to_opened_tab": true,
+        "tabs_type": "tabs"
+      }
+    },
+    "16343067578e5a158b": {
+      "type": "spacer",
+      "settings": {
+        "margin_top": 30,
+        "margin_bottom": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "container": "boxed",
+        "show_separator": false,
+        "title": ""
+      }
+    },
+    "related-products": {
+      "type": "carousel-related-products",
+      "settings": {
+        "show_section": true,
+        "type": "related",
+        "size_of_columns": "4",
+        "max_count": 6,
+        "autoplay": true,
+        "speed": 5,
+        "infinite": true,
+        "arrows": true,
+        "bullets": true
+      }
+    },
+    "1634306845f7435aab": {
+      "type": "home-builder",
+      "blocks": {
+        "5f0a26aa-5ee6-4322-82af-7ca683129070": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/pattern.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "Save hundreds of dollars each month with Shella. You don't need to purchase additional apps.",
+            "text_line_3": "",
+            "style": "3",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "type-2-12",
+            "content_position": "center",
+            "content_align": "left",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "4",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        },
+        "promobox_w6MNTz": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/pattern.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "Save hundreds of dollars each month with Shella. You don't need to purchase additional apps.",
+            "text_line_3": "",
+            "style": "3",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "type-2-12",
+            "content_position": "center",
+            "content_align": "left",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "4",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        },
+        "promobox_3Dpd7C": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/pattern.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "Save hundreds of dollars each month with Shella. You don't need to purchase additional apps.",
+            "text_line_3": "",
+            "style": "3",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "type-2-12",
+            "content_position": "center",
+            "content_align": "left",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "4",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "5f0a26aa-5ee6-4322-82af-7ca683129070",
+        "promobox_w6MNTz",
+        "promobox_3Dpd7C"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "<p>WHY CHOOSE SHELLA THEME</p>",
+        "container": "boxed",
+        "size_of_columns": "5",
+        "size_of_columns_mobile": "2",
+        "margins_for_columns": "preset_3",
+        "align_of_columns": "center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "163430726099b71d81": {
+      "type": "spacer",
+      "settings": {
+        "margin_top": 30,
+        "margin_bottom": 0,
+        "margin_top_mobile": 5,
+        "margin_bottom_mobile": 5,
+        "container": "boxed",
+        "show_separator": false,
+        "title": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16343067578e5a158b",
+    "related-products",
+    "1634306845f7435aab",
+    "163430726099b71d81"
+  ]
+}

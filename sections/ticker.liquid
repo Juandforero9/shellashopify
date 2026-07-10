@@ -1,0 +1,163 @@
+{% include 'global-variables' %}
+
+<style>
+  {%- assign transparent_value = 'rgba(0,0,0,0)' -%}
+  {%- if section.settings.color_bg and section.settings.color_bg != '' and section.settings.color_bg != 'rgba(0,0,0,0)' -%}
+      #TickerSection-{{ section.id }} .ticker {
+        --background: {{ section.settings.color_bg }};
+      }
+  {%- endif -%}
+  {%- if section.settings.color_text and section.settings.color_text != '' and section.settings.color_text != 'rgba(0,0,0,0)' -%}
+      #TickerSection-{{ section.id }} .ticker {
+        --text: {{ section.settings.color_text }};
+      }
+  {%- endif -%}
+</style>
+
+<div{% if section.settings.customization_class != blank %} class="{{ section.settings.customization_class }}"{% endif %}>
+  <div id="TickerSection-{{ section.id }}">
+    <div{% render 'layout-get-container-class' %}>
+      <div class="ticker gradient{% if section.settings.full_width %} ticker--full-width{% endif %}">
+        {% capture content_html %}
+          <div class="ticker__content">
+            {%- for block in section.blocks -%}
+              <div class="ticker__block" {{ block.shopify_attributes }}>
+                {%- if section.settings.show_separator -%}
+                  <span class="ticker__separator">✲</span>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <span class="ticker__text rte">
+                    {{ block.settings.text }}
+                  </span>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {% endcapture %}
+        <noscript>
+          <marquee behavior="scroll" loop="infinity" truespeed="200" scrolldelay="50">
+            {{ content_html }}
+          </marquee>
+        </noscript>
+        <ticker-section class="hidden" data-speed="{{ section.settings.speed }}" data-referral="{{ section.settings.referral }}">
+          {{ content_html }}
+        </ticker-section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    theme.AssetsLoader.require('scripts', 'ticker');
+</script>
+
+{% schema %}
+{
+  "name": "t:names.ticker",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.layout__ucypoF"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "t:settings.container",
+      "default": "fullwidth",
+      "options": [
+        {
+          "value": "fullwidth",
+          "label": "t:options.fullwidth"
+        },
+        {
+          "value": "boxed",
+          "label": "t:options.boxed"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:content.content__y4BOVS"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_separator",
+      "label": "t:settings.show_separator",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "referral",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:options.left"
+        },
+        {
+          "value": "right",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "left",
+      "label": "t:settings.referral"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "t:settings_scoped.speed.speed__LSywIr",
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "t:content.colorize__3Plpbz"
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "t:settings.color_bg"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:settings.color_text"
+    },
+    {
+      "type": "header",
+      "content": "t:content.customization__CfsYB1"
+    },
+    {
+      "type": "text",
+      "id": "customization_class",
+      "label": "t:settings.customization_class",
+      "info": "t:settings.customization_class_info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "t:blocks.content.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "t:html_defaults.share_information_about_your_brand_with__p",
+          "label": "t:settings.text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.ticker",
+      "blocks": [
+        {
+          "type": "content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

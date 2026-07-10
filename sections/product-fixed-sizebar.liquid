@@ -1,0 +1,99 @@
+{%- if section.blocks.size > 0 -%}
+    <div class="fixed-sidebar__section my-15">
+        <div class="product-fixed-sizebar position-relative px-10 pointer-events-all">
+            <div class="product-fixed-sizebar__btn d-flex flex-center position-absolute top-0 right-100 cursor-lg-pointer">
+                <i>{% render 'icon-theme-232' %}</i>
+            </div>
+            <div class="product-fixed-sizebar__content">
+                {%- for block in section.blocks -%}
+                    {%- assign random_value_diff = block.settings.max_value | minus: block.settings.min_value -%}
+                    {%- assign random_value = "now" | date: "%N" | modulo: random_value_diff | plus: block.settings.min_value -%}
+                    {% capture random_value %}<span>{{ random_value }}</span>{% endcapture %}
+                    {%- if block.settings.text == blank -%}
+                        {%- case forloop.index -%}
+                            {%- when 2 -%}
+                                {%- assign text = '{value} people added this item to cart' -%}
+                            {%- when 3 -%}
+                                {%- assign text = '{value} people have bought this item' -%}
+                            {%- else -%}
+                                {%- assign text = '{value} people are viewing this item' -%}
+                        {%- endcase -%}
+                    {%- else -%}
+                        {%- assign text = block.settings.text -%}
+                    {%- endif -%}
+                    {%- if block.settings.icon == blank -%}
+                        {%- case forloop.index -%}
+                            {%- when 2 -%}
+                                {%- assign icon = '[icon:theme-109]' -%}
+                            {%- when 3 -%}
+                                {%- assign icon = '[icon:theme-148]' -%}
+                            {%- else -%}
+                                {%- assign icon = '[icon:theme-154]' -%}
+                        {%- endcase -%}
+                    {%- else -%}
+                        {%- assign icon = block.settings.icon -%}
+                    {%- endif -%}
+                    {%- assign text_with_value = text | replace: '{value}', random_value -%}
+                    <div class="product-fixed-sizebar__line d-flex align-items-center py-9">
+                        <i>{% include 'parse-for-icons' with content: icon %}</i>
+                        <p class="mb-0">{{ text_with_value }}</p>
+                    </div>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+{%- endif -%}
+
+
+{% schema %}
+{
+  "name": "t:names.product-fixed-sizebar",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:content.available_iconshttpsshella-demomyshopify__2gjkl4"
+    },
+    {
+      "type": "header",
+      "content": "t:content.support__Ai_11O"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:content.read_user_manualhttpsmpithemesgitbookios__cr6a29"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_line",
+      "name": "t:blocks.text_line.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "t:settings_scoped.icon.icon__cW9juW",
+          "info": "t:settings.icon_info"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:settings.text",
+          "info": "t:settings.text_info"
+        },
+        {
+          "type": "text",
+          "id": "min_value",
+          "label": "t:settings.min_value",
+          "default": "t:text_defaults.20"
+        },
+        {
+          "type": "text",
+          "id": "max_value",
+          "label": "t:settings.max_value",
+          "default": "t:text_defaults.100"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

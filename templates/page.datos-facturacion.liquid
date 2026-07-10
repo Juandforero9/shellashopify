@@ -1,0 +1,120 @@
+<div class="page-width" style="max-width: 600px; margin: 50px auto; padding: 20px;">
+  
+  <h1 style="text-align: center; margin-bottom: 10px;">Datos de facturación</h1>
+  
+  <p style="text-align: center; color: #666; margin-bottom: 30px;">
+    Necesitamos esta información para generar tu factura electrónica.
+  </p>
+
+  <form id="billing-form" style="background: #f9f9f9; padding: 30px; border-radius: 8px;">
+    
+    <div style="margin-bottom: 20px;">
+      <label style="display: block; margin-bottom: 8px; font-weight: 600;">
+        Tipo de identificación *
+      </label>
+      <select id="id-type" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
+        <option value="CC">CC - Cédula de Ciudadanía</option>
+        <option value="CE">CE - Cédula de Extranjería</option>
+        <option value="NIT">NIT - Número de Identificación Tributaria</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <label style="display: block; margin-bottom: 8px; font-weight: 600;">
+        Número de identificación *
+      </label>
+      <input 
+        type="text" 
+        id="id-number" 
+        required 
+        placeholder="Ejemplo: 1234567890"
+        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
+    </div>
+
+    <div id="company-field" style="margin-bottom: 20px; display: none;">
+      <label style="display: block; margin-bottom: 8px; font-weight: 600;">
+        Razón social *
+      </label>
+      <input 
+        type="text" 
+        id="company-name" 
+        placeholder="Nombre de la empresa"
+        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
+    </div>
+
+    <div style="margin-top: 30px; text-align: center;">
+      <button 
+        type="submit" 
+        style="background: #2e7d32; color: white; padding: 15px 40px; border: none; border-radius: 4px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%;">
+        Continuar al pago
+      </button>
+      
+      <a href="/cart" style="display: block; margin-top: 15px; color: #666; text-decoration: none;">
+        ← Volver al carrito
+      </a>
+    </div>
+
+  </form>
+
+  <p style="text-align: center; color: #888; font-size: 14px; margin-top: 20px; font-style: italic;">
+    Tus datos se usarán únicamente para emitir la factura electrónica (DIAN).
+  </p>
+
+</div>
+
+<script>
+// Show/hide company name field based on ID type selection
+document.getElementById('id-type').addEventListener('change', function() {
+  const companyField = document.getElementById('company-field');
+  const companyInput = document.getElementById('company-name');
+  
+  if (this.value === 'NIT') {
+    companyField.style.display = 'block';
+    companyInput.required = true;
+  } else {
+    companyField.style.display = 'none';
+    companyInput.required = false;
+  }
+});
+
+// Handle form submission
+document.getElementById('billing-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Get form values
+  const idType = document.getElementById('id-type').value;
+  const idNumber = document.getElementById('id-number').value;
+  const companyName = document.getElementById('company-name').value;
+  
+  // Build the data object
+  const attributes = {
+    'billing_id_type': idType,
+    'billing_id_number': idNumber
+  };
+  
+  // Only add company name if NIT is selected
+  if (idType === 'NIT' && companyName) {
+    attributes['billing_company_name'] = companyName;
+  }
+  
+  // Save to cart attributes
+  fetch('/cart/update.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      attributes: attributes
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Success! Redirect to checkout
+    window.location.href = '/checkout';
+  })
+  .catch(error => {
+    alert('Hubo un error. Por favor intenta de nuevo.');
+    console.error('Error:', error);
+  });
+});
+</script>

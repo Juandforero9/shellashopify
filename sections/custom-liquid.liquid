@@ -1,0 +1,29 @@
+<div{% if section.settings.use_container %} class="container"{% endif %}>
+    {{ section.settings.custom_liquid }}
+</div>
+  
+{% schema %}
+{
+  "name": "t:names.custom-liquid",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "use_container",
+      "label": "t:settings.use_container",
+      "default": true
+    },
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:settings.custom_liquid",
+      "info": "t:settings.custom_liquid_info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.custom-liquid",
+      "category": "t:categories.1_main_building_sections"
+    }
+  ]
+}
+{% endschema %}

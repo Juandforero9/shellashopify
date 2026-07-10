@@ -1,0 +1,95 @@
+{%- if image != blank -%}
+{%- liquid
+  assign preset_name = preset | default: 'default'
+
+  case preset_name
+    when 'hero'
+      assign image_widths = '750, 1100, 1500, 1920, 2560'
+      assign image_sizes = sizes | default: '100vw'
+    when 'content-half'
+      assign image_widths = '480, 720, 900, 1080'
+      assign image_sizes = sizes | default: '(min-width: 990px) 900px, 100vw'
+    when 'collage'
+      assign image_widths = '380, 540, 720, 960, 1200, 1440'
+      assign image_sizes = sizes | default: '(min-width: 990px) 42vw, 88vw'
+    when 'product-card-dense'
+      assign image_widths = '128, 240, 380, 540'
+      assign image_sizes = sizes | default: '(min-width: 990px) 220px, 45vw'
+    when 'product-card'
+      assign image_widths = '128, 240, 380, 540, 720'
+      assign image_sizes = sizes | default: '(min-width: 990px) 300px, 45vw'
+    when 'pin-card'
+      assign image_widths = '128, 240, 380'
+      assign image_sizes = sizes | default: '280px'
+    when 'logo'
+      assign image_widths = '120, 180, 240, 320, 480, 640'
+      assign image_sizes = sizes | default: '(min-width: 990px) 180px, 140px'
+    when 'medium'
+      assign image_widths = '240, 380, 540, 720, 920, 1080'
+      assign image_sizes = sizes | default: '(min-width: 990px) 50vw, 100vw'
+    when 'small'
+      assign image_widths = '64, 128, 240, 380, 480'
+      assign image_sizes = sizes | default: '120px'
+    else
+      assign image_widths = '375, 750, 1100, 1440, 1920, 2560'
+      assign image_sizes = sizes | default: '100vw'
+  endcase
+
+  if widths != blank
+    assign image_widths = widths
+  endif
+
+  if sizes != blank
+    assign image_sizes = sizes
+  endif
+
+  assign width_array = image_widths | split: ','
+  assign max_width = width_array | last | strip | plus: 0
+  if max_width == 0
+    assign max_width = 3840
+  endif
+
+  assign image_src = image | image_url: width: 100
+  assign use_webp = false
+  if image_src contains '.png'
+    assign use_webp = true
+  endif
+
+  if use_webp
+    assign responsive_src = image | image_url: width: max_width, format: 'webp'
+  else
+    assign responsive_src = image | image_url: width: max_width
+  endif
+
+  assign img_class = class | default: ''
+  if is_multiply_target
+    if img_class != blank
+      assign img_class = img_class | append: ' multiply-mode__target'
+    else
+      assign img_class = 'multiply-mode__target'
+    endif
+  endif
+
+  assign img_style = 'object-position: ' | append: image.presentation.focal_point | append: ';'
+  if style != blank
+    assign img_style = img_style | append: ' ' | append: style
+  endif
+
+  assign img_alt = image.alt | escape
+-%}
+
+{%- capture img_tag -%}
+  {%- if is_eager_loading -%}
+    {{ responsive_src | image_tag: widths: image_widths, sizes: image_sizes, class: img_class, alt: img_alt, decoding: 'async', fetchpriority: 'high', loading: 'eager', style: img_style }}
+  {%- else -%}
+    {{ responsive_src | image_tag: widths: image_widths, sizes: image_sizes, class: img_class, alt: img_alt, decoding: 'async', loading: 'lazy', style: img_style }}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if extra_attrs != blank -%}
+  {%- assign img_open = '<img ' | append: extra_attrs -%}
+  {{ img_tag | replace: '<img', img_open }}
+{%- else -%}
+  {{ img_tag }}
+{%- endif -%}
+{%- endif -%}

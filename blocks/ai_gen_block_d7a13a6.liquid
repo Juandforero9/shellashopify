@@ -1,0 +1,1236 @@
+{% doc %}
+  @prompt
+    Create a premium full-width hero carousel section where each slide has the following independently configurable settings in the theme editor: editable title, editable subtitle, background image, mobile-specific background image, a call-to-action button with customizable label text and URL, button style (filled or outlined), overlay color and overlay opacity, text alignment (left, center, right), content vertical position (top, middle, bottom), and a slide enable/disable toggle. Carousel-level settings include: slide height (configurable in vh, e.g. 60vh, 80vh, 100vh), auto-play toggle, auto-play speed (configurable delay in seconds), pause on hover toggle, infinite loop toggle, navigation arrows show/hide toggle, and dot indicators show/hide toggle. Transitions should be smooth. Style should be premium and editorial.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-hero-carousel-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: {{ block.settings.slide_height }}vh;
+    overflow: hidden;
+    display: block;
+  }
+
+  .ai-hero-carousel__track-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  .ai-hero-carousel__slide-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  }
+
+  .ai-hero-carousel__slide-{{ ai_gen_id }}.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
+
+  .ai-hero-carousel__slide-bg-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .ai-hero-carousel__slide-bg-{{ ai_gen_id }}::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    opacity: var(--overlay-opacity);
+  }
+
+  .ai-hero-carousel__slide-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: var(--content-vertical-align);
+    justify-content: var(--content-horizontal-align);
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .ai-hero-carousel__slide-text-{{ ai_gen_id }} {
+    text-align: var(--text-align);
+    max-width: 800px;
+  }
+
+  .ai-hero-carousel__slide-title-{{ ai_gen_id }} {
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 16px;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+  }
+
+  .ai-hero-carousel__slide-subtitle-{{ ai_gen_id }} {
+    font-size: clamp(16px, 2vw, 24px);
+    line-height: 1.5;
+    margin: 0 0 32px;
+    color: var(--text-color);
+    opacity: 0.9;
+  }
+
+  .ai-hero-carousel__slide-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .ai-hero-carousel__slide-button-{{ ai_gen_id }}.filled {
+    background-color: var(--button-bg);
+    color: var(--button-color);
+    border: 2px solid var(--button-bg);
+  }
+
+  .ai-hero-carousel__slide-button-{{ ai_gen_id }}.filled:hover {
+    background-color: transparent;
+    color: var(--button-bg);
+  }
+
+  .ai-hero-carousel__slide-button-{{ ai_gen_id }}.outlined {
+    background-color: transparent;
+    color: var(--button-color);
+    border: 2px solid var(--button-color);
+  }
+
+  .ai-hero-carousel__slide-button-{{ ai_gen_id }}.outlined:hover {
+    background-color: var(--button-color);
+    color: var(--button-bg);
+  }
+
+  .ai-hero-carousel__nav-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+
+  .ai-hero-carousel-{{ ai_gen_id }}:hover .ai-hero-carousel__nav-{{ ai_gen_id }} {
+    opacity: 1;
+  }
+
+  .ai-hero-carousel__nav-{{ ai_gen_id }}:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .ai-hero-carousel__nav-{{ ai_gen_id }}.prev {
+    left: 20px;
+  }
+
+  .ai-hero-carousel__nav-{{ ai_gen_id }}.next {
+    right: 20px;
+  }
+
+  .ai-hero-carousel__nav-{{ ai_gen_id }} svg {
+    width: 24px;
+    height: 24px;
+    stroke: #000;
+    stroke-width: 2;
+  }
+
+  .ai-hero-carousel__dots-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+  }
+
+  .ai-hero-carousel__dot-{{ ai_gen_id }} {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .ai-hero-carousel__dot-{{ ai_gen_id }}.active {
+    background-color: rgba(255, 255, 255, 1);
+    width: 30px;
+    border-radius: 5px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-hero-carousel__slide-bg-{{ ai_gen_id }} {
+      background-image: var(--mobile-bg-image) !important;
+    }
+
+    .ai-hero-carousel__slide-content-{{ ai_gen_id }} {
+      padding: 30px 20px;
+    }
+
+    .ai-hero-carousel__slide-title-{{ ai_gen_id }} {
+      margin-bottom: 12px;
+    }
+
+    .ai-hero-carousel__slide-subtitle-{{ ai_gen_id }} {
+      margin-bottom: 24px;
+    }
+
+    .ai-hero-carousel__slide-button-{{ ai_gen_id }} {
+      padding: 14px 32px;
+      font-size: 14px;
+    }
+
+    .ai-hero-carousel__nav-{{ ai_gen_id }} {
+      width: 40px;
+      height: 40px;
+    }
+
+    .ai-hero-carousel__nav-{{ ai_gen_id }}.prev {
+      left: 10px;
+    }
+
+    .ai-hero-carousel__nav-{{ ai_gen_id }}.next {
+      right: 10px;
+    }
+  }
+{% endstyle %}
+
+<hero-carousel-{{ ai_gen_id }}
+  class="ai-hero-carousel-{{ ai_gen_id }}"
+  data-autoplay="{{ block.settings.autoplay_enable }}"
+  data-autoplay-speed="{{ block.settings.autoplay_speed }}"
+  data-pause-on-hover="{{ block.settings.pause_on_hover }}"
+  data-infinite="{{ block.settings.infinite_loop }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-hero-carousel__track-{{ ai_gen_id }}">
+    {% for i in (1..5) %}
+      {% liquid
+        assign slide_enabled_key = 'slide_' | append: i | append: '_enabled'
+        assign slide_title_key = 'slide_' | append: i | append: '_title'
+        assign slide_subtitle_key = 'slide_' | append: i | append: '_subtitle'
+        assign slide_bg_image_key = 'slide_' | append: i | append: '_bg_image'
+        assign slide_mobile_bg_image_key = 'slide_' | append: i | append: '_mobile_bg_image'
+        assign slide_button_text_key = 'slide_' | append: i | append: '_button_text'
+        assign slide_button_url_key = 'slide_' | append: i | append: '_button_url'
+        assign slide_button_style_key = 'slide_' | append: i | append: '_button_style'
+        assign slide_overlay_color_key = 'slide_' | append: i | append: '_overlay_color'
+        assign slide_overlay_opacity_key = 'slide_' | append: i | append: '_overlay_opacity'
+        assign slide_text_color_key = 'slide_' | append: i | append: '_text_color'
+        assign slide_button_bg_key = 'slide_' | append: i | append: '_button_bg'
+        assign slide_button_color_key = 'slide_' | append: i | append: '_button_color'
+        assign slide_text_align_key = 'slide_' | append: i | append: '_text_align'
+        assign slide_content_position_key = 'slide_' | append: i | append: '_content_position'
+
+        assign slide_enabled = block.settings[slide_enabled_key]
+        assign slide_title = block.settings[slide_title_key]
+        assign slide_subtitle = block.settings[slide_subtitle_key]
+        assign slide_bg_image = block.settings[slide_bg_image_key]
+        assign slide_mobile_bg_image = block.settings[slide_mobile_bg_image_key]
+        assign slide_button_text = block.settings[slide_button_text_key]
+        assign slide_button_url = block.settings[slide_button_url_key]
+        assign slide_button_style = block.settings[slide_button_style_key]
+        assign slide_overlay_color = block.settings[slide_overlay_color_key]
+        assign slide_overlay_opacity = block.settings[slide_overlay_opacity_key]
+        assign slide_text_color = block.settings[slide_text_color_key]
+        assign slide_button_bg = block.settings[slide_button_bg_key]
+        assign slide_button_color = block.settings[slide_button_color_key]
+        assign slide_text_align = block.settings[slide_text_align_key]
+        assign slide_content_position = block.settings[slide_content_position_key]
+
+        if slide_text_align == 'left'
+          assign horizontal_align = 'flex-start'
+        elsif slide_text_align == 'center'
+          assign horizontal_align = 'center'
+        else
+          assign horizontal_align = 'flex-end'
+        endif
+
+        if slide_content_position == 'top'
+          assign vertical_align = 'flex-start'
+        elsif slide_content_position == 'middle'
+          assign vertical_align = 'center'
+        else
+          assign vertical_align = 'flex-end'
+        endif
+
+        if slide_mobile_bg_image != blank
+          assign mobile_bg = 'url(' | append: slide_mobile_bg_image | image_url: width: 1500 | append: ')'
+        elsif slide_bg_image != blank
+          assign mobile_bg = 'url(' | append: slide_bg_image | image_url: width: 1500 | append: ')'
+        else
+          assign mobile_bg = 'none'
+        endif
+      %}
+
+      {% if slide_enabled %}
+        <div
+          class="ai-hero-carousel__slide-{{ ai_gen_id }} {% if forloop.first %}active{% endif %}"
+          data-slide-index="{{ forloop.index0 }}"
+          style="
+            --overlay-color: {{ slide_overlay_color }};
+            --overlay-opacity: {{ slide_overlay_opacity }};
+            --text-color: {{ slide_text_color }};
+            --button-bg: {{ slide_button_bg }};
+            --button-color: {{ slide_button_color }};
+            --text-align: {{ slide_text_align }};
+            --content-vertical-align: {{ vertical_align }};
+            --content-horizontal-align: {{ horizontal_align }};
+            --mobile-bg-image: {{ mobile_bg }};
+          "
+        >
+          <div
+            class="ai-hero-carousel__slide-bg-{{ ai_gen_id }}"
+            {% if slide_bg_image %}
+              style="background-image: url({{ slide_bg_image | image_url: width: 2400 }});"
+            {% endif %}
+          ></div>
+          <div class="ai-hero-carousel__slide-content-{{ ai_gen_id }}">
+            <div class="ai-hero-carousel__slide-text-{{ ai_gen_id }}">
+              {% if slide_title != blank %}
+                <h2 class="ai-hero-carousel__slide-title-{{ ai_gen_id }}">{{ slide_title }}</h2>
+              {% endif %}
+              {% if slide_subtitle != blank %}
+                <p class="ai-hero-carousel__slide-subtitle-{{ ai_gen_id }}">{{ slide_subtitle }}</p>
+              {% endif %}
+              {% if slide_button_text != blank and slide_button_url != blank %}
+                <a
+                  href="{{ slide_button_url }}"
+                  class="ai-hero-carousel__slide-button-{{ ai_gen_id }} {{ slide_button_style }}"
+                >
+                  {{ slide_button_text }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if block.settings.show_arrows %}
+    <button
+      class="ai-hero-carousel__nav-{{ ai_gen_id }} prev"
+      aria-label="Previous slide"
+    >
+      <svg viewBox="0 0 24 24" fill="none">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button
+      class="ai-hero-carousel__nav-{{ ai_gen_id }} next"
+      aria-label="Next slide"
+    >
+      <svg viewBox="0 0 24 24" fill="none">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  {% endif %}
+
+  {% if block.settings.show_dots %}
+    <div class="ai-hero-carousel__dots-{{ ai_gen_id }}"></div>
+  {% endif %}
+</hero-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class HeroCarousel{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentSlide = 0;
+        this.autoplayTimer = null;
+        this.isTransitioning = false;
+      }
+
+      connectedCallback() {
+        this.slides = Array.from(this.querySelectorAll('.ai-hero-carousel__slide-{{ ai_gen_id }}'));
+        this.prevButton = this.querySelector('.ai-hero-carousel__nav-{{ ai_gen_id }}.prev');
+        this.nextButton = this.querySelector('.ai-hero-carousel__nav-{{ ai_gen_id }}.next');
+        this.dotsContainer = this.querySelector('.ai-hero-carousel__dots-{{ ai_gen_id }}');
+        
+        this.autoplay = this.dataset.autoplay === 'true';
+        this.autoplaySpeed = parseInt(this.dataset.autoplaySpeed) * 1000;
+        this.pauseOnHover = this.dataset.pauseOnHover === 'true';
+        this.infinite = this.dataset.infinite === 'true';
+
+        if (this.slides.length === 0) return;
+
+        this.setupDots();
+        this.setupEventListeners();
+        
+        if (this.autoplay) {
+          this.startAutoplay();
+        }
+      }
+
+      setupDots() {
+        if (!this.dotsContainer) return;
+        
+        this.slides.forEach((slide, index) => {
+          const dot = document.createElement('button');
+          dot.classList.add('ai-hero-carousel__dot-{{ ai_gen_id }}');
+          if (index === 0) dot.classList.add('active');
+          dot.setAttribute('aria-label', 'Go to slide ' + (index + 1));
+          dot.addEventListener('click', () => this.goToSlide(index));
+          this.dotsContainer.appendChild(dot);
+        });
+        
+        this.dots = Array.from(this.dotsContainer.querySelectorAll('.ai-hero-carousel__dot-{{ ai_gen_id }}'));
+      }
+
+      setupEventListeners() {
+        if (this.prevButton) {
+          this.prevButton.addEventListener('click', () => this.prevSlide());
+        }
+        
+        if (this.nextButton) {
+          this.nextButton.addEventListener('click', () => this.nextSlide());
+        }
+
+        if (this.pauseOnHover && this.autoplay) {
+          this.addEventListener('mouseenter', () => this.stopAutoplay());
+          this.addEventListener('mouseleave', () => this.startAutoplay());
+        }
+      }
+
+      goToSlide(index) {
+        if (this.isTransitioning) return;
+        
+        this.isTransitioning = true;
+        
+        this.slides[this.currentSlide].classList.remove('active');
+        if (this.dots) {
+          this.dots[this.currentSlide].classList.remove('active');
+        }
+        
+        this.currentSlide = index;
+        
+        this.slides[this.currentSlide].classList.add('active');
+        if (this.dots) {
+          this.dots[this.currentSlide].classList.add('active');
+        }
+        
+        setTimeout(() => {
+          this.isTransitioning = false;
+        }, 800);
+        
+        if (this.autoplay) {
+          this.resetAutoplay();
+        }
+      }
+
+      nextSlide() {
+        let nextIndex = this.currentSlide + 1;
+        
+        if (nextIndex >= this.slides.length) {
+          if (this.infinite) {
+            nextIndex = 0;
+          } else {
+            return;
+          }
+        }
+        
+        this.goToSlide(nextIndex);
+      }
+
+      prevSlide() {
+        let prevIndex = this.currentSlide - 1;
+        
+        if (prevIndex < 0) {
+          if (this.infinite) {
+            prevIndex = this.slides.length - 1;
+          } else {
+            return;
+          }
+        }
+        
+        this.goToSlide(prevIndex);
+      }
+
+      startAutoplay() {
+        if (!this.autoplay) return;
+        
+        this.autoplayTimer = setInterval(() => {
+          this.nextSlide();
+        }, this.autoplaySpeed);
+      }
+
+      stopAutoplay() {
+        if (this.autoplayTimer) {
+          clearInterval(this.autoplayTimer);
+          this.autoplayTimer = null;
+        }
+      }
+
+      resetAutoplay() {
+        this.stopAutoplay();
+        this.startAutoplay();
+      }
+
+      disconnectedCallback() {
+        this.stopAutoplay();
+      }
+    }
+
+    customElements.define('hero-carousel-{{ ai_gen_id }}', HeroCarousel{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hero carousel",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Carousel settings"
+    },
+    {
+      "type": "range",
+      "id": "slide_height",
+      "label": "Slide height",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "default": 80
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_enable",
+      "label": "Enable autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "infinite_loop",
+      "label": "Infinite loop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show navigation arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show dot indicators",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Slide 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_1_enabled",
+      "label": "Enable slide 1",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "slide_1_title",
+      "label": "Title",
+      "default": "Premium Textiles"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_1_subtitle",
+      "label": "Subtitle",
+      "default": "Discover our collection of luxury fabrics and home textiles"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_1_bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_1_mobile_bg_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "text",
+      "id": "slide_1_button_text",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "slide_1_button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "slide_1_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outlined",
+          "label": "Outlined"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "color",
+      "id": "slide_1_overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "slide_1_overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "color",
+      "id": "slide_1_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "slide_1_button_bg",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "slide_1_button_color",
+      "label": "Button text color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "slide_1_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "slide_1_content_position",
+      "label": "Content position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "middle"
+    },
+    {
+      "type": "header",
+      "content": "Slide 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_2_enabled",
+      "label": "Enable slide 2",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "slide_2_title",
+      "label": "Title",
+      "default": "Luxury Blankets"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_2_subtitle",
+      "label": "Subtitle",
+      "default": "Crafted with care using waterless printing technology"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_2_bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_2_mobile_bg_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "text",
+      "id": "slide_2_button_text",
+      "label": "Button text",
+      "default": "Explore"
+    },
+    {
+      "type": "url",
+      "id": "slide_2_button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "slide_2_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outlined",
+          "label": "Outlined"
+        }
+      ],
+      "default": "outlined"
+    },
+    {
+      "type": "color",
+      "id": "slide_2_overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "slide_2_overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.4
+    },
+    {
+      "type": "color",
+      "id": "slide_2_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "slide_2_button_bg",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "slide_2_button_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "slide_2_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "slide_2_content_position",
+      "label": "Content position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "middle"
+    },
+    {
+      "type": "header",
+      "content": "Slide 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_3_enabled",
+      "label": "Enable slide 3",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "slide_3_title",
+      "label": "Title",
+      "default": "New Collection"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_3_subtitle",
+      "label": "Subtitle",
+      "default": "Experience the finest quality in home textiles"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_3_bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_3_mobile_bg_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "text",
+      "id": "slide_3_button_text",
+      "label": "Button text",
+      "default": "View collection"
+    },
+    {
+      "type": "url",
+      "id": "slide_3_button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "slide_3_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outlined",
+          "label": "Outlined"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "color",
+      "id": "slide_3_overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "slide_3_overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "color",
+      "id": "slide_3_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "slide_3_button_bg",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "slide_3_button_color",
+      "label": "Button text color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "slide_3_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "slide_3_content_position",
+      "label": "Content position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "middle"
+    },
+    {
+      "type": "header",
+      "content": "Slide 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_4_enabled",
+      "label": "Enable slide 4",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "slide_4_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_4_subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_4_bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_4_mobile_bg_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "text",
+      "id": "slide_4_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "slide_4_button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "slide_4_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outlined",
+          "label": "Outlined"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "color",
+      "id": "slide_4_overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "slide_4_overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "color",
+      "id": "slide_4_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "slide_4_button_bg",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "slide_4_button_color",
+      "label": "Button text color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "slide_4_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "slide_4_content_position",
+      "label": "Content position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "middle"
+    },
+    {
+      "type": "header",
+      "content": "Slide 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "slide_5_enabled",
+      "label": "Enable slide 5",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "slide_5_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_5_subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_5_bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_5_mobile_bg_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "text",
+      "id": "slide_5_button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "slide_5_button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "slide_5_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "outlined",
+          "label": "Outlined"
+        }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "color",
+      "id": "slide_5_overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "slide_5_overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "color",
+      "id": "slide_5_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "slide_5_button_bg",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "slide_5_button_color",
+      "label": "Button text color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "slide_5_text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "slide_5_content_position",
+      "label": "Content position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "middle"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero carousel"
+    }
+  ]
+}
+{% endschema %}

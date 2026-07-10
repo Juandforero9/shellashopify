@@ -1,0 +1,422 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "show_content": true
+      }
+    },
+    "home_builder_hGw8G4": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_HTbLGA": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/PORT-DECO-01.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Text line #1",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "Button #1 text",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "Button #2 text",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "promobox_HTbLGA"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "1",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "top_center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "custom_liquid_Gq8nMH": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "use_container": true,
+        "custom_liquid": "<h2 style=\"width: 100%; text-align: center; margin-bottom: 0; font-size: 1.8rem; padding: 20px 0;font-weight: 600;\">SUTEX DECO</h2>\n\n<p style=\"font-size: 18px;line-height:1.7;text-align:center;\">La línea Sutex Deco con una amplia gama de texturas, colores y diseños, esta línea busca satisfacer las necesidades del hogar, la hotelería y las tiendas especializadas.\n\nCalidad, funcionalidad, tecnología y variedad son los aspectos más destacados de este portafolio que está siempre a la vanguardia con las tendencias de decoración.</p>"
+      }
+    },
+    "sutex_image_grid_wWQz8z": {
+      "type": "sutex-image-grid",
+      "blocks": {
+        "image_XQfzkj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/INDOOR-A1.jpg",
+            "alt": "",
+            "link": ""
+          }
+        },
+        "image_frwLMM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/OUTDOOR-A1.jpg",
+            "alt": "",
+            "link": ""
+          }
+        },
+        "image_yiWhBh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/CORTINERIA-A1.jpg",
+            "alt": "",
+            "link": ""
+          }
+        },
+        "image_U9c78i": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/LENCERIA-A1.jpg",
+            "alt": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_XQfzkj",
+        "image_frwLMM",
+        "image_yiWhBh",
+        "image_U9c78i"
+      ],
+      "name": "Image grid with heading",
+      "settings": {
+        "container": "boxed",
+        "section_margin_top": 30,
+        "section_margin_bottom": 40,
+        "heading": "",
+        "description": "",
+        "section_width": "boxed",
+        "desktop_columns": "2",
+        "mobile_columns": "1",
+        "grid_gap": 24
+      }
+    },
+    "custom_liquid_xrNF6E": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "use_container": true,
+        "custom_liquid": "<div style=\"position: relative; width: 100%; padding-bottom: 56.25%; height: 0;\">\n  <iframe \n      src=\"https://www.youtube.com/embed/emJ9GG-7LTQ\"\n      style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\"\n      frameborder=\"0\"\n      allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"\n      allowfullscreen>\n  </iframe>\n</div>"
+      }
+    },
+    "carousel_brands_ghx4LR": {
+      "type": "carousel-brands",
+      "blocks": {
+        "brand_3Fbi7t": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex24_7268c178-dec8-47d6-9c25-1394e8b6b61c.png",
+            "link": ""
+          }
+        },
+        "brand_ENQVry": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex7_c3698bda-9d6a-4d50-999e-d6399be4db67.png",
+            "link": ""
+          }
+        },
+        "brand_qmDCzG": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex16_2b09076c-0dd7-4ec3-b11f-be2170843e49.png",
+            "link": ""
+          }
+        },
+        "brand_N3MjfE": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex1_983aa566-a507-4ec1-ab00-0350d1d4aa57.png",
+            "link": ""
+          }
+        },
+        "brand_a3PNTC": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex18_e9b8f44f-eada-470c-9e07-ba9dbb5e4390.png",
+            "link": ""
+          }
+        },
+        "brand_AKPTnt": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex11_5984c8da-a72f-48ee-80fc-968017884f44.png",
+            "link": ""
+          }
+        },
+        "brand_iXPbQC": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex35_4f25cd03-4e8c-4da0-8c42-d04b9069e016.png",
+            "link": ""
+          }
+        },
+        "brand_e8RPHm": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex19_65ea1a99-c525-4f0a-81fe-befe4724789f.png",
+            "link": ""
+          }
+        },
+        "brand_7TmqKC": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex37_c3cc1e48-90ea-48e9-9465-d71d7e85a25f.png",
+            "link": ""
+          }
+        },
+        "brand_YEAtba": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex8_aa050259-0abb-4add-a02a-985bdf64115e.png",
+            "link": ""
+          }
+        },
+        "brand_kGF6NR": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex5_3796cd85-f461-4ce4-a55e-d3ec4c607060.png",
+            "link": ""
+          }
+        },
+        "brand_LdQpm7": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex9_ce724809-2e85-4f5c-9fe5-12950725fae2.png",
+            "link": ""
+          }
+        },
+        "brand_Tq6ctj": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex6_214e325a-5d75-4c1e-995d-d4f7e41431e4.png",
+            "link": ""
+          }
+        },
+        "brand_4c86xD": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/tecsutex13_beb5099a-e07e-40ad-8a30-c816224a6f60.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_3Fbi7t",
+        "brand_ENQVry",
+        "brand_qmDCzG",
+        "brand_N3MjfE",
+        "brand_a3PNTC",
+        "brand_AKPTnt",
+        "brand_iXPbQC",
+        "brand_e8RPHm",
+        "brand_7TmqKC",
+        "brand_YEAtba",
+        "brand_kGF6NR",
+        "brand_LdQpm7",
+        "brand_Tq6ctj",
+        "brand_4c86xD"
+      ],
+      "name": "Brand carousel",
+      "settings": {
+        "title": "",
+        "layout": "grid",
+        "size_of_columns": "7",
+        "image_max_width": 0,
+        "bordered_links": true,
+        "border_radius": "",
+        "autoplay": true,
+        "speed": 5,
+        "infinite": true,
+        "arrows": true,
+        "bullets": false
+      }
+    },
+    "home_builder_AC9wnz": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_kaiMq6": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/estdiges_f6e60edb-d4b6-4610-8427-b18d4f911801.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Eco-Responsible Processes",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "#083d6d",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        },
+        "promobox_k4jWVD": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "",
+            "text_line_3": "<p style=\"margin-bottom: 2rem; font-size: 18px;\">Si deseas obtener más información puedes ponerte en contacto con uno de nuestros asesores..</p>",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "text-9",
+            "content_position": "center",
+            "content_align": "left",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "rgba(0,0,0,0)",
+            "color_text_2": "",
+            "color_text_3": "#001c39",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": "www-iwt"
+          }
+        }
+      },
+      "block_order": [
+        "promobox_kaiMq6",
+        "promobox_k4jWVD"
+      ],
+      "custom_css": [],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "2",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "home_builder_hGw8G4",
+    "custom_liquid_Gq8nMH",
+    "sutex_image_grid_wWQz8z",
+    "custom_liquid_xrNF6E",
+    "carousel_brands_ghx4LR",
+    "home_builder_AC9wnz"
+  ]
+}

@@ -1,0 +1,153 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": false,
+        "show_content": false
+      }
+    },
+    "16282872844bc23bf8": {
+      "type": "contact-form",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "title": "",
+        "show_input_label": true,
+        "button_type": "default",
+        "show_info_column": false,
+        "page_content": "",
+        "contact_map_code": ""
+      }
+    },
+    "blocks_9FMBdU": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f069bed_pnBAB6": {
+          "type": "ai_gen_block_f069bed",
+          "name": "Sutex Contact Form",
+          "settings": {
+            "heading": "Ponte en contacto",
+            "subheading": "Nos encantaría saber de ti. Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.",
+            "text_alignment": "center",
+            "name_label": "Nombre",
+            "name_placeholder": "Ingresa tu nombre completo",
+            "email_label": "Correo electrónico",
+            "email_placeholder": "tu@correo.com",
+            "phone_label": "Número de teléfono",
+            "phone_placeholder": "Ingresa tu número de teléfono",
+            "phone_required": true,
+            "location_label": "Ubicación",
+            "location_placeholder": "Ingresa tu ciudad o dirección",
+            "location_required": true,
+            "message_label": "Mensaje",
+            "message_placeholder": "Cuéntanos cómo podemos ayudarte",
+            "show_required_asterisk": true,
+            "button_text": "Enviar",
+            "success_message": "¡Gracias por contactarnos! Nos pondremos en contacto contigo pronto.",
+            "error_heading": "Por favor, corrige los siguientes errores:",
+            "desktop_width_percent": 75,
+            "form_padding": 40,
+            "field_spacing": 20,
+            "heading_spacing": 16,
+            "subheading_spacing": 24,
+            "message_height": 120,
+            "heading_size": 32,
+            "subheading_size": 16,
+            "label_size": 16,
+            "input_text_size": 15,
+            "button_text_size": 16,
+            "background_color": "#ffffff",
+            "heading_color": "#000000",
+            "text_color": "#666666",
+            "label_color": "#333333",
+            "input_background_color": "#ffffff",
+            "input_text_color": "#000000",
+            "input_border_color": "#d1d1d1",
+            "input_focus_border_color": "#000000",
+            "placeholder_color": "#999999",
+            "button_background_color": "#4d85bf",
+            "button_hover_background_color": "#5d96d1",
+            "button_text_color": "#ffffff",
+            "success_background_color": "#d4edda",
+            "success_text_color": "#155724",
+            "error_background_color": "#f8d7da",
+            "error_text_color": "#721c24",
+            "border_radius": 8,
+            "input_border_radius": 4,
+            "button_border_radius": 8,
+            "input_border_width": 1,
+            "input_padding": 12,
+            "button_padding": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f069bed_pnBAB6"
+      ],
+      "name": "Contact form",
+      "settings": {}
+    },
+    "1628287292f47cc491": {
+      "type": "spacer",
+      "disabled": true,
+      "settings": {
+        "margin_top": 60,
+        "margin_bottom": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "container": "boxed",
+        "show_separator": false,
+        "title": ""
+      }
+    },
+    "home_builder_Q74QqA": {
+      "type": "home-builder",
+      "blocks": {
+        "custom_html_4FWBkQ": {
+          "type": "custom_html",
+          "settings": {
+            "page_content": "",
+            "liquid": "<hr style=\"margin-bottom: 40px;\">\n<div class=\"container\" style=\"display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px;\">\n\n    <!-- Left Column: Image -->\n    <div class=\"store-image\" style=\"flex: 1 1 350px; max-width: 400px;\">\n      <!-- 🖼️ Replace this image with your own -->\n            <img src=\"https://cdn.shopify.com/s/files/1/0953/6362/9354/files/TIENDA-LOCALIZADOR1.jpg?v=1761682864\" \n           alt=\"Sutex Store Exterior\" <section class=\"store-locator\">\n    </div>\n\n    <!-- Right Column: Store Info -->\n    <div class=\"store-info\" style=\"flex: 2 1 500px; font-family: Montserrat, sans-serif;\">\n      <h3 style=\"font-weight: 700; color: #4D85BF; margin-bottom: 20px;\">Localizador de tiendas</h3>\n\n      <!-- Store 1 -->\n      <div class=\"store-card\" style=\"border-top: 1px solid #e0e0e0; padding: 20px 0;\">\n        <h3 style=\"font-weight: 700; color: #0a1a3b;\">SUTEX TIENDA BOGOTÁ</h3>\n        <p>\n          Carrera 50 No. 74-39<br>\n          Barrio 12 de Octubre, Bogotá<br>\n          Celular: <a href=\"tel:+573157248451\" style=\"color: #0a1a3b; text-decoration: none;\">(+57) 315 724 8451</a>\n        </p>\n        <div style=\"display: flex; justify-content: space-between; align-items: center;\">\n          <div>\n            <strong>Lunes a Sábado</strong><br>\n            10:00 am – 5:00 pm\n          </div>\n          <a href=\"https://g.page/r/CREIOcu7QHwKEAE\" target=\"_blank\"\n             style=\"background-color: #46688e; color: #fff; text-decoration: none;\n                    padding: 10px 22px; border-radius: 4px; font-weight: 400;\n                    letter-spacing: 1px; text-transform: uppercase; font-family: Montserrat, sans-serif;\n                    transition: background-color 0.2s ease;\">\n            Ver Mapa\n          </a>\n        </div>\n      </div>\n\n      <!-- Store 2 -->\n      <div class=\"store-card\" style=\"border-top: 1px solid #e0e0e0; padding: 20px 0;\">\n        <h3 style=\"font-weight: 700; color: #0a1a3b;\">SUTEX OUTLET BOGOTÁ</h3>\n        <p>\n          Carrera 10A No. 1C-21 sur<br>\n          Barrio Policarpa, Bogotá<br>\n          Celular: <a href=\"tel:+573156128575\" style=\"color: #0a1a3b; text-decoration: none;\">(+57) 315 612 8575</a>\n        </p>\n        <div style=\"display: flex; justify-content: space-between; align-items: center;\">\n          <div>\n            <strong>Lunes a Sábado</strong><br>\n            8:30 am – 4:45 pm\n          </div>\n          <a href=\"https://g.page/r/CSZDUear6GVuEAE\" target=\"_blank\"\n             style=\"background-color: #46688e; color: #fff; text-decoration: none;\n                    padding: 10px 22px; border-radius: 4px; font-weight: 400;\n                    letter-spacing: 1px; text-transform: uppercase; font-family: Montserrat, sans-serif;\n                    transition: background-color 0.2s ease;\">\n            Ver Mapa\n          </a>\n        </div>\n      </div>\n\n      <!-- Store 3 -->\n      <div class=\"store-card\" style=\"border-top: 1px solid #e0e0e0; padding: 20px 0;\">\n        <h3 style=\"font-weight: 700; color: #0a1a3b;\">SUTEX TIENDA BOGOTÁ</h3>\n        <p>\n          Carrera 52C No. 43-58 sur<br>\n          Barrio Alquería, Bogotá<br>\n          Celular: <a href=\"tel:+573112761460\" style=\"color: #0a1a3b; text-decoration: none;\">(+57) 311 276 1460</a>\n        </p>\n        <div style=\"display: flex; justify-content: space-between; align-items: center;\">\n          <div>\n            <strong>Lunes a Sábado</strong><br>\n            9:00 am – 6:00 pm\n          </div>\n          <a href=\"https://g.page/r/CQg_ND0HdxN_EAE\" target=\"_blank\"\n             style=\"background-color: #46688e; color: #fff; text-decoration: none;\n                    padding: 10px 22px; border-radius: 4px; font-weight: 400;\n                    letter-spacing: 1px; text-transform: uppercase; font-family: Montserrat, sans-serif;\n                    transition: background-color 0.2s ease;\">\n            Ver Mapa\n          </a>\n        </div>\n      </div>\n\n      <!-- Store 4 -->\n      <div class=\"store-card\" style=\"border-top: 1px solid #e0e0e0; padding: 20px 0;\">\n        <h3 style=\"font-weight: 700; color: #0a1a3b;\">SUTEX TIENDA MONTERÍA</h3>\n        <p>\n          Carrera 4 # 30 - 46<br>\n          Montería, Córdoba<br>\n          Celular: <a href=\"tel:+573174814380\" style=\"color: #0a1a3b; text-decoration: none;\">(+57) 317 481 4380</a>\n        </p>\n        <div style=\"display: flex; justify-content: space-between; align-items: center;\">\n          <div>\n            <strong>Lunes a Viernes</strong><br>\n            8:30 am – 12:30 pm<br>\n            2:30 pm – 6:30 pm<br>\n            <strong>Sábado</strong><br>\n            9:00 am – 5:00 pm\n          </div>\n          <a href=\"https://g.page/r/CVCih9y3NOLsEAE\" target=\"_blank\"\n             style=\"background-color: #46688e; color: #fff; text-decoration: none;\n                    padding: 10px 22px; border-radius: 4px; font-weight: 400;\n                    letter-spacing: 1px; text-transform: uppercase; font-family: Montserrat, sans-serif;\n                    transition: background-color 0.2s ease;\">\n            Ver Mapa\n          </a>\n        </div>\n      </div>\n\n      <!-- Store 5 -->\n      <div class=\"store-card\" style=\"border-top: 1px solid #e0e0e0; padding: 20px 0; border-bottom: 1px solid #e0e0e0;\">\n        <h3 style=\"font-weight: 700; color: #0a1a3b;\">SUTEX TIENDA MEDELLÍN</h3>\n        <p>\n          Carrera 51# Calle 5a Sur - 20<br>\n          Medellín, Antioquia<br>\n          Celular: <a href=\"tel:+573174416798\" style=\"color: #0a1a3b; text-decoration: none;\">(+57) 317 441 6798</a>\n        </p>\n        <div style=\"display: flex; justify-content: space-between; align-items: center;\">\n          <div>\n            <strong>Lunes a Viernes</strong><br>\n            9:00 am – 5:00 pm<br>\n            <strong>Sábado</strong><br>\n            9:00 am – 12:00 m\n          </div>\n          <a href=\"https://g.page/r/CQJcaTmn6rvvEAE\" target=\"_blank\"\n             style=\"background-color: #46688e; color: #fff; text-decoration: none;\n                    padding: 10px 22px; border-radius: 4px; font-weight: 400;\n                    letter-spacing: 1px; text-transform: uppercase; font-family: Montserrat, sans-serif;\n                    transition: background-color 0.2s ease;\">\n            Ver Mapa\n          </a>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</section>",
+            "size_of_column": "auto"
+          }
+        }
+      },
+      "block_order": [
+        "custom_html_4FWBkQ"
+      ],
+      "custom_css": [
+        ".my-section {background-color: #eff3f4;}"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "1",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "top_center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16282872844bc23bf8",
+    "blocks_9FMBdU",
+    "1628287292f47cc491",
+    "home_builder_Q74QqA"
+  ]
+}

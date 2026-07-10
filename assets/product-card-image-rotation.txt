@@ -1,0 +1,156 @@
+# Product Card Image Rotation Feature
+
+## Configuration
+
+### Settings Location
+
+The feature can be configured in the Shopify theme customizer under:
+**Collection and Search Page Settings → Product card image rotation**
+
+### Settings
+
+1. **Enable image rotation for search page (by card index)**
+   - Type: Checkbox
+   - Default: `false`
+   - Setting ID: `product_card_index_image_rotation_enable_search`
+   - Description: Enables/disables the image rotation feature specifically for search pages
+   - Behavior: When enabled, product cards on search result pages will rotate images based on their position
+
+2. **Enable image rotation (by card index)**
+   - Type: Checkbox
+   - Default: `false`
+   - Setting ID: `product_card_index_image_rotation_enable`
+   - Description: Enables/disables the image rotation feature for collection pages
+   - Behavior: When enabled, product cards on collection pages will rotate images based on their position
+
+3. **Collection handles (comma-separated)**
+   - Type: Text field
+   - Setting ID: `product_card_index_image_rotation_collection_handles`
+   - Description: Optional list of collection handles where the feature should apply (only affects collection pages)
+   - Format: Comma-separated values (e.g., `summer-sale,new-arrivals`)
+   - Behavior:
+     - If left empty: Feature applies to all collection pages (when collection setting is enabled)
+     - If specified: Feature only applies to the listed collections (when collection setting is enabled)
+     - Note: This setting does not affect search pages
+
+## Technical Implementation
+
+### Files Involved
+
+1. **`config/settings_schema.json`** (Lines 1294-1313)
+   - Defines the theme customizer settings (includes both search and collection settings)
+
+2. **`config/settings_data.json`** (Line 114)
+   - Stores the current enabled/disabled state
+
+3. **`snippets/product-collection.liquid`** (Lines 60-109)
+   - Contains the main rotation logic
+   - Handles both search and collection page contexts separately
+
+4. **`snippets/collection-product-grid.liquid`** (Lines 256-261 for collections, Lines 289-295 for search)
+   - Calculates and passes the card index to product cards
+   - Collection pages: Uses `forloop.index0 + paginate.current_offset + 1`
+   - Search pages: Uses product counter + `paginate.current_offset`
+
+### Logic Flow
+
+1. **Context Check** (Lines 61-64)
+   - Verifies if the current page is a collection or search page
+   - Only works on `template.name == 'collection'` or `template.name == 'search'`
+
+2. **Feature Activation Check** (Lines 66-95)
+   - Checks the page context (collection/search)
+   - For search pages: Checks `product_card_index_image_rotation_enable_search` setting
+   - For collection pages: Checks `product_card_index_image_rotation_enable` setting
+   - Confirms that `card_index` parameter is provided
+   - For collection pages: If collection handles are specified, validates the current collection matches
+   - Note: Search and collection settings are independent - each can be enabled/disabled separately
+
+3. **Image Selection** (Lines 90-109)
+   - Calculates rotation cycle size (max 6 images)
+   - Determines which image to display based on card index
+   - Uses modulo operation: `(card_index - 1) % rotation_cycle_size`
+   - Sets the hover image to the next image in the cycle
+
+### Card Index Calculation
+
+The card index is calculated in `collection-product-grid.liquid`:
+
+**For Collection Pages** (Lines 260-261):
+```liquid
+{%- assign card_index_for_image = forloop.index0 | plus: paginate.current_offset | plus: 1 -%}
+```
+
+**For Search Pages** (Lines 292-293):
+```liquid
+{%- assign search_product_index = search_product_index | plus: 1 -%}
+{%- assign card_index_for_image = search_product_index | plus: paginate.current_offset -%}
+```
+
+This ensures:
+- First product on page 1 = index 1
+- Products account for pagination offset
+- Sequential numbering across pages
+- For search pages: Only products are counted (non-product results like articles are excluded from the index calculation)
+
+### Image Rotation Algorithm
+
+1. **Rotation Cycle**: Maximum of 6 images per product
+   - If product has fewer than 6 images, uses all available images
+   - If product has more than 6 images, cycles through first 6
+
+2. **Image Selection Formula**:
+   ```
+   desired_index = (card_index - 1) % rotation_cycle_size
+   ```
+
+3. **Hover Image**: Next image in the cycle (wraps to first if at end)
+
+## Usage Examples
+
+### Enable for Search Pages Only
+
+1. Go to Theme Customizer
+2. Navigate to Collection and Search Page Settings
+3. Check "Enable image rotation for search page (by card index)"
+4. Leave "Enable image rotation (by card index)" unchecked
+
+### Enable for All Collections
+
+1. Go to Theme Customizer
+2. Navigate to Collection and Search Page Settings
+3. Check "Enable image rotation (by card index)"
+4. Leave "Collection handles" field empty
+
+### Enable for Specific Collections Only
+
+1. Go to Theme Customizer
+2. Navigate to Collection and Search Page Settings
+3. Check "Enable image rotation (by card index)"
+4. Enter collection handles: `summer-sale,new-arrivals,winter-collection`
+
+### Enable for Both Search and Collection Pages
+
+1. Go to Theme Customizer
+2. Navigate to Collection and Search Page Settings
+3. Check both "Enable image rotation for search page (by card index)" and "Enable image rotation (by card index)"
+4. Optionally configure "Collection handles" to limit collection page rotation to specific collections
+
+## Behavior Details
+
+### When Feature is Active
+
+- Product cards display images based on their grid position
+- Each card shows a different image from the product's gallery
+- Images rotate in a cycle of up to 6 images
+- Hover state shows the next image in the cycle
+
+### Limitations
+
+1. **Image Count**: Only cycles through first 6 images per product
+
+2. **Template Requirement**: Only works on collection and search page templates
+
+3. **Search Page Pagination**: The pagination offset calculation for search pages uses `paginate.current_offset`, which includes all search result types (products, articles, pages, etc.). If search results include non-product items, product indices may not be perfectly sequential across pages, but the rotation feature will still work correctly due to modulo arithmetic.
+
+4. **Independent Settings**: Search page and collection page rotation are controlled by separate settings. Enabling one does not automatically enable the other.

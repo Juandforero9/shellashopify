@@ -1,0 +1,98 @@
+<div class="sutex-richtext-section">
+	{%- assign is_boxed = false -%}
+	{%- if section.settings.content_width == 'boxed' -%}
+		{%- assign is_boxed = true -%}
+	{%- endif -%}
+	{%- assign text_align = section.settings.text_align -%}
+	{%- capture align_items -%}
+		{%- case text_align -%}
+			{%- when 'left' -%} flex-start
+			{%- when 'right' -%} flex-end
+			{%- else -%} center
+		{%- endcase -%}
+	{%- endcapture -%}
+
+	{%- if is_boxed -%}
+	<div class="container">
+	{%- endif -%}
+		<div class="sutex-richtext-section__inner d-flex flex-column text-{{ text_align }}"
+			{%- if section.settings.min_height > 0 -%}
+				style="min-height: {{ section.settings.min_height }}px; text-align: {{ text_align }} !important; align-items: {{ align_items }} !important; display: flex !important; flex-direction: column !important;"
+			{%- else -%}
+				style="text-align: {{ text_align }} !important; align-items: {{ align_items }} !important; display: flex !important; flex-direction: column !important;"
+			{%- endif -%}>
+
+			{%- if section.settings.title != blank -%}
+				<h2 class="sutex-richtext-section__title mb-15 text-{{ text_align }}" style="text-align: {{ text_align }} !important; width: 100%; display: block !important;">
+					{{ section.settings.title }}
+				</h2>
+			{%- endif -%}
+
+			{%- if section.settings.content != blank -%}
+				<div class="sutex-richtext-section__content rte text-{{ text_align }}" style="text-align: {{ text_align }} !important; width: 100%; display: block !important;">
+					{{ section.settings.content }}
+				</div>
+			{%- endif -%}
+		</div>
+	{%- if is_boxed -%}
+	</div>
+	{%- endif -%}
+</div>
+
+{% schema %}
+{
+	"name": "Rich text (Sutex)",
+	"settings": [
+		{
+			"type": "select",
+			"id": "content_width",
+			"label": "Content width",
+			"default": "fullwidth",
+			"options": [
+				{ "value": "fullwidth", "label": "Fullwidth" },
+				{ "value": "boxed", "label": "Boxed" }
+			]
+		},
+		{
+			"type": "select",
+			"id": "text_align",
+			"label": "Text alignment",
+			"default": "center",
+			"options": [
+				{ "value": "left", "label": "Left" },
+				{ "value": "center", "label": "Center" },
+				{ "value": "right", "label": "Right" }
+			]
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title",
+			"default": "Rich text"
+		},
+		{
+			"type": "richtext",
+			"id": "content",
+			"label": "Content",
+			"default": "<p>Add your content here.</p>"
+		},
+		{
+			"type": "range",
+			"id": "min_height",
+			"min": 0,
+			"max": 800,
+			"step": 10,
+			"unit": "px",
+			"label": "Min height",
+			"default": 0
+		}
+	],
+	"presets": [
+		{
+			"name": "Rich text (Sutex)"
+		}
+	]
+}
+{% endschema %}
+
+

@@ -1,0 +1,27 @@
+<div class="sutex-test-section">
+	{%- if section.settings.message != blank -%}
+		<div class="sutex-test-section__message">{{ section.settings.message }}</div>
+	{%- else -%}
+		<div class="sutex-test-section__message">Test section loaded</div>
+	{%- endif -%}
+</div>
+
+{% schema %}
+{
+	"name": "Test: Message",
+	"settings": [
+		{
+			"type": "text",
+			"id": "message",
+			"label": "Message",
+			"default": "Hello from test section"
+		}
+	],
+	"presets": [
+		{
+			"name": "Test: Message"
+		}
+	]
+}
+{% endschema %}
+

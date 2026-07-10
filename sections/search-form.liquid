@@ -1,0 +1,127 @@
+<div data-section-id="{{ section.id }}" data-section-type="search-form"{% render 'layout-get-container-class' custom_class: 'd-block' %}>
+    <div class="search-form py-55 text-center">
+        {%- if section.settings.title != blank -%}
+            <h3 class="search-form__title mb-10">{{ section.settings.title }}</h3>
+        {%- endif -%}
+        {%- if section.settings.paragraph != blank -%}
+            <p class="search-form__paragraph mb-15">{{ section.settings.paragraph }}</p>
+        {%- endif -%}
+        <div class="search-form__form px-10 mx-auto">
+            {% case section.settings.type %}
+            {% when '1' %}
+                <form action="{{ routes.search_url }}" method="get" role="search" class="mb-0">
+                    <label class="position-relative d-flex align-items-center mr-0">
+                        <input type="search"
+                               class="pl-20 pr-40 mb-0"
+                               name="q"
+                               value="{{ search.terms | escape }}"
+                               placeholder="{{ section.settings.placeholder }}">
+                        <input type="hidden" name="options[prefix]" value="last" />
+                        <i class="position-absolute right-0 mr-15">
+                            {% render 'icon-theme-168' %}
+                        </i>
+                    </label>
+                </form>
+            {% when '2' %}
+                <form action="{{ routes.search_url }}" method="get" role="search" class="mb-0">
+                    <div class="d-flex">
+                        <input type="search"
+                               class="mb-0 mr-15"
+                               name="q"
+                               value="{{ search.terms | escape }}"
+                               placeholder="{{ section.settings.placeholder }}">
+                        <input type="hidden" name="options[prefix]" value="last" />
+                        <button type="submit" class="btn btn-invert">{{ section.settings.button_text }}</button>
+                    </div>
+                </form>
+            {% endcase %}
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "t:names.search-form",
+  "settings": [
+    {
+      "type": "select",
+      "id": "container",
+      "label": "t:settings.container",
+      "default": "fullwidth",
+      "options": [
+        {
+          "value": "fullwidth",
+          "label": "t:options.fullwidth"
+        },
+        {
+          "value": "boxed",
+          "label": "t:options.boxed"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:content.content__y4BOVS"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:settings.title",
+      "default": "t:text_defaults.search_our_shop"
+    },
+    {
+      "type": "text",
+      "id": "paragraph",
+      "label": "t:settings.paragraph",
+      "default": "t:text_defaults.weve_got_tons_of_great_products"
+    },
+    {
+      "type": "select",
+      "id": "type",
+      "label": "t:settings_scoped.type.search_design_type__ujp8rw",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:options_scoped.search-form._root.type.1"
+        },
+        {
+          "value": "2",
+          "label": "t:options_scoped.search-form._root.type.2"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "t:settings.placeholder",
+      "default": "t:text_defaults.search_products"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "t:settings.button_text",
+      "default": "t:text_defaults.search"
+    },
+    {
+      "type": "header",
+      "content": "t:content.support__Ai_11O"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:content.watch_video_tutorialshttpswwwyoutubecomw__8plpnr"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:content.read_user_manualhttpsmpithemesgitbookios__cr6a29"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.search-form",
+      "category": "t:categories.3_static_content"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,122 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "name": "Footer",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "1586284608625": {
+          "type": "subscription",
+          "settings": {
+            "title": "BOLETÍN ELECTRÓNICO",
+            "paragraph": "Regístrese para recibir actualizaciones y recibir información sobre nuevos arribos, eventos futuros y ofertas especiales.",
+            "placeholder": "Introduce tu correo electrónico",
+            "button_text": "Únete a nosotros"
+          }
+        },
+        "1586284525260": {
+          "type": "menu",
+          "settings": {
+            "title": "AYUDA",
+            "show_title_on_desktop": true,
+            "menu": "footer",
+            "size": 0,
+            "rows_limit": 0
+          }
+        },
+        "1586284527889": {
+          "type": "menu",
+          "settings": {
+            "title": "LEGAL",
+            "show_title_on_desktop": true,
+            "menu": "footer-legal",
+            "size": 0,
+            "rows_limit": 0
+          }
+        },
+        "1586284530934": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "show_title_on_desktop": true,
+            "menu": "customer-account-main-menu",
+            "size": 0,
+            "rows_limit": 0
+          }
+        },
+        "1586284576772": {
+          "type": "custom_html",
+          "settings": {
+            "title": "Contact",
+            "show_title_on_desktop": true,
+            "page_content": ""
+          }
+        },
+        "footer-0": {
+          "type": "copyright",
+          "settings": {
+            "page_content": "include-footer-copyright-3"
+          }
+        },
+        "1586284588048": {
+          "type": "social_media",
+          "settings": {
+            "title": "Síguenos",
+            "show_facebook": true,
+            "show_twitter": true,
+            "show_instagram": true,
+            "show_pinterest": true,
+            "show_youtube": true,
+            "show_behance": false,
+            "show_skype": false,
+            "show_tiktok": false
+          }
+        },
+        "1586284627913": {
+          "type": "payments",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "1586284608625",
+        "1586284525260",
+        "1586284527889",
+        "1586284530934",
+        "1586284576772",
+        "footer-0",
+        "1586284588048",
+        "1586284627913"
+      ],
+      "custom_css": [
+        "p {color: #fff;}",
+        "span {color: #fff;}",
+        "h5 {font-size: 16px; font-weight: 500;}",
+        ".icon {width: 2em; height: 25px;}",
+        "input {background-color: #fff; \/* white background *\/}",
+        "form.subscription-form .btn:hover,form.subscription-form .btn:focus {background-color: #fff !important; color: #4d85bf !important; \/* blue text *\/ border-color: #4d85bf !important;}",
+        " \/* Make footer social media icons white *\/.footer__social a svg,.footer__social a i,.footer__social a {color: #ffffff !important; fill: #ffffff !important;}"
+      ],
+      "settings": {
+        "type": "2",
+        "style": "2",
+        "show_logo": true,
+        "show_button_back_to_top": true,
+        "enable_fixed": false,
+        "enable_follow_on_shop": true
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

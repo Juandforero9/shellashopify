@@ -1,0 +1,620 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "show_content": true
+      }
+    },
+    "custom_liquid_Gq8nMH": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "use_container": true,
+        "custom_liquid": "<h2 style=\"width: 100%; text-align: center; margin-bottom: 30px; font-size: 1.8rem; padding: 20px 0;font-weight: 600;\">COMPROMISO AMBIENTAL</h2>"
+      }
+    },
+    "home_builder_hGw8G4": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_HTbLGA": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/01-NOSOTROS-SP_d993d932-45c5-4971-bd51-7e94a208b571.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Text line #1",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "Button #1 text",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "Button #2 text",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        },
+        "custom_html_pky8TL": {
+          "type": "custom_html",
+          "settings": {
+            "page_content": "",
+            "liquid": "<p style=\"margin-top: 2rem; font-size: 18px;\">Our goal is to ensure that the textile industry generates the least possible impact on the environment and our natural resources. That is why we are constantly concerned with implementing processes and technologies that bring us closer to this purpose. We have taken on this great challenge with responsibility and with an awareness that moves us every day towards a more ecological production.</p>",
+            "size_of_column": "auto"
+          }
+        }
+      },
+      "block_order": [
+        "promobox_HTbLGA",
+        "custom_html_pky8TL"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "1",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "top_center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "home_builder_AC9wnz": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_kaiMq6": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/amb1.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Eco-Responsible Processes",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "#083d6d",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        },
+        "promobox_k4jWVD": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "Eco-Responsible Processes",
+            "text_line_3": "<p style=\"margin-bottom: 2rem; font-size: 18px;\">We have implemented processes that take care of our natural resources and guarantee the care of the environment.</p>\n\n<p style=\"color:#001c39;margin-bottom: 10px; font-size: 18px;\"><strong>Digital Stamping 0% Water</strong></p>\n<p style=\"margin-bottom: 2rem; font-size: 18px;\">Durante más de 40 años Sutex ha sido impulsada por una genuina pasión por la moda, el arte y el cuidado del medio ambiente.</p>\n\n<p style=\"color:#001c39;margin-bottom: 10px; font-size: 18px;\"><strong>Textiles made from recycled polyester</strong></p>\n<p style=\"margin-bottom: 2rem; font-size: 18px;\">Nuestra empresa fue fundada en 1978 con el objetivo de desarrollar y comercializar textiles para la confección y la moda.</p>\n\n<p style=\"color:#001c39;margin-bottom: 10px; font-size: 18px;\"><strong>Eco-sustainable textiles</strong></p>\n<p style=\"margin-bottom: 2rem; font-size: 18px;\">Sutex se ha convertido en la compañía más importante en Colombia dentro de su sector, ampliando sus negocios en América, Europa y Asia.</p>",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "text-9",
+            "content_position": "center",
+            "content_align": "left",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "rgba(0,0,0,0)",
+            "color_text_2": "",
+            "color_text_3": "#001c39",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": "www-iwt"
+          }
+        }
+      },
+      "block_order": [
+        "promobox_kaiMq6",
+        "promobox_k4jWVD"
+      ],
+      "custom_css": [],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "2",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "home_builder_T7drbM": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_Jc78NQ": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "",
+            "text_line_3": "<p style=\"color:#001c39;margin-bottom: 10px; font-size: 18px;\"><strong>Recycled Polyester</strong></p>\n<p style=\"margin-bottom: 2rem; font-size: 18px;\">Learn about the process of transforming PET plastic bottles into eco-friendly fabrics.</p>",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "text-9",
+            "content_position": "center",
+            "content_align": "left",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "rgba(0,0,0,0)",
+            "color_text_2": "",
+            "color_text_3": "#001c39",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": "www-iwt"
+          }
+        },
+        "promobox_nA9NhX": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/PROCESO-ECO.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Eco-Responsible Processes",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "#083d6d",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "promobox_Jc78NQ",
+        "promobox_nA9NhX"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "2",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "home_builder_XytKV6": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_emTKih": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/amb3.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Eco-Responsible Processes",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "#083d6d",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        },
+        "promobox_DkrDGD": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "",
+            "text_line_3": "<p style=\"margin-bottom: 2rem; font-size: 18px;\">Sutex offers a selection of high-quality recycled fabrics made from ECONYL® yarn, a nylon yarn 100% recovered from industrial waste such as discarded fishing nets, carpet lint (surface of nylon carpets that have fulfilled their useful life).</p>\n\n<p style=\"margin-bottom: 2rem; font-size: 18px;\">Nylon waste from landfills and oceans around the world is transformed into regenerated ECONYL® nylon. It's exactly like new nylon and can be recycled, recreated, and reshaped over and over again.</p>",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "text-9",
+            "content_position": "center",
+            "content_align": "left",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "rgba(0,0,0,0)",
+            "color_text_2": "",
+            "color_text_3": "#001c39",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": "www-iwt"
+          }
+        }
+      },
+      "block_order": [
+        "promobox_emTKih",
+        "promobox_DkrDGD"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "2",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "carousel_brands_ghx4LR": {
+      "type": "carousel-brands",
+      "blocks": {
+        "brand_3Fbi7t": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/ICONOS_PAGINAS_INTERNAS-10.png",
+            "link": ""
+          }
+        },
+        "brand_ENQVry": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/ICONOS_PAGINAS_INTERNAS-11.png",
+            "link": ""
+          }
+        },
+        "brand_qmDCzG": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/ICONOS_PAGINAS_INTERNAS-12.png",
+            "link": ""
+          }
+        },
+        "brand_N3MjfE": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/ICONOS_PAGINAS_INTERNAS-13.png",
+            "link": ""
+          }
+        },
+        "brand_a3PNTC": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/ICONOS_PAGINAS_INTERNAS-14.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_3Fbi7t",
+        "brand_ENQVry",
+        "brand_qmDCzG",
+        "brand_N3MjfE",
+        "brand_a3PNTC"
+      ],
+      "name": "Brand carousel",
+      "settings": {
+        "title": "",
+        "layout": "slider",
+        "size_of_columns": "6",
+        "image_max_width": 0,
+        "bordered_links": true,
+        "border_radius": "",
+        "autoplay": true,
+        "speed": 5,
+        "infinite": true,
+        "arrows": true,
+        "bullets": false
+      }
+    },
+    "custom_liquid_xrNF6E": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "use_container": true,
+        "custom_liquid": "<h2 style=\"weight: 600;width: 100%; text-align: center; margin-bottom: 8px; font-size: 1.8rem; padding: 20px 0;font-size:24px;\">Malpelo Foundation Alliance</h2>\n\n<div style=\"position: relative; width: 100%; padding-bottom: 56.25%; height: 0;\">\n  <iframe \n      src=\"https://www.youtube.com/embed/xnTkt1Askzg\"\n      style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\"\n      frameborder=\"0\"\n      allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"\n      allowfullscreen>\n  </iframe>\n</div>\n\n<p style=\"margin-top: 20px;margin-bottom: 20px; font-size: 20px;line-height: 1.7;color:#001c39;\">Sutex in alliance with Leonisa and the Malpelo Foundation, we carried out a campaign in favor of marine ecosystems. A strategy with the aim of transforming the situation of sharks in the Colombian Pacific. For this campaign, Sutex and Leonisa developed a collection of printed face masks that were put on sale nationwide.</p>\n\n<p style=\"margin-top: 20px;margin-bottom: 20px; font-size: 20px;line-height: 1.7;color:#001c39;\">100% of the money raised would go to the Malpelo Foundation, to finance expeditions in which sharks are tagged with satellite and acoustic telemetry, monitoring their movements and identifying breeding areas. Likewise, to support research, shark protection and care of marine and coastal areas in Colombia and the world.</p>"
+      }
+    },
+    "custom_liquid_q3YLaF": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "use_container": true,
+        "custom_liquid": "<h2 style=\"width: 100%; text-align: center; margin-bottom: 30px; font-size: 1.8rem; border-bottom: 2px solid #001c39; padding: 20px 0;font-weight: 600;\">Recycling Plant</h2>\n\n<p style=\"margin-top: 20px;margin-bottom: 20px; font-size: 20px;line-height: 1.7;color:#001c39;\">We opened our first plastic processing plant. Thanks to this, we are transforming the caps of PET plastic bottles into elements for internal use for the company, such as hooks, pots, key rings, among other products.</p>\n\n<p style=\"margin-top: 20px;margin-bottom: 20px; font-size: 20px;line-height: 1.7;color:#001c39;\">At Sutex we want our employees to continue to appropriate the culture of reduce, recycle and reuse. We instill in them the love for the planet and the importance of small daily actions from the development of their functions and the use of resources, without generating unnecessary waste.</p>"
+      }
+    },
+    "home_builder_GmWDUz": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_Phw6mq": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/MAQUINAS_RECICLAJE_2.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Text line #1",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "Button #1 text",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "Button #2 text",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "promobox_Phw6mq"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "1",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "top_center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_liquid_Gq8nMH",
+    "home_builder_hGw8G4",
+    "home_builder_AC9wnz",
+    "home_builder_T7drbM",
+    "home_builder_XytKV6",
+    "carousel_brands_ghx4LR",
+    "custom_liquid_xrNF6E",
+    "custom_liquid_q3YLaF",
+    "home_builder_GmWDUz"
+  ]
+}

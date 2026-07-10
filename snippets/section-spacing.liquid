@@ -1,0 +1,34 @@
+{%- liquid
+  assign spacing_class = spacing_class
+  if spacing_class == blank
+    assign spacing_class = 'section-spacing-' | append: section.id
+  endif
+
+  assign top_enabled = section.settings.spacing_top_enable
+  assign bottom_enabled = section.settings.spacing_bottom_enable
+  assign top_mobile_enabled = false
+  assign bottom_mobile_enabled = false
+  if top_enabled and section.settings.spacing_top_mobile_enable
+    assign top_mobile_enabled = true
+  endif
+  if bottom_enabled and section.settings.spacing_bottom_mobile_enable
+    assign bottom_mobile_enabled = true
+  endif
+-%}
+
+{%- if top_enabled or bottom_enabled -%}
+  <style>
+    .{{ spacing_class }} {
+      {%- if top_enabled -%}padding-top: {{ section.settings.spacing_top }}px;{%- endif -%}
+      {%- if bottom_enabled -%}padding-bottom: {{ section.settings.spacing_bottom }}px;{%- endif -%}
+    }
+    {%- if top_mobile_enabled or bottom_mobile_enabled -%}
+    @media (max-width: 540px) {
+      .{{ spacing_class }} {
+        {%- if top_mobile_enabled -%}padding-top: {{ section.settings.spacing_top_mobile }}px;{%- endif -%}
+        {%- if bottom_mobile_enabled -%}padding-bottom: {{ section.settings.spacing_bottom_mobile }}px;{%- endif -%}
+      }
+    }
+    {%- endif -%}
+  </style>
+{%- endif -%}

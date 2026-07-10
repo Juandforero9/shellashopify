@@ -1,0 +1,278 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": false,
+        "show_content": false
+      }
+    },
+    "177732390595ad0f9c": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_261ce5c_bqD4zq": {
+          "type": "ai_gen_block_261ce5c",
+          "settings": {
+            "background_image": "shopify://shop_images/DSC04747.jpg",
+            "overlay_color": "#000000",
+            "overlay_opacity": 50,
+            "eyebrow_text": "Para moda, vestidos de baño y decoración del hogar",
+            "eyebrow_color": "#ffffff",
+            "heading": "Estampa tu diseño en tela",
+            "heading_color": "#ffffff",
+            "body_text": "Desde 1 metro, sin intermediarios. Sube tu archivo, elige tu tela y tu pedido queda en producción. Envíos a todo Colombia.",
+            "body_color": "#ffffff",
+            "button_text": "Subir mi diseño →",
+            "button_link": "",
+            "button_bg_color": "#dfe6e8",
+            "button_text_color": "#083d6d",
+            "button_border_color": "#dfe6e8",
+            "button_hover_bg_color": "#46688e",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#46688e"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_261ce5c_bqD4zq"
+      ],
+      "settings": {}
+    },
+    "177732334472a1205f": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_1704988_YdAGCH": {
+          "type": "ai_gen_block_1704988",
+          "settings": {
+            "column_1_heading": "Desde 1 metro",
+            "column_1_text": "Arranca tu producción sin comprometer inventario. Sin mínimos imposibles.",
+            "column_2_icon": "target",
+            "column_2_heading": "Tu diseño, exacto",
+            "column_2_text": "Imprimimos lo que diseñas. Colores fieles y bordes precisos en cada metro.",
+            "column_3_icon": "colombia",
+            "column_3_heading": "Hecho en Colombia",
+            "column_3_text": "Producción en planta propia en Cota, Cundinamarca. Envío por Servientrega.",
+            "desktop_width_percent": 100,
+            "column_gap": 40,
+            "column_gap_mobile": 30,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "section_padding_top": 40,
+            "section_padding_bottom": 40,
+            "background_color": "#dfe6e8",
+            "icon_size": 60,
+            "icon_spacing": 20,
+            "icon_border_radius": 50,
+            "icon_color": "#dfe6e8",
+            "icon_background_color": "#46688e",
+            "heading_size": 18,
+            "heading_spacing": 12,
+            "heading_color": "#001c39",
+            "text_size": 14,
+            "text_color": "#173759"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_69b516b_zzwU9b": {
+          "type": "ai_gen_block_69b516b",
+          "settings": {
+            "section_label": "Cómo funciona",
+            "label_font_size": 16,
+            "label_color": "#5278a3",
+            "label_spacing": 20,
+            "step_1_heading": "Crea tu cuenta",
+            "step_1_text": "Regístrate con tu información de contacto y tu número de identificación — cédula o NIT. Solo necesitas un correo, una contraseña y datos básicos de tu negocio.",
+            "step_2_heading": "Sube tus diseños",
+            "step_2_text": "Carga tus archivos desde tu gestor de diseños. Aceptamos PNG, JPG, PDF, AI y SVG — ya sea un diseño en rapport (que se repite en toda la tela) o un diseño a la medida de un producto específico, como una cobija o una toalla.",
+            "step_3_heading": "Pide tu tela y productos",
+            "step_3_text": "Desde tu Sutex Design Manager, selecciona la tela, elige el producto y haz tu pedido directamente. Tu diseño llega impreso y listo para producción, directo a tu puerta.",
+            "text_alignment": "left",
+            "max_width": 800,
+            "desktop_width_percent": 100,
+            "section_padding": 60,
+            "step_gap": 30,
+            "step_horizontal_gap": 20,
+            "steps_top_spacing": 30,
+            "step_padding": 0,
+            "step_background_color": "rgba(0,0,0,0)",
+            "step_border_radius": 0,
+            "number_size": 60,
+            "number_font_size": 24,
+            "number_background_color": "#083d6d",
+            "number_text_color": "#ffffff",
+            "heading_font_size": 20,
+            "heading_color": "#001c39",
+            "heading_spacing": 10,
+            "text_font_size": 14,
+            "text_color": "#46688e",
+            "background_color": "#ffffff"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_34dbdf9_m6Mh8C": {
+          "type": "ai_gen_block_34dbdf9",
+          "settings": {
+            "desktop_width_percent": 100,
+            "min_height": 400,
+            "min_height_mobile": 300,
+            "border_radius": 0,
+            "vertical_alignment": "center",
+            "horizontal_alignment": "center",
+            "background_image": "shopify://shop_images/DSC04799.jpg",
+            "overlay_color": "#173759",
+            "overlay_opacity": 0.8,
+            "overlay_border_radius": 8,
+            "overlay_padding_top": 40,
+            "overlay_padding_bottom": 40,
+            "overlay_padding_horizontal": 40,
+            "overlay_padding_top_mobile": 30,
+            "overlay_padding_bottom_mobile": 30,
+            "overlay_padding_horizontal_mobile": 20,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 40,
+            "padding_top_mobile": 30,
+            "padding_bottom_mobile": 30,
+            "padding_horizontal_mobile": 20,
+            "content_max_width": 600,
+            "text_alignment": "center",
+            "heading": "¿Listo para producir con tu propio diseño?",
+            "heading_color": "#ffffff",
+            "heading_size": 38,
+            "heading_size_mobile": 32,
+            "heading_spacing": 16,
+            "text": "<p>Crea tu cuenta y empieza a pedir desde 1 metro.</p>",
+            "text_color": "#ffffff",
+            "text_size": 16,
+            "text_size_mobile": 14,
+            "text_spacing": 24,
+            "button_text": "Crear mi cuenta",
+            "button_link": "https://sutex.com",
+            "button_bg_color": "#dfe6e8",
+            "button_text_color": "#083d6d",
+            "button_border_color": "#dfe6e8",
+            "button_border_width": 0,
+            "button_border_radius": 4,
+            "button_text_size": 16,
+            "button_text_size_mobile": 14,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 24,
+            "button_hover_bg_color": "#46688e",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#46688e"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_0bc905a_pmewnA": {
+          "type": "ai_gen_block_0bc905a",
+          "settings": {
+            "section_heading": "Telas disponibles",
+            "heading_font_size": 32,
+            "section_heading_color": "#001c39",
+            "section_bg_color": "#dfe6e8",
+            "section_padding_top": 40,
+            "section_padding_bottom": 40,
+            "column_gap": 20,
+            "columns_desktop": 3,
+            "card_bg_color": "#f9f9f9",
+            "card_border_color": "#e0e0e0",
+            "card_border_width": 1,
+            "card_border_radius": 8,
+            "card_padding": 20,
+            "fabric_name_font_size": 18,
+            "fabric_name_font_weight": "600",
+            "fabric_name_color": "#000000",
+            "composition_font_size": 14,
+            "composition_color": "#666666",
+            "use_case_font_size": 14,
+            "use_case_color": "#666666",
+            "fabric_1_name": "Asahi",
+            "fabric_1_composition": "94% Poliéster, 6% Elastano",
+            "fabric_1_use_case": "Ideal para blusas y pijamas por su look de seda y excelente caída.",
+            "fabric_2_name": "Barcelona Deco",
+            "fabric_2_composition": "100% poliéster",
+            "fabric_2_use_case": "Ideal para tapicería y decoración de interiores. Textura de terciopelo con toque de brillo.",
+            "fabric_3_name": "Campania",
+            "fabric_3_composition": "100% poliéster",
+            "fabric_3_use_case": "Ideal para cojines, tapicería y decoración. Textura de terciopelo resistente y duradera.",
+            "fabric_4_name": "Canoa Eco",
+            "fabric_4_composition": "81% Poliéster reciclado, 19% Lycra",
+            "fabric_4_use_case": "Ideal para vestidos de baño y ropa deportiva. Opción sostenible de alto rendimiento.",
+            "fabric_5_name": "Charlie Flow",
+            "fabric_5_composition": "93% Poliéster, 7% Elastano",
+            "fabric_5_use_case": "Ideal para blusas, vestidos y pantalones ligeros por su caída y tacto suave.",
+            "fabric_6_name": "Kiwi",
+            "fabric_6_composition": "95% Poliéster, 5% Elastano",
+            "fabric_6_use_case": "Ideal para tops, vestidos, pijamas y ropa de bebé por su suavidad y elasticidad.",
+            "fabric_7_name": "Leblón",
+            "fabric_7_composition": "100% Poliéster",
+            "fabric_7_use_case": "Ideal para faldas, vestidos, camisas y chaquetas livianas por su apariencia tipo lino.",
+            "fabric_8_name": "Microfibra",
+            "fabric_8_composition": "100% Poliéster",
+            "fabric_8_use_case": "Ideal para decoración, fundas de cojines, manteles, camisas ligeras y bolsas.",
+            "fabric_9_name": "Nautical",
+            "fabric_9_composition": "100% Poliéster",
+            "fabric_9_use_case": "Ideal para trajes de baño, shorts y deportivos. Secado rápido y protección solar.",
+            "fabric_10_name": "Twin Velvet",
+            "fabric_10_composition": "95% Poliéster, 5% Elastano",
+            "fabric_10_use_case": "Ideal para mantas, pijamas y prendas de descanso. Textura suave y acogedora."
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2e7c5dc_XCtrKL": {
+          "type": "ai_gen_block_2e7c5dc",
+          "settings": {
+            "heading": "¿Tienes un diseño listo?",
+            "subtext": "Completa el formulario y nos ponemos en contacto.",
+            "button_text": "Subir mi diseño →",
+            "button_link": "",
+            "text_alignment": "center",
+            "container_width": 900,
+            "padding_top": 50,
+            "padding_bottom": 50,
+            "background_color": "#ffffff",
+            "border_color": "#e0e0e0",
+            "heading_color": "#001c39",
+            "subtext_color": "#173759",
+            "border_width": 1,
+            "border_radius": 8,
+            "heading_size": 28,
+            "subtext_size": 15,
+            "button_bg_color": "#5278a3",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#5278a3",
+            "button_hover_bg_color": "#5278a3",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#5278a3",
+            "button_font_size": 16,
+            "button_border_radius": 4
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_1704988_YdAGCH",
+        "ai_gen_block_69b516b_zzwU9b",
+        "ai_gen_block_34dbdf9_m6Mh8C",
+        "ai_gen_block_0bc905a_pmewnA",
+        "ai_gen_block_2e7c5dc_XCtrKL"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "177732390595ad0f9c",
+    "177732334472a1205f"
+  ]
+}

@@ -1,0 +1,361 @@
+{% doc %}
+  @prompt
+    Build a "Telas disponibles" section on the page "Estampa tu diseño en tela." Display fabric names as small rounded pill tags in a horizontal wrapping row. Do not use the rectangular material selector style from the product pages.
+    Section label (small uppercase text above the pills):
+    Telas disponibles
+    Pill style:
+    Rounded corners, light border, no fill, small text. Similar to a tag or badge style.
+    Pills (hardcoded, one per fabric):
+    Asahi · Barcelona Deco · Campania · Canoa Eco · Charlie Flow · Kiwi · Leblon · Microfibra · Nautical · Twin Velvet, ability to add more names if needed, or remove 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-fabric-pills-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding }}px 0;
+  }
+
+  .ai-fabric-pills__label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.label_font_size }}px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: {{ block.settings.label_color }};
+    margin-bottom: {{ block.settings.label_spacing }}px;
+    display: block;
+  }
+
+  .ai-fabric-pills__container-{{ ai_gen_id }} {
+    display: flex;
+    flex-wrap: wrap;
+    gap: {{ block.settings.pill_gap }}px;
+  }
+
+  .ai-fabric-pills__pill-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: {{ block.settings.pill_padding_vertical }}px {{ block.settings.pill_padding_horizontal }}px;
+    border: {{ block.settings.pill_border_width }}px solid {{ block.settings.pill_border_color }};
+    border-radius: {{ block.settings.pill_border_radius }}px;
+    background-color: {{ block.settings.pill_background_color }};
+    color: {{ block.settings.pill_text_color }};
+    font-size: {{ block.settings.pill_font_size }}px;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+  }
+
+  .ai-fabric-pills__pill-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.pill_hover_background_color }};
+    border-color: {{ block.settings.pill_hover_border_color }};
+    color: {{ block.settings.pill_hover_text_color }};
+  }
+{% endstyle %}
+
+<div class="ai-fabric-pills-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.section_label != blank %}
+    <span class="ai-fabric-pills__label-{{ ai_gen_id }}">{{ block.settings.section_label }}</span>
+  {% endif %}
+  
+  <div class="ai-fabric-pills__container-{{ ai_gen_id }}">
+    {% for i in (1..20) %}
+      {% assign fabric_key = 'fabric_' | append: i %}
+      {% assign fabric_name = block.settings[fabric_key] %}
+      {% if fabric_name != blank %}
+        <span class="ai-fabric-pills__pill-{{ ai_gen_id }}">{{ fabric_name }}</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Telas disponibles",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section label"
+    },
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Label text",
+      "default": "Telas disponibles"
+    },
+    {
+      "type": "range",
+      "id": "label_font_size",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Label font size",
+      "default": 11
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "label_spacing",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Label spacing",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Fabric names"
+    },
+    {
+      "type": "text",
+      "id": "fabric_1",
+      "label": "Fabric 1",
+      "default": "Asahi"
+    },
+    {
+      "type": "text",
+      "id": "fabric_2",
+      "label": "Fabric 2",
+      "default": "Barcelona Deco"
+    },
+    {
+      "type": "text",
+      "id": "fabric_3",
+      "label": "Fabric 3",
+      "default": "Campania"
+    },
+    {
+      "type": "text",
+      "id": "fabric_4",
+      "label": "Fabric 4",
+      "default": "Canoa Eco"
+    },
+    {
+      "type": "text",
+      "id": "fabric_5",
+      "label": "Fabric 5",
+      "default": "Charlie Flow"
+    },
+    {
+      "type": "text",
+      "id": "fabric_6",
+      "label": "Fabric 6",
+      "default": "Kiwi"
+    },
+    {
+      "type": "text",
+      "id": "fabric_7",
+      "label": "Fabric 7",
+      "default": "Leblon"
+    },
+    {
+      "type": "text",
+      "id": "fabric_8",
+      "label": "Fabric 8",
+      "default": "Microfibra"
+    },
+    {
+      "type": "text",
+      "id": "fabric_9",
+      "label": "Fabric 9",
+      "default": "Nautical"
+    },
+    {
+      "type": "text",
+      "id": "fabric_10",
+      "label": "Fabric 10",
+      "default": "Twin Velvet"
+    },
+    {
+      "type": "text",
+      "id": "fabric_11",
+      "label": "Fabric 11"
+    },
+    {
+      "type": "text",
+      "id": "fabric_12",
+      "label": "Fabric 12"
+    },
+    {
+      "type": "text",
+      "id": "fabric_13",
+      "label": "Fabric 13"
+    },
+    {
+      "type": "text",
+      "id": "fabric_14",
+      "label": "Fabric 14"
+    },
+    {
+      "type": "text",
+      "id": "fabric_15",
+      "label": "Fabric 15"
+    },
+    {
+      "type": "text",
+      "id": "fabric_16",
+      "label": "Fabric 16"
+    },
+    {
+      "type": "text",
+      "id": "fabric_17",
+      "label": "Fabric 17"
+    },
+    {
+      "type": "text",
+      "id": "fabric_18",
+      "label": "Fabric 18"
+    },
+    {
+      "type": "text",
+      "id": "fabric_19",
+      "label": "Fabric 19"
+    },
+    {
+      "type": "text",
+      "id": "fabric_20",
+      "label": "Fabric 20"
+    },
+    {
+      "type": "header",
+      "content": "Pill style"
+    },
+    {
+      "type": "range",
+      "id": "pill_font_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "pill_padding_vertical",
+      "min": 4,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "pill_padding_horizontal",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "pill_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "pill_border_width",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Border width",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "pill_gap",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between pills",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "pill_background_color",
+      "label": "Background color",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "color",
+      "id": "pill_border_color",
+      "label": "Border color",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "pill_text_color",
+      "label": "Text color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Pill hover style"
+    },
+    {
+      "type": "color",
+      "id": "pill_hover_background_color",
+      "label": "Hover background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "pill_hover_border_color",
+      "label": "Hover border",
+      "default": "#999999"
+    },
+    {
+      "type": "color",
+      "id": "pill_hover_text_color",
+      "label": "Hover text",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Section padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Telas disponibles"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,311 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "show_content": true
+      }
+    },
+    "home_builder_hGw8G4": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_HTbLGA": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/BNN_MATRIX_A1.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Text line #1",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "Button #1 text",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "Button #2 text",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        },
+        "custom_html_tY4KVJ": {
+          "type": "custom_html",
+          "settings": {
+            "page_content": "",
+            "liquid": "<h2 style=\"width: 100%; text-align: center; margin-bottom: 0; font-size: 1.8rem; padding: 20px 0;font-weight: 600;\">MATRIX</h2>\n\n<p style=\"font-size: 18px;line-height:1.7;text-align:left;\">Descubre nuestro banco interactivo de diseños, en esta plataforma podrás importar, personalizar y proyectar tus estampados de forma fácil y rápida.</p>\n\n<p style=\"font-size: 18px;line-height:1.7;text-align:left;\">Organiza, crea y comparte tus diseños en línea. Matrix te permite combinar múltiples variantes de color en tus diseños, ofreciéndote la facilidad de potencializar tus creaciones. Nuestra tecnología de simulaciones te permite proyectar todos los diseños de la galería en diferentes objetos, prendas y modelos disponibles de manera gratuita.</p>",
+            "size_of_column": "auto"
+          }
+        },
+        "promobox_BHzdR9": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/BNN_MATRIX_A2_1.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Text line #1",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "Button #1 text",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "Button #2 text",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "promobox_HTbLGA",
+        "custom_html_tY4KVJ",
+        "promobox_BHzdR9"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "1",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "top_center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "home_builder_3i43GU": {
+      "type": "home-builder",
+      "blocks": {
+        "custom_html_yqqRJc": {
+          "type": "custom_html",
+          "settings": {
+            "page_content": "",
+            "liquid": "<h2 style=\"width: 100%; text-align: left; margin-bottom: 30px; font-size: 1.8rem; border-bottom: 2px solid #001c39; padding: 20px 0;font-weight: 600;\">Iniciativas con aliados</h2>\n\n<p style=\"font-size: 18px;line-height:1.7;text-align:left;\">Nos encanta brindarte las mejores herramientas para que tu marca alcance un nuevo nivel. Hemos creado para ti esta plataforma con la que crear y proyectar tus diseños ahora es mucho más fácil.\n\nNuestro equipo de asesores está dispuesto y capacitado para brindarte toda la información que requieras para unirte a la experiencia Matrix. ¡Contáctanos!</p>",
+            "size_of_column": "auto"
+          }
+        }
+      },
+      "block_order": [
+        "custom_html_yqqRJc"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "1",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "top_center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "custom_liquid_xrNF6E": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "use_container": true,
+        "custom_liquid": "<div style=\"position: relative; width: 100%; padding-bottom: 56.25%; height: 0;\">\n  <iframe \n      src=\"https://www.youtube.com/embed/tLaCwd_RPrw\"\n      style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\"\n      frameborder=\"0\"\n      allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"\n      allowfullscreen>\n  </iframe>\n</div>"
+      }
+    },
+    "home_builder_AC9wnz": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_kaiMq6": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/BOTON-MATRIX-A1.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Eco-Responsible Processes",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "#083d6d",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        },
+        "promobox_k4jWVD": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "",
+            "text_line_3": "<p style=\"margin-bottom: 2rem; font-size: 18px;\">Puedes obtener más información acerca de esta herramienta a través de nuestra línea de atención vía Whatsapp con uno de nuestros asesores.</p>",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "text-9",
+            "content_position": "center",
+            "content_align": "left",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "rgba(0,0,0,0)",
+            "color_text_2": "",
+            "color_text_3": "#001c39",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": "www-iwt"
+          }
+        }
+      },
+      "block_order": [
+        "promobox_kaiMq6",
+        "promobox_k4jWVD"
+      ],
+      "custom_css": [],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "2",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "home_builder_hGw8G4",
+    "home_builder_3i43GU",
+    "custom_liquid_xrNF6E",
+    "home_builder_AC9wnz"
+  ]
+}

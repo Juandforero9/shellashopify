@@ -1,0 +1,23 @@
+{% include 'global-variables' %}
+
+{%- case section.settings.size_of_columns_mobile -%}
+    {%- when '1' -%}{%- assign grid_mobile = 'col-12' -%}
+    {%- when '2' -%}{%- assign grid_mobile = 'col-6' -%}
+{%- endcase -%}
+{%- case section.settings.size_of_columns -%}
+    {%- when '1' -%}{%- assign grid = grid_mobile | append: ' col-md-12' -%}
+    {%- when '2' -%}{%- assign grid = grid_mobile | append: ' col-md-6' -%}
+    {%- when '3' -%}{%- assign grid = grid_mobile | append: ' col-md-4' -%}
+    {%- when '4' -%}{%- assign grid = grid_mobile | append: ' col-md-6 col-lg-3' -%}
+    {%- when '5' -%}{%- assign grid = grid_mobile | append: ' col-sm-6 col-md-4 col-lg-2-5' -%}
+    {%- when '6' -%}{%- assign grid = grid_mobile | append: ' col-sm-6 col-md-4 col-lg-2' -%}
+{%- endcase -%}
+{%- case section.settings.margins_for_columns -%}
+    {%- when 'preset_1' %}{% assign margins_for_columns = home_builder_margins_for_columns_preset_1 %}
+    {%- when 'preset_2' %}{% assign margins_for_columns = home_builder_margins_for_columns_preset_2 %}
+    {%- when 'preset_3' %}{% assign margins_for_columns = home_builder_margins_for_columns_preset_3 %}
+    {%- when 'preset_4' %}{% assign margins_for_columns = home_builder_margins_for_columns_preset_4 %}
+    {%- when 'preset_5' %}{% assign margins_for_columns = home_builder_margins_for_columns_preset_5 %}
+{%- endcase -%}
+
+{{ block.shopify_attributes }} id="{{ block.id }}" class="{% if block.type == 'vertical_menu_spacer' %}col-lg-3 d-none d-lg-block mt-lg-auto invisible pointer-events-none{% else %}{% if block.settings.size_of_column != blank and block.settings.size_of_column != 'auto' %}{{ grid_mobile }} col-md-{{ block.settings.size_of_column }}{% else %}{{ grid }}{% endif %} {{ margins_for_columns }}{% if section.settings.align_of_columns contains 'stretch' %}{% if block.settings.visible != 'desktop' %} d-flex{% endif %} flex-column align-items-stretch justify-content-center{% endif %}{% if block.settings.visible != blank %} {% if block.settings.visible == 'desktop' %}d-none d-md-{% if section.settings.align_of_columns contains 'stretch' %}flex{% else %}block{% endif %}{% elsif block.settings.visible == 'mobile' %}d-md-none{% endif %}{% endif %}{% endif %}"

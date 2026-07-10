@@ -1,0 +1,220 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "show_content": true
+      }
+    },
+    "home_builder_hGw8G4": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_HTbLGA": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/BNN-SHOPPING-1.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Text line #1",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "Button #1 text",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "Button #2 text",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "promobox_HTbLGA"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "1",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "top_center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "sutex_how_to_buy_CN8UCY": {
+      "type": "sutex-how-to-buy",
+      "blocks": {
+        "step_yBGRQd": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/ICOnos_paginas_sutex_Mesa_de_trabajo_1.png",
+            "title": "Elige tus productos",
+            "description": "Selecciona los productos que prefieras."
+          }
+        },
+        "step_e77mMP": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/ICOnos_paginas_sutex-02.png",
+            "title": "Datos de envío",
+            "description": "Completa la información para recibir tu pedido."
+          }
+        },
+        "step_BUcVzL": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/ICOnos_paginas_sutex-03.png",
+            "title": " Paga tu pedido",
+            "description": "Elige tu medio de pago favorito y confirma tu compra."
+          }
+        },
+        "step_aNgNhJ": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/ICOnos_paginas_sutex-04.png",
+            "title": "¡Listo!",
+            "description": "Recibe tus productos en casa o empresa."
+          }
+        }
+      },
+      "block_order": [
+        "step_yBGRQd",
+        "step_e77mMP",
+        "step_BUcVzL",
+        "step_aNgNhJ"
+      ],
+      "name": "Sutex - How to Buy",
+      "settings": {
+        "heading": "CÓMO COMPRAR",
+        "heading_alignment": "center",
+        "background_color": "#f6f7f8",
+        "text_color": "#0b1b2b",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "container_width": "standard"
+      }
+    },
+    "sutex_info_cards_3KQyPf": {
+      "type": "sutex-info-cards",
+      "blocks": {
+        "item_TqpEQz": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/ICOnos_paginas_sutex-05.png",
+            "title": "Medios de pago",
+            "text": "En Sutex buscamos la facilidad y comodidad de nuestros clientes, por eso tenemos disponibles una variedad de métodos por los que puedes hacer el pago de tus compras y pedidos."
+          }
+        },
+        "item_q6yanT": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/ICOnos_paginas_sutex-06.png",
+            "title": "Tiempos de entrega",
+            "text": "Nuestra promesa de entrega es de 5-10 días hábiles. Estos tiempos están sujetos a las ubicaciones de destino, factores climáticos u operativos de las empresas logísticas."
+          }
+        },
+        "logos_wAVwX9": {
+          "type": "logos",
+          "settings": {
+            "logo_1": "shopify://shop_images/Wompi_LogoSecundario.svg",
+            "logo_2": "shopify://shop_images/pse-a1.png"
+          }
+        },
+        "logos_BVJgUK": {
+          "type": "logos",
+          "settings": {
+            "logo_1": "shopify://shop_images/DHL-Logo.png",
+            "logo_2": "shopify://shop_images/servientrega-usa-logotipo.png"
+          }
+        },
+        "item_PmBfak": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/ICOnos_paginas_sutex-07.png",
+            "title": "Costos de envío",
+            "text": "Los valores dependerán de la ubicación que elijas para la entrega de tu pedido. Nuestro sistema calculará el costo y te lo presentará durante el proceso de pago."
+          }
+        },
+        "item_4GPqDj": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "shopify://shop_images/ICOnos_paginas_sutex-099.png",
+            "title": "Cuentas bancarias corrientes autorizadas",
+            "text": "Consignaciones a nombre de SUTEX SAS Nit. 860.052.989-1 <br>\n<strong>DAVIVIENDA:</strong> 462768999874 <br>\n<strong>BANCO DE BOGOTÁ:</strong> 033392481<br>\n<strong>BANCOLOMBIA:</strong> 21125241916<br>\n<strong>CONVENIO BANCOLOMBIA:</strong> 7231"
+          }
+        }
+      },
+      "block_order": [
+        "item_TqpEQz",
+        "item_q6yanT",
+        "logos_wAVwX9",
+        "logos_BVJgUK",
+        "item_PmBfak",
+        "item_4GPqDj"
+      ],
+      "name": "Sutex - Info Cards",
+      "settings": {
+        "heading": "Información",
+        "heading_alignment": "left",
+        "columns_desktop": "2",
+        "background_color": "#ffffff",
+        "text_color": "#0b1b2b",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "container_width": "standard"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "home_builder_hGw8G4",
+    "sutex_how_to_buy_CN8UCY",
+    "sutex_info_cards_3KQyPf"
+  ]
+}

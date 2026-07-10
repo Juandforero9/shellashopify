@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="container container--sm">
+        {%- for block in section.blocks -%}
+            <div class="faqs border-top" data-js-accordion="all">
+                <h2 class="faqs__head h5 d-flex align-items-center py-10 mb-0 cursor-pointer{% if block.settings.is_open %} open{% endif %}" data-js-accordion-button><span class="mr-15">{{ block.settings.question }}</span> <i class="faqs__cross ml-auto">{% render 'icon-theme-190' %}</i> </h2>
+                <div{% unless block.settings.is_open %} class="d-none"{% endunless %} data-js-accordion-content>
+                    <div class="rte pt-10 pb-30">
+                        {%- case forloop.index -%}
+                            {%- when 2 %}{% assign faqs_default_page = 'include-faqs-answer-2' -%}
+                            {%- when 3 %}{% assign faqs_default_page = 'include-faqs-answer-3' -%}
+                            {%- else %}{% assign faqs_default_page = 'include-faqs-answer' -%}
+                        {%- endcase -%}
+                        {% include 'parse-page-html-content' with default_page: faqs_default_page page_content: block.settings.page_content html: block.settings.answer %}
+                    </div>
+                </div>
+            </div>
+        {%- endfor -%}
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "t:names.faqs",
+  "blocks": [
+    {
+      "type": "section",
+      "name": "t:blocks.section.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "t:settings.question",
+          "default": "t:text_defaults.question"
+        },
+        {
+          "type": "page",
+          "id": "page_content",
+          "label": "t:settings_scoped.page_content.page_content_for_the_answer__5UceYu",
+          "info": "t:settings_scoped.page_content_info.default_page_include_faqs_an__4KUiJd"
+        },
+        {
+        "type": "paragraph",
+        "content": "OR ↓"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "t:settings.answer"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_open",
+          "label": "t:settings.is_open",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.faqs",
+      "category": "t:categories.3_static_content"
+    }
+  ]
+}
+{% endschema %}

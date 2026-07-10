@@ -1,0 +1,433 @@
+{% doc %}
+  @prompt
+    Build a three-column icon + text section on the page "Estampa tu diseño en tela." Match the styling of existing three-column sections on the site.
+    Column 1
+    Icon: checkmark
+    Heading: Desde 1 metro
+    Text: Arranca tu producción sin comprometer inventario. Sin mínimos imposibles.
+    Column 2
+    Icon: clock or target
+    Heading: Tu diseño, exacto
+    Text: Imprimimos lo que diseñas. Colores fieles y bordes precisos en cada metro.
+    Column 3
+    Icon: location pin or Colombia map
+    Heading: Hecho en Colombia
+    Text: Producción en planta propia en Cota, Cundinamarca. Envío por Servientrega.
+    Use the icon style already used in other sections of the site. No buttons in this section., background color? 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-icon-text-columns-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding_top }}px 0 {{ block.settings.section_padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-icon-text-columns__container-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: {{ block.settings.column_gap }}px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-icon-text-columns__column-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: {{ block.settings.text_alignment }};
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-icon-text-columns__icon-wrapper-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: {{ block.settings.icon_spacing }}px;
+    background-color: {{ block.settings.icon_background_color }};
+    border-radius: {{ block.settings.icon_border_radius }}px;
+    flex-shrink: 0;
+  }
+
+  .ai-icon-text-columns__icon-wrapper-{{ ai_gen_id }} svg {
+    width: calc({{ block.settings.icon_size }}px * 0.5);
+    height: calc({{ block.settings.icon_size }}px * 0.5);
+    stroke: {{ block.settings.icon_color }};
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ai-icon-text-columns__heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    font-weight: 600;
+  }
+
+  .ai-icon-text-columns__text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-icon-text-columns__container-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.column_gap_mobile }}px;
+    }
+
+    .ai-icon-text-columns__column-{{ ai_gen_id }} {
+      align-items: {{ block.settings.text_alignment_mobile }};
+      text-align: {{ block.settings.text_alignment_mobile }};
+    }
+  }
+{% endstyle %}
+
+<div class="ai-icon-text-columns-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-icon-text-columns__container-{{ ai_gen_id }}">
+    <div class="ai-icon-text-columns__column-{{ ai_gen_id }}">
+      <div class="ai-icon-text-columns__icon-wrapper-{{ ai_gen_id }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h3 class="ai-icon-text-columns__heading-{{ ai_gen_id }}">
+        {{ block.settings.column_1_heading }}
+      </h3>
+      <p class="ai-icon-text-columns__text-{{ ai_gen_id }}">
+        {{ block.settings.column_1_text }}
+      </p>
+    </div>
+
+    <div class="ai-icon-text-columns__column-{{ ai_gen_id }}">
+      <div class="ai-icon-text-columns__icon-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.column_2_icon == 'clock' %}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        {% else %}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        {% endif %}
+      </div>
+      <h3 class="ai-icon-text-columns__heading-{{ ai_gen_id }}">
+        {{ block.settings.column_2_heading }}
+      </h3>
+      <p class="ai-icon-text-columns__text-{{ ai_gen_id }}">
+        {{ block.settings.column_2_text }}
+      </p>
+    </div>
+
+    <div class="ai-icon-text-columns__column-{{ ai_gen_id }}">
+      <div class="ai-icon-text-columns__icon-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.column_3_icon == 'location' %}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        {% else %}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path>
+            <circle cx="12" cy="9" r="2.5"></circle>
+            <path d="M12 2v7m0 0l-3-3m3 3l3-3"></path>
+          </svg>
+        {% endif %}
+      </div>
+      <h3 class="ai-icon-text-columns__heading-{{ ai_gen_id }}">
+        {{ block.settings.column_3_heading }}
+      </h3>
+      <p class="ai-icon-text-columns__text-{{ ai_gen_id }}">
+        {{ block.settings.column_3_text }}
+      </p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Icon text columns",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Column 1"
+    },
+    {
+      "type": "text",
+      "id": "column_1_heading",
+      "label": "Heading",
+      "default": "Desde 1 metro"
+    },
+    {
+      "type": "textarea",
+      "id": "column_1_text",
+      "label": "Text",
+      "default": "Arranca tu producción sin comprometer inventario. Sin mínimos imposibles."
+    },
+    {
+      "type": "header",
+      "content": "Column 2"
+    },
+    {
+      "type": "select",
+      "id": "column_2_icon",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "clock",
+          "label": "Clock"
+        },
+        {
+          "value": "target",
+          "label": "Target"
+        }
+      ],
+      "default": "target"
+    },
+    {
+      "type": "text",
+      "id": "column_2_heading",
+      "label": "Heading",
+      "default": "Tu diseño, exacto"
+    },
+    {
+      "type": "textarea",
+      "id": "column_2_text",
+      "label": "Text",
+      "default": "Imprimimos lo que diseñas. Colores fieles y bordes precisos en cada metro."
+    },
+    {
+      "type": "header",
+      "content": "Column 3"
+    },
+    {
+      "type": "select",
+      "id": "column_3_icon",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "location",
+          "label": "Location pin"
+        },
+        {
+          "value": "colombia",
+          "label": "Colombia map"
+        }
+      ],
+      "default": "colombia"
+    },
+    {
+      "type": "text",
+      "id": "column_3_heading",
+      "label": "Heading",
+      "default": "Hecho en Colombia"
+    },
+    {
+      "type": "textarea",
+      "id": "column_3_text",
+      "label": "Text",
+      "default": "Producción en planta propia en Cota, Cundinamarca. Envío por Servientrega."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap (desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "column_gap_mobile",
+      "label": "Column gap (mobile)",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment (desktop)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment_mobile",
+      "label": "Text alignment (mobile)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Icon style"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "label": "Icon spacing",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "icon_border_radius",
+      "label": "Icon border radius",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "icon_background_color",
+      "label": "Icon background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Heading spacing",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#666666"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon text columns"
+    }
+  ]
+}
+{% endschema %}

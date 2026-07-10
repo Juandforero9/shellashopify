@@ -1,0 +1,106 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "home_builder_mYwyWQ": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_ejYNeN": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/Fabric-Collections-Page.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "#001c39",
+            "image_mask_opacity": 0.3,
+            "text_line_1": "",
+            "text_line_2": "EXPLORAR LA CREATIVIDAD",
+            "text_line_3": "",
+            "style": "5",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "Button #2 text",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "type-1-7",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "#ffffff",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "promobox_ejYNeN"
+      ],
+      "custom_css": [],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "fullwidth",
+        "size_of_columns": "1",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "top_center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "display_type": "all",
+        "sort": "alphabetical",
+        "show_products_count": true,
+        "size_of_columns": "4",
+        "size_of_columns_mobile": "2",
+        "type": "list-collections-1",
+        "style": "1",
+        "masonry_enable": false,
+        "height": "auto",
+        "image_size": 900,
+        "format_pjpg": true,
+        "animation_to": "none",
+        "animation_from": "none",
+        "animation_opacity": "none"
+      }
+    }
+  },
+  "order": [
+    "home_builder_mYwyWQ",
+    "main"
+  ]
+}

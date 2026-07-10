@@ -1,0 +1,289 @@
+{% capture style_base_html %}
+    <style>
+        :root {
+            {% if section.settings.type == '1' %}
+                --information-line-type-1-title-size: var(--h6-size);
+                --information-line-type-1-title-line-height: var(--h6-line-height);
+                --information-line-type-1-title-letter-spacing: var(--h6-letter-spacing);
+                --information-line-type-1-title-weight: var(--h6-weight);
+            {% elsif section.settings.type == '2' %}
+                --information-line-type-2-title-size: var(--h4-size);
+                --information-line-type-2-title-line-height: var(--h4-line-height);
+                --information-line-type-2-title-letter-spacing: var(--h4-letter-spacing);
+                --information-line-type-2-title-weight: var(--h4-weight);
+            {% elsif section.settings.type == '3' %}
+                --information-line-type-1-paragraph-size: var(--body-size);
+                --information-line-type-1-paragraph-line-height: var(--body-line-height);
+                --information-line-type-1-paragraph-letter-spacing: var(--body-letter-spacing);
+                --information-line-type-1-paragraph-weight: var(--body-weight);
+            {% elsif section.settings.type == '4' %}
+                --information-line-type-2-paragraph-size: var(--body-size);
+                --information-line-type-2-paragraph-line-height: var(--body-line-height);
+                --information-line-type-2-paragraph-letter-spacing: var(--body-letter-spacing);
+                --information-line-type-2-paragraph-weight: var(--body-weight);
+            {% endif %}
+
+            {% if section.settings.style == '1' %}
+                --info-line-style-1-bg: var(--theme-body);
+                --info-line-style-1-bd-top: solid 1px var(--theme5);
+                --info-line-style-1-bd-bottom: solid 1px var(--theme5);
+                --info-line-style-1-icon-c: var(--theme-primary);
+                --info-line-style-1-title-c: var(--theme-head-c);
+                --info-line-style-1-paragraph-c: var(--theme-c);
+            {% elsif section.settings.style == '2' %}
+                --info-line-style-2-bg: var(--theme-body);
+                --info-line-style-2-bd-top: solid 1px var(--theme5);
+                --info-line-style-2-bd-bottom: none;
+                --info-line-style-2-icon-c: var(--theme-primary);
+                --info-line-style-2-title-c: var(--theme-head-c);
+                --info-line-style-2-paragraph-c: var(--theme-c);
+            {% elsif section.settings.style == '3' %}
+                --info-line-style-3-bg: var(--theme-body);
+                --info-line-style-3-bd-top: none;
+                --info-line-style-3-bd-bottom: none;
+                --info-line-style-3-icon-c: var(--theme-primary);
+                --info-line-style-3-title-c: var(--theme-head-c);
+                --info-line-style-3-paragraph-c: var(--theme-c);
+            {% elsif section.settings.style == '4' %}
+                --info-line-style-4-bg: var(--theme);
+                --info-line-style-4-bd-top: none;
+                --info-line-style-4-bd-bottom: none;
+                --info-line-style-4-icon-c: var(--theme-body);
+                --info-line-style-4-title-c: var(--theme-body);
+                --info-line-style-4-paragraph-c: var(--theme-c);
+            {% elsif section.settings.style == '5' %}
+                --info-line-style-5-bg: var(--theme-primary);
+                --info-line-style-5-bd-top: none;
+                --info-line-style-5-bd-bottom: none;
+                --info-line-style-5-icon-c: var(--theme-body);
+                --info-line-style-5-title-c: var(--theme-body);
+                --info-line-style-5-paragraph-c: var(--theme-body);
+            {% endif %}
+
+            {% if settings.layout_settings_file == 'skin-5' %}
+                --info-line-style-1-icon-c: #1278A5;
+                --info-line-style-2-icon-c: #1278A5;
+                --info-line-style-3-icon-c: #1278A5;
+            {% elsif settings.layout_settings_file == 'skin-15' %}
+                --information-line-type-2-paragraph-size: var(--body-lg-size);
+                --information-line-type-2-paragraph-line-height: var(--body-lg-line-height);
+                --information-line-type-2-paragraph-letter-spacing: var(--body-lg-letter-spacing);
+                --information-line-type-2-paragraph-weight: var(--body-lg-weight);
+                --info-line-style-2-title-c: var(--theme-primary);
+            {% endif %}
+        }
+
+        .information-line--style-{{ section.settings.style }} {
+            background-color: var(--info-line-style-{{ section.settings.style }}-bg);
+            border-top: var(--info-line-style-{{ section.settings.style }}-bd-top);
+            border-bottom: var(--info-line-style-{{ section.settings.style }}-bd-bottom);
+        }
+        .information-line--style-{{ section.settings.style }} .icon {
+            fill: var(--info-line-style-{{ section.settings.style }}-icon-c);
+        }
+        .information-line--style-{{ section.settings.style }} h6 {
+            color: var(--info-line-style-{{ section.settings.style }}-title-c);
+        }
+        .information-line--style-{{ section.settings.style }} p {
+            color: var(--info-line-style-{{ section.settings.style }}-paragraph-c);
+        }
+        .information-line--type-{{ section.settings.type }} p {
+            font-size: var(--information-line-type-{{ section.settings.style }}-paragraph-size);
+            line-height: var(--information-line-type-{{ section.settings.style }}-paragraph-line-height);
+            letter-spacing: var(--information-line-type-{{ section.settings.style }}-paragraph-letter-spacing);
+            font-weight: var(--information-line-type-{{ section.settings.style }}-paragraph-weight);
+        }
+        .information-line--type-{{ section.settings.type }} .information-line__title {
+            font-size: var(--information-line-type-{{ section.settings.style }}-title-size);
+            line-height: var(--information-line-type-{{ section.settings.style }}-title-line-height);
+            letter-spacing: var(--information-line-type-{{ section.settings.style }}-title-letter-spacing);
+            font-weight: var(--information-line-type-{{ section.settings.style }}-title-weight);
+        }
+    </style>
+{% endcapture %}
+{%- if style_base_html -%}
+    {%- if request.design_mode -%}
+        {{ style_base_html }}
+    {%- else -%}
+        <template class="js-loader-inline-style" data-key="{{ style_base_html | hmac_sha1: 'secret_key' }}">{{ style_base_html }}</template>
+    {%- endif -%}
+{%- endif -%}
+{%- if section.blocks.size > 0 -%}
+    {% include 'global-variables' %}
+    <div data-section-id="{{ section.id }}" data-section-type="information-line">
+        {%- if section.settings.title != blank -%}
+            <h2 class="h4 information-line-title home-section-title mb-30 text-center">{{ section.settings.title }}</h2>
+        {%- endif -%}
+        <div class="information-line information-line--type-{{ section.settings.type }} information-line--style-{{ section.settings.style }}">
+            <div class="container">
+                <div class="row py-{{ information_line_padding_v }}">
+                    {%- for block in section.blocks -%}
+                        <{% if block.settings.url != blank %}a href="{{ block.settings.url }}"{% else %}div{% endif %} class="col-12 col-lg-{{ 12 | divided_by: section.blocks.size }}">
+                            {%- if section.settings.type == '1' -%}
+                                <div class="d-flex align-items-center justify-content-start justify-content-lg-start py-10">
+                                    <i class="mr-15">{% include 'load-icon' with name: block.settings.icon %}</i>
+                                    <div>
+                                        {%- if block.settings.title != blank -%}
+                                            <h6 class="information-line__title d-inline">{{ block.settings.title }} </h6>
+                                        {%- endif -%}
+                                        {%- if block.settings.paragraph != blank -%}
+                                            <p class="d-inline">{{ block.settings.paragraph }}</p>
+                                        {%- endif -%}
+                                    </div>
+                                </div>
+                            {%- else -%}
+                                <div class="d-flex align-items-start justify-content-start py-10">
+                                    <i class="mr-15">{% include 'load-icon' with name: block.settings.icon %}</i>
+                                    <div>
+                                        {%- if block.settings.title != blank -%}
+                                            <h6 class="information-line__title mb-0">{{ block.settings.title }} </h6>
+                                        {%- endif -%}
+                                        {%- if block.settings.paragraph != blank -%}
+                                            <p class="d-inline">{{ block.settings.paragraph }}</p>
+                                        {%- endif -%}
+                                    </div>
+                                </div>
+                            {%- endif -%}
+                        </{% if block.settings.url != blank %}a{% else %}div{% endif %}>
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+    </div>
+{%- else -%}
+    {% render 'no-blocks' %}
+{%- endif -%}
+
+
+{% schema %}
+{
+  "name": "t:names.information-line",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "t:settings.title"
+    },
+    {
+      "type": "select",
+      "id": "type",
+      "label": "t:settings.type",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:options_scoped.information-line._root.type.1"
+        },
+        {
+          "value": "2",
+          "label": "t:options_scoped.information-line._root.type.2"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "t:settings.style",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:options_scoped.information-line._root.style.1"
+        },
+        {
+          "value": "2",
+          "label": "t:options_scoped.information-line._root.style.2"
+        },
+        {
+          "value": "3",
+          "label": "t:options_scoped.information-line._root.style.3"
+        },
+        {
+          "value": "4",
+          "label": "t:options_scoped.information-line._root.style.4"
+        },
+        {
+          "value": "5",
+          "label": "t:options_scoped.information-line._root.style.5"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:content.support__Ai_11O"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:content.watch_video_tutorialshttpswwwyoutubecomw__8plpnr"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:content.read_user_manualhttpsmpithemesgitbookios__cr6a29"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "t:blocks.content.name",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "t:settings.icon",
+          "default": "t:text_defaults.theme-116"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:settings.title",
+          "default": "t:text_defaults.title_text"
+        },
+        {
+          "type": "text",
+          "id": "paragraph",
+          "label": "t:settings.paragraph",
+          "default": "t:text_defaults.lorem_ipsum_dolor_sit_amet_consectetur_a"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:settings_scoped.url.url__Di2bB3"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.information-line",
+      "category": "t:categories.3_static_content",
+      "blocks": [
+        {
+          "type": "content",
+          "settings": {
+            "icon": "t:text_defaults.theme-116",
+            "title": "t:text_defaults.free_shipping",
+            "paragraph": "t:text_defaults.all_orders_of_49_or_more_of_eligible_ite"
+          }
+        },
+        {
+          "type": "content",
+          "settings": {
+            "icon": "t:text_defaults.theme-125",
+            "title": "t:text_defaults.payment_methods",
+            "paragraph": "t:text_defaults.credit_card_visa_mastercard_maestro_amer"
+          }
+        },
+        {
+          "type": "content",
+          "settings": {
+            "icon": "t:text_defaults.theme-009",
+            "title": "t:text_defaults.returns_refunds",
+            "paragraph": "t:text_defaults.you_can_return_any_item_purchased_on_nam"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

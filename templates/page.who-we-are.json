@@ -1,0 +1,390 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "show_content": true
+      }
+    },
+    "gallery_PKzhXD": {
+      "type": "gallery",
+      "blocks": {
+        "item_V6inTa": {
+          "type": "item",
+          "settings": {
+            "page_name": "",
+            "grid": 12,
+            "image": "shopify://shop_images/BNN-nosotros-001_1.jpg",
+            "image_size": 500,
+            "text_line_01": "",
+            "text_line_02": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_V6inTa"
+      ],
+      "name": "Gallery",
+      "settings": {
+        "container": "boxed",
+        "masonry_enable": true
+      }
+    },
+    "custom_liquid_R7xAm9": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "h2 {text-align: center; margin: 2rem;}"
+      ],
+      "name": "Custom Liquid",
+      "settings": {
+        "use_container": true,
+        "custom_liquid": "<h2>QUIÉNES SOMOS</h2>"
+      }
+    },
+    "home_builder_AC9wnz": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_kaiMq6": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/PLANTA-002.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Text line #1",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "Button #1 text",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "Button #2 text",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        },
+        "promobox_k4jWVD": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "",
+            "text_line_3": "<p style=\"margin-bottom: 2rem; font-size: 18px;\">Durante más de 40 años Sutex ha sido impulsada por una genuina pasión por la moda, el arte y el cuidado del medio ambiente.</p>\n\n<p style=\"margin-bottom: 2rem; font-size: 18px;\">Nuestra empresa fue fundada en 1978 con el objetivo de desarrollar y comercializar textiles para la confección y la moda.</p>\n\n<p style=\"margin-bottom: 2rem; font-size: 18px;\">Sutex se ha convertido en la compañía más importante en Colombia dentro de su sector, ampliando sus negocios en América, Europa y Asia.</p>",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "text-9",
+            "content_position": "center",
+            "content_align": "left",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "rgba(0,0,0,0)",
+            "color_text_2": "",
+            "color_text_3": "#001c39",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": "www-iwt"
+          }
+        }
+      },
+      "block_order": [
+        "promobox_kaiMq6",
+        "promobox_k4jWVD"
+      ],
+      "custom_css": [],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "2",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "information_line_aWhQf4": {
+      "type": "information-line",
+      "blocks": {
+        "content_RbCtDP": {
+          "type": "content",
+          "settings": {
+            "icon": "theme-116",
+            "title": "ALIADO ESTRATÉGICO",
+            "paragraph": "Aportamos nuestra experiencia para el crecimiento de su negocio",
+            "url": ""
+          }
+        },
+        "content_wYqLKA": {
+          "type": "content",
+          "settings": {
+            "icon": "theme-116",
+            "title": "EQUIPO DE DISEÑADORES",
+            "paragraph": "Contamos con más de 30 profesionales del diseño en Colombia",
+            "url": ""
+          }
+        },
+        "content_HgwQaw": {
+          "type": "content",
+          "settings": {
+            "icon": "theme-116",
+            "title": "DISPONIBILIDAD Y GARANTÍA",
+            "paragraph": "Productos y servicios con la más alta calidad",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_RbCtDP",
+        "content_wYqLKA",
+        "content_HgwQaw"
+      ],
+      "name": "Information line",
+      "settings": {
+        "title": "<h2 style=\"width: 100%; text-align: center; margin-bottom: 30px; font-size: 1.8rem; border-bottom: 1px solid #c6c5cc; padding: 20px 0;\">Propuesta de valor</h2>",
+        "type": "2",
+        "style": "2"
+      }
+    },
+    "information_line_q3b8mJ": {
+      "type": "information-line",
+      "blocks": {
+        "content_b7RKjt": {
+          "type": "content",
+          "settings": {
+            "icon": "theme-116",
+            "title": "CENTRO DE DISEÑO E INVESTIGACIÓN EN ESPAÑA",
+            "paragraph": "Expertos en constante actualización de tendencias en el mundo de la moda",
+            "url": ""
+          }
+        },
+        "content_gbpbmB": {
+          "type": "content",
+          "settings": {
+            "icon": "theme-116",
+            "title": "PROCESOS DE PERSONALIZACIÓN",
+            "paragraph": "Desarrollo de productos textiles personalizados",
+            "url": ""
+          }
+        },
+        "content_xtDB69": {
+          "type": "content",
+          "settings": {
+            "icon": "theme-116",
+            "title": "CO-CREACIÓN Y ACOMPAÑAMIENTO",
+            "paragraph": "Apoyamos sus procesos de cada una de sus colecciones.",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_b7RKjt",
+        "content_gbpbmB",
+        "content_xtDB69"
+      ],
+      "name": "Information line",
+      "settings": {
+        "title": "",
+        "type": "2",
+        "style": "2"
+      }
+    },
+    "gallery_3kVGMT": {
+      "type": "gallery",
+      "blocks": {
+        "item_Q6icYb": {
+          "type": "item",
+          "settings": {
+            "page_name": "",
+            "grid": 12,
+            "image": "shopify://shop_images/LINETIME-SUTEX-SP.jpg",
+            "image_size": 500,
+            "text_line_01": "",
+            "text_line_02": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_Q6icYb"
+      ],
+      "name": "Gallery",
+      "settings": {
+        "container": "boxed",
+        "masonry_enable": true
+      }
+    },
+    "custom_liquid_q3YLaF": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "use_container": true,
+        "custom_liquid": "<h2 style=\"width: 100%; text-align: center; margin-bottom: 30px; font-size: 1.8rem; border-bottom: 1px solid #c6c5cc; padding: 20px 0;\">Sutex en el mundo</h2>"
+      }
+    },
+    "gallery_AxVXra": {
+      "type": "gallery",
+      "blocks": {
+        "item_R8KYzC": {
+          "type": "item",
+          "settings": {
+            "page_name": "",
+            "grid": 12,
+            "image": "shopify://shop_images/MAP-SUTEX-SP_a98e4f3f-ce51-41cc-a240-f4d2c1764f17.jpg",
+            "image_size": 500,
+            "text_line_01": "",
+            "text_line_02": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_R8KYzC"
+      ],
+      "name": "Gallery",
+      "settings": {
+        "container": "boxed",
+        "masonry_enable": true
+      }
+    },
+    "sutex_richtext_gq7XgY": {
+      "type": "sutex-richtext",
+      "name": "Rich text (Sutex)",
+      "settings": {
+        "content_width": "boxed",
+        "text_align": "center",
+        "title": "Una nueva etapa: Haciendo tu creatividad más accesible que nunca.",
+        "content": "<p>En Sutex, acabamos de lanzar nuestra nueva tienda online con una misión muy clara: queremos que expresar tu creatividad a través del diseño sea más fácil, rápido y sin límites.</p><p>Sabemos que el mundo del diseño textil a menudo puede parecer exclusivo o difícil de navegar. Por eso, hemos renovado nuestras herramientas y ofertas digitales para democratizar la producción. Ya sea que necesites cientos de metros o solo uno, nuestra plataforma está diseñada para que empresas de cualquier tamaño puedan trabajar con nosotros de la misma manera: con la mejor tecnología, 0% de consumo de agua y calidad de primera.</p><p></p><ul><li><strong>La Moda:</strong> Crea colecciones únicas con estampados de tendencia, sin exigir producciones masivas.</li></ul><p></p><ul><li><strong>El Hogar:</strong> Personaliza espacios con diseños exclusivos para decoración y cobijas.</li></ul><p></p><ul><li><strong>Tu Negocio:</strong> Desde pequeños emprendedores hasta grandes marcas, te damos la libertad de escalar a tu propio ritmo.</li></ul>",
+        "min_height": 400
+      }
+    },
+    "blocks_kaggrb": {
+      "type": "_blocks",
+      "name": "Banner con dos botones",
+      "settings": {}
+    },
+    "177559200126cbf9d7": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c6f813b_DRtfzr": {
+          "type": "ai_gen_block_c6f813b",
+          "settings": {
+            "background_image": "shopify://shop_images/ChatGPT_Image_Feb_3_2026_06_15_50_PM.png",
+            "background_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0.5,
+            "heading": "Conoce la calidad detrás de nuestra historia.",
+            "text": "<p>Explora más de 1,000 diseños, hechos en Colombia y listos para tu próximo proyecto.</p>",
+            "text_color": "#ffffff",
+            "button_text": "Explorar Catálogo de Telas",
+            "button_link": "shopify://collections/todas-las-telas",
+            "button_bg_color": "#337563",
+            "button_text_color": "#ffffff",
+            "button_hover_bg_color": "#f0f0f0",
+            "button_hover_text_color": "#000000",
+            "desktop_width_percent": 100,
+            "min_height": 400,
+            "content_max_width": 800,
+            "text_alignment": "center",
+            "padding_vertical": 60,
+            "padding_horizontal": 20,
+            "border_radius": 0,
+            "heading_size": 32,
+            "text_size": 16,
+            "spacing": 15,
+            "button_text_size": 14,
+            "button_spacing": 20,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 4
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c6f813b_DRtfzr"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "gallery_PKzhXD",
+    "custom_liquid_R7xAm9",
+    "home_builder_AC9wnz",
+    "information_line_aWhQf4",
+    "information_line_q3b8mJ",
+    "gallery_3kVGMT",
+    "custom_liquid_q3YLaF",
+    "gallery_AxVXra",
+    "sutex_richtext_gq7XgY",
+    "blocks_kaggrb",
+    "177559200126cbf9d7"
+  ]
+}

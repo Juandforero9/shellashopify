@@ -1,0 +1,217 @@
+{% liquid
+  assign desktop_cols = section.settings.desktop_columns | default: '3'
+  assign mobile_cols = section.settings.mobile_columns | default: '1'
+  assign grid_gap = section.settings.grid_gap | default: 24
+  assign computed_container = section.settings.container
+  if computed_container == blank
+    assign computed_container = section.settings.section_width | default: 'boxed'
+    if computed_container == 'full'
+      assign computed_container = 'fullwidth'
+    endif
+  endif
+%}
+
+<style>
+  .sutex-image-grid__wrapper {
+    --desktop-columns: {{ desktop_cols }};
+    --mobile-columns: {{ mobile_cols }};
+    --grid-gap: {{ grid_gap }}px;
+  }
+  .sutex-image-grid__heading {
+    text-align: center;
+    margin: 0 0 8px 0;
+  }
+  .sutex-image-grid__description {
+    text-align: center;
+    margin: 0 0 24px 0;
+  }
+  .sutex-image-grid__items {
+    display: grid;
+    grid-template-columns: repeat(var(--mobile-columns), minmax(0, 1fr));
+    gap: var(--grid-gap);
+  }
+  @media (min-width: 750px) {
+    .sutex-image-grid__items {
+      grid-template-columns: repeat(var(--desktop-columns), minmax(0, 1fr));
+    }
+  }
+  .sutex-image-grid__item {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .sutex-image-grid__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
+<style>
+  .sutex-image-grid {
+    margin-top: var(--sutex-section-mt, 0px);
+    margin-bottom: var(--sutex-section-mb, 0px);
+  }
+</style>
+
+<section class="sutex-image-grid" style="--sutex-section-mt: {{ section.settings.section_margin_top | default: 0 }}px; --sutex-section-mb: {{ section.settings.section_margin_bottom | default: 0 }}px;">
+  <div{% render 'layout-get-container-class', container: computed_container %}>
+    <div class="sutex-image-grid__wrapper">
+    {% if section.settings.heading != blank %}
+      <h2 class="sutex-image-grid__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.description != blank %}
+      <div class="sutex-image-grid__description rte">{{ section.settings.description }}</div>
+    {% endif %}
+
+    <div class="sutex-image-grid__items">
+      {% for block in section.blocks %}
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}" class="sutex-image-grid__item" {{ block.shopify_attributes }}>
+        {% else %}
+          <div class="sutex-image-grid__item" {{ block.shopify_attributes }}>
+        {% endif %}
+
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 1500 | image_tag: loading: 'lazy', widths: '400,600,900,1200,1500', alt: block.settings.alt | escape }}
+          {% else %}
+            {{ 'image' | placeholder_svg_tag }}
+          {% endif %}
+
+        {% if block.settings.link != blank %}
+          </a>
+        {% else %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image grid with heading",
+  "settings": [
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Content width",
+      "default": "boxed",
+      "options": [
+        { "value": "fullwidth", "label": "Fullwidth" },
+        { "value": "boxed", "label": "Boxed" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "section_margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Top spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section_margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom spacing",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "SUTEX MODA"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Descubre nuestras telas para la industria de la confección y la moda.</p>"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "label": "Boxed", "value": "boxed" },
+        { "label": "Full width", "value": "full" }
+      ],
+      "default": "boxed"
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Desktop columns per row",
+      "options": [
+        { "label": "2", "value": "2" },
+        { "label": "3", "value": "3" },
+        { "label": "4", "value": "4" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Mobile columns per row",
+      "options": [
+        { "label": "1", "value": "1" },
+        { "label": "2", "value": "2" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Grid gap",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Image grid with heading",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}{% endstylesheet %}
+{% javascript %}{% endjavascript %}
+
+

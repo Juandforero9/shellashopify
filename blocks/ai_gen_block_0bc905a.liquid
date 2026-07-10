@@ -1,0 +1,540 @@
+{% doc %}
+  @prompt
+    Build a "Telas disponibles" section on the page "Estampa tu diseño en tela" as a card grid. All visual properties must be customizable in the Shopify theme editor — including card background color, card border color, text colors, font sizes, card padding, section padding, and column gap. 3 columns on desktop, 2 on tablet, 1 on mobile. Match the card style used elsewhere in the Shella theme.
+    Section settings (all editable in theme editor):
+    
+    Section heading text
+    Section heading color
+    Section background color
+    Top and bottom section padding
+    Column gap
+    Number of columns (desktop)
+    
+    Card settings (all editable in theme editor):
+    
+    Card background color
+    Card border color and width
+    Card corner radius
+    Card padding
+    Fabric name: font size, font weight, color
+    Composition: font size, color
+    Use case: font size, color, i need the ability to add cards there are 10 fabrics live 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-telas-disponibles-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.section_bg_color }};
+    padding-top: {{ block.settings.section_padding_top }}px;
+    padding-bottom: {{ block.settings.section_padding_bottom }}px;
+  }
+
+  .ai-telas-disponibles-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-telas-disponibles-heading-{{ ai_gen_id }} {
+    text-align: center;
+    margin: 0 0 {{ block.settings.column_gap }}px;
+    color: {{ block.settings.section_heading_color }};
+    font-size: {{ block.settings.heading_font_size }}px;
+  }
+
+  .ai-telas-disponibles-grid-{{ ai_gen_id }} {
+    display: grid;
+    gap: {{ block.settings.column_gap }}px;
+    grid-template-columns: repeat({{ block.settings.columns_desktop }}, 1fr);
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-telas-disponibles-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-telas-disponibles-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ai-telas-disponibles-card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_bg_color }};
+    border: {{ block.settings.card_border_width }}px solid {{ block.settings.card_border_color }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    padding: {{ block.settings.card_padding }}px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-telas-disponibles-fabric-name-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.fabric_name_font_size }}px;
+    font-weight: {{ block.settings.fabric_name_font_weight }};
+    color: {{ block.settings.fabric_name_color }};
+  }
+
+  .ai-telas-disponibles-composition-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.composition_font_size }}px;
+    color: {{ block.settings.composition_color }};
+  }
+
+  .ai-telas-disponibles-use-case-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.use_case_font_size }}px;
+    color: {{ block.settings.use_case_color }};
+  }
+{% endstyle %}
+
+<div class="ai-telas-disponibles-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-telas-disponibles-container-{{ ai_gen_id }}">
+    {% if block.settings.section_heading != blank %}
+      <h2 class="ai-telas-disponibles-heading-{{ ai_gen_id }}">{{ block.settings.section_heading }}</h2>
+    {% endif %}
+
+    <div class="ai-telas-disponibles-grid-{{ ai_gen_id }}">
+      {% for i in (1..10) %}
+        {% liquid
+          assign fabric_name_key = 'fabric_' | append: i | append: '_name'
+          assign composition_key = 'fabric_' | append: i | append: '_composition'
+          assign use_case_key = 'fabric_' | append: i | append: '_use_case'
+
+          assign fabric_name = block.settings[fabric_name_key]
+          assign composition = block.settings[composition_key]
+          assign use_case = block.settings[use_case_key]
+        %}
+
+        {% if fabric_name != blank or composition != blank or use_case != blank %}
+          <div class="ai-telas-disponibles-card-{{ ai_gen_id }}">
+            {% if fabric_name != blank %}
+              <h3 class="ai-telas-disponibles-fabric-name-{{ ai_gen_id }}">{{ fabric_name }}</h3>
+            {% endif %}
+
+            {% if composition != blank %}
+              <p class="ai-telas-disponibles-composition-{{ ai_gen_id }}">{{ composition }}</p>
+            {% endif %}
+
+            {% if use_case != blank %}
+              <p class="ai-telas-disponibles-use-case-{{ ai_gen_id }}">{{ use_case }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Telas disponibles",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "Telas disponibles"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading font size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Background color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Border color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "range",
+      "id": "card_border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Padding",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Fabric name"
+    },
+    {
+      "type": "range",
+      "id": "fabric_name_font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "id": "fabric_name_font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "color",
+      "id": "fabric_name_color",
+      "label": "Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Composition"
+    },
+    {
+      "type": "range",
+      "id": "composition_font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "composition_color",
+      "label": "Color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Use case"
+    },
+    {
+      "type": "range",
+      "id": "use_case_font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "use_case_color",
+      "label": "Color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Fabric 1"
+    },
+    {
+      "type": "text",
+      "id": "fabric_1_name",
+      "label": "Name",
+      "default": "Popelina"
+    },
+    {
+      "type": "text",
+      "id": "fabric_1_composition",
+      "label": "Composition",
+      "default": "100% algodón"
+    },
+    {
+      "type": "text",
+      "id": "fabric_1_use_case",
+      "label": "Use case",
+      "default": "Camisas, vestidos, ropa de cama"
+    },
+    {
+      "type": "header",
+      "content": "Fabric 2"
+    },
+    {
+      "type": "text",
+      "id": "fabric_2_name",
+      "label": "Name",
+      "default": "Lona"
+    },
+    {
+      "type": "text",
+      "id": "fabric_2_composition",
+      "label": "Composition",
+      "default": "100% algodón"
+    },
+    {
+      "type": "text",
+      "id": "fabric_2_use_case",
+      "label": "Use case",
+      "default": "Bolsos, tapicería, decoración"
+    },
+    {
+      "type": "header",
+      "content": "Fabric 3"
+    },
+    {
+      "type": "text",
+      "id": "fabric_3_name",
+      "label": "Name",
+      "default": "Satén"
+    },
+    {
+      "type": "text",
+      "id": "fabric_3_composition",
+      "label": "Composition",
+      "default": "100% poliéster"
+    },
+    {
+      "type": "text",
+      "id": "fabric_3_use_case",
+      "label": "Use case",
+      "default": "Vestidos, blusas, ropa de noche"
+    },
+    {
+      "type": "header",
+      "content": "Fabric 4"
+    },
+    {
+      "type": "text",
+      "id": "fabric_4_name",
+      "label": "Name"
+    },
+    {
+      "type": "text",
+      "id": "fabric_4_composition",
+      "label": "Composition"
+    },
+    {
+      "type": "text",
+      "id": "fabric_4_use_case",
+      "label": "Use case"
+    },
+    {
+      "type": "header",
+      "content": "Fabric 5"
+    },
+    {
+      "type": "text",
+      "id": "fabric_5_name",
+      "label": "Name"
+    },
+    {
+      "type": "text",
+      "id": "fabric_5_composition",
+      "label": "Composition"
+    },
+    {
+      "type": "text",
+      "id": "fabric_5_use_case",
+      "label": "Use case"
+    },
+    {
+      "type": "header",
+      "content": "Fabric 6"
+    },
+    {
+      "type": "text",
+      "id": "fabric_6_name",
+      "label": "Name"
+    },
+    {
+      "type": "text",
+      "id": "fabric_6_composition",
+      "label": "Composition"
+    },
+    {
+      "type": "text",
+      "id": "fabric_6_use_case",
+      "label": "Use case"
+    },
+    {
+      "type": "header",
+      "content": "Fabric 7"
+    },
+    {
+      "type": "text",
+      "id": "fabric_7_name",
+      "label": "Name"
+    },
+    {
+      "type": "text",
+      "id": "fabric_7_composition",
+      "label": "Composition"
+    },
+    {
+      "type": "text",
+      "id": "fabric_7_use_case",
+      "label": "Use case"
+    },
+    {
+      "type": "header",
+      "content": "Fabric 8"
+    },
+    {
+      "type": "text",
+      "id": "fabric_8_name",
+      "label": "Name"
+    },
+    {
+      "type": "text",
+      "id": "fabric_8_composition",
+      "label": "Composition"
+    },
+    {
+      "type": "text",
+      "id": "fabric_8_use_case",
+      "label": "Use case"
+    },
+    {
+      "type": "header",
+      "content": "Fabric 9"
+    },
+    {
+      "type": "text",
+      "id": "fabric_9_name",
+      "label": "Name"
+    },
+    {
+      "type": "text",
+      "id": "fabric_9_composition",
+      "label": "Composition"
+    },
+    {
+      "type": "text",
+      "id": "fabric_9_use_case",
+      "label": "Use case"
+    },
+    {
+      "type": "header",
+      "content": "Fabric 10"
+    },
+    {
+      "type": "text",
+      "id": "fabric_10_name",
+      "label": "Name"
+    },
+    {
+      "type": "text",
+      "id": "fabric_10_composition",
+      "label": "Composition"
+    },
+    {
+      "type": "text",
+      "id": "fabric_10_use_case",
+      "label": "Use case"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Telas disponibles"
+    }
+  ]
+}
+{% endschema %}

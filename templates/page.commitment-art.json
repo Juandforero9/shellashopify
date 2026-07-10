@@ -1,0 +1,190 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "show_content": true
+      }
+    },
+    "custom_liquid_YpXzLC": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "use_container": true,
+        "custom_liquid": "<h2 style=\"width: 100%; text-align: center; margin-bottom: 30px; font-size: 1.8rem; padding: 20px 0;font-weight: 600;\">COMPROMISO CON EL ARTE</h2>"
+      }
+    },
+    "home_builder_hGw8G4": {
+      "type": "home-builder",
+      "blocks": {
+        "promobox_HTbLGA": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image": "shopify://shop_images/BNN-COM_ARTE.jpg",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "Text line #1",
+            "text_line_2": "Text line #2",
+            "text_line_3": "Text line #3",
+            "style": "1",
+            "button_1": "Button #1 text",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "Button #2 text",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        },
+        "custom_html_pky8TL": {
+          "type": "custom_html",
+          "settings": {
+            "page_content": "",
+            "liquid": "<p style=\"margin-top: 2rem; font-size: 18px;\">En Sutex trabajamos para que a través de la moda se logre transmitir lo mejor del arte; por ello nos inspiramos y creamos diseños que hacen que cada producto cumpla con este propósito.\n\nDesde esta iniciativa hemos rodeado a nuestros colaboradores con diferentes expresiones artísticas dentro de nuestras instalaciones, buscando una conexión creativa que se refleje en cada proceso.</p>",
+            "size_of_column": "auto"
+          }
+        }
+      },
+      "block_order": [
+        "promobox_HTbLGA",
+        "custom_html_pky8TL"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "1",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "top_center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    },
+    "home_builder_yjJkP8": {
+      "type": "home-builder",
+      "blocks": {
+        "custom_html_CdzmGV": {
+          "type": "custom_html",
+          "settings": {
+            "page_content": "",
+            "liquid": "<div style=\"position: relative; width: 100%; padding-bottom: 56.25%; height: 0;\">\n  <iframe \n      src=\"https://www.youtube.com/embed/JSCk5HD3psI\"\n      style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\"\n      frameborder=\"0\"\n      allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"\n      allowfullscreen>\n  </iframe>\n</div>",
+            "size_of_column": "auto"
+          }
+        },
+        "promobox_y6axiN": {
+          "type": "promobox",
+          "settings": {
+            "url": "",
+            "image_size": 1450,
+            "image_mobile_size": 550,
+            "image_position_x": 50,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "<h3 style=\"width: 100%; margin-bottom: 30px; font-size: 1.8rem; border-bottom: 1px solid #001c39; padding: 20px 0;font-weight: 600;\">Moda y arte</h3>",
+            "text_line_3": "<p style=\"margin-bottom: 2rem; font-size: 18px;\">Sutex combina lo mejor del arte en cada uno de sus productos y colecciones. Contanstemente buscamos mantenernos actualizados en las tendencias y proponemos nuevas expresiones en el mundo de la moda.</p>",
+            "style": "1",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "text-9",
+            "content_position": "center",
+            "content_align": "left",
+            "add_container": false,
+            "content_width": 100,
+            "text_width": 0,
+            "height": "auto",
+            "min_height": 0,
+            "size_of_column": "auto",
+            "visible": "desktop_mobile",
+            "parallax": "disable",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "animation_text": "none",
+            "color_text_1": "",
+            "color_text_2": "",
+            "color_text_3": "",
+            "color_text_bg": "",
+            "color_curtain_bg": "",
+            "customization_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_html_CdzmGV",
+        "promobox_y6axiN"
+      ],
+      "name": "Builder",
+      "settings": {
+        "title": "",
+        "container": "boxed",
+        "size_of_columns": "2",
+        "size_of_columns_mobile": "1",
+        "margins_for_columns": "none",
+        "align_of_columns": "top_center",
+        "disable_column_paddings": false,
+        "precedence": "",
+        "customization_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_liquid_YpXzLC",
+    "home_builder_hGw8G4",
+    "home_builder_yjJkP8"
+  ]
+}

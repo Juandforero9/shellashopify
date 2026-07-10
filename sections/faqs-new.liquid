@@ -1,0 +1,297 @@
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+.faq-wrapper {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+
+.faq-page-title {
+  font-size: 42px;
+  line-height: 1.1;
+  text-align: center;
+  margin: 0 0 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.faq-page-intro {
+  max-width: 980px;
+  margin: 0 auto 56px;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.faq-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 44px;
+}
+
+.faq-nav-link {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #f4f4f2;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14.5px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.faq-nav-link:hover,
+.faq-nav-link.active {
+  background: #e8edf4;
+}
+
+.faq-section {
+  margin-bottom: 56px;
+}
+
+.faq-section-title {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 22px;
+  padding-bottom: 0;
+  border-bottom: none;
+  font-weight: 500;
+  color: #2f261d;
+  letter-spacing: -0.01em;
+  scroll-margin-top: 40px;
+}
+
+.faq-item {
+  margin-bottom: 14px;
+}
+
+.faq-item details {
+  background: #f7f7f5;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: 24px 70px 24px 30px;
+  background: #f7f7f5;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: 0;
+  transition: background 0.2s ease;
+}
+
+.faq-item summary:hover {
+  background: #f0f0ee;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.faq-item details[open] summary::after {
+  content: "−";
+}
+
+.faq-item details[open] summary {
+  background: #f7f7f5;
+}
+
+.faq-answer {
+  padding: 0 30px 26px;
+  font-size: 16.5px;
+  line-height: 1.85;
+  color: #3a3a3a;
+}
+
+.faq-answer p {
+  margin: 0 0 24px;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-answer ul,
+.faq-answer ol {
+  margin: 0 0 22px 24px;
+  padding: 0;
+}
+
+.faq-answer li {
+  margin-bottom: 8px;
+}
+
+.faq-answer a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media screen and (max-width: 749px) {
+  .faq-wrapper {
+    padding: 16px 0 36px;
+  }
+
+  .faq-page-title {
+    font-size: 34px;
+    text-align: left;
+    margin-bottom: 14px;
+  }
+
+  .faq-page-intro {
+    text-align: left;
+    margin: 0 0 34px;
+    font-size: 16px;
+  }
+
+  .faq-nav {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .faq-nav-link {
+    padding: 9px 14px;
+    font-size: 14px;
+  }
+
+  .faq-section {
+    margin-bottom: 42px;
+  }
+
+  .faq-section-title {
+    font-size: 28px;
+    font-weight: 500;
+    color: #2f261d;
+    margin-bottom: 18px;
+  }
+
+  .faq-item summary {
+    padding: 20px 56px 20px 20px;
+    font-size: 16px;
+  }
+
+  .faq-item summary::after {
+    right: 18px;
+    font-size: 28px;
+  }
+
+  .faq-answer {
+    padding: 0 20px 22px;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+}
+</style>
+
+{% assign faq_data = page.metafields.custom.faq_content.value %}
+
+<div class="page-width">
+  <div class="faq-wrapper">
+    {% if page.title != blank %}
+      <h1 class="faq-page-title">{{ page.title }}</h1>
+    {% endif %}
+
+    {% if page.content != blank %}
+      <div class="faq-page-intro rte">
+        {{ page.content }}
+      </div>
+    {% endif %}
+
+    {% if faq_data and faq_data.sections %}
+   <div class="faq-nav">
+  {% for section in faq_data.sections %}
+   <a href="#{{ section.title | handle }}" class="faq-nav-link">
+  {{ section.title }}
+</a>
+  {% endfor %}
+</div>
+
+      {% for section in faq_data.sections %}
+        <div class="faq-section">
+  <h2 class="faq-section-title" id="{{ section.title | handle }}">{{ section.title }}</h2>
+
+          {% for item in section.faqs %}
+            <div class="faq-item">
+              <details>
+                <summary>{{ item.question }}</summary>
+                <div class="faq-answer rte">
+                  {{ item.answer }}
+                </div>
+              </details>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const allDetails = document.querySelectorAll('.faq-item details');
+
+  allDetails.forEach((detail) => {
+    detail.addEventListener('toggle', function () {
+      if (this.open) {
+        allDetails.forEach((otherDetail) => {
+          if (otherDetail !== this) {
+            otherDetail.removeAttribute('open');
+          }
+        });
+      }
+    });
+  });
+});
+</script>
+
+{% if faq_data and faq_data.sections %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% assign first_item = true %}
+    {% for section in faq_data.sections %}
+      {% for item in section.faqs %}
+        {% unless first_item %},{% endunless %}
+        {
+          "@type": "Question",
+          "name": {{ item.question | json }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ item.answer | replace: '<br>', ' ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | json }}
+          }
+        }
+        {% assign first_item = false %}
+      {% endfor %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Sutex FAQs"
+}
+{% endschema %}

@@ -1,0 +1,453 @@
+{% doc %}
+  @prompt
+    6:14 PMClaude responded: Build a numbered steps section on the page "Estampa tu diseño en tela.Build a numbered steps section on the page "Estampa tu diseño en tela." Use the same numbered steps or how-it-works section style used elsewhere in the Shella theme.
+    Section label (small uppercase text above the steps):
+    Cómo funciona
+    Step 1
+    Heading: Crea tu cuenta
+    Text: Regístrate con tu información de contacto y tu número de identificación — cédula o NIT. Solo necesitas un correo, una contraseña y datos básicos de tu negocio.
+    Step 2
+    Heading: Sube tus diseños
+    Text: Carga tus archivos desde tu gestor de diseños. Aceptamos PNG, JPG, PDF, AI y SVG — ya sea un diseño en rapport (que se repite en toda la tela) o un diseño a la medida de un producto específico, como una cobija o una toalla.
+    Step 3
+    Heading: Pide tu tela y productos
+    Text: Desde tu Sutex Design Manager, selecciona la tela, elige el producto y haz tu pedido directamente. Tu diseño llega impreso y listo para producción, directo a tu puerta.
+    No buttons or links in this section., vertical, not horizontal, to differentiate from the last section
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-steps-section-{{ ai_gen_id }} {
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding }}px 20px;
+    background-color: {{ block.settings.background_color }};
+    display: block;
+  }
+
+  .ai-steps-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-steps-label-{{ ai_gen_id }} {
+    text-align: {{ block.settings.text_alignment }};
+    font-size: {{ block.settings.label_font_size }}px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: {{ block.settings.label_color }};
+    margin-bottom: {{ block.settings.label_spacing }}px;
+    font-weight: 600;
+  }
+
+  .ai-steps-list-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.step_gap }}px;
+    margin-top: {{ block.settings.steps_top_spacing }}px;
+  }
+
+  .ai-step-item-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.step_horizontal_gap }}px;
+    align-items: flex-start;
+    padding: {{ block.settings.step_padding }}px;
+    background-color: {{ block.settings.step_background_color }};
+    border-radius: {{ block.settings.step_border_radius }}px;
+  }
+
+  .ai-step-number-{{ ai_gen_id }} {
+    width: {{ block.settings.number_size }}px;
+    height: {{ block.settings.number_size }}px;
+    min-width: {{ block.settings.number_size }}px;
+    border-radius: 50%;
+    background-color: {{ block.settings.number_background_color }};
+    color: {{ block.settings.number_text_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: {{ block.settings.number_font_size }}px;
+    font-weight: 700;
+  }
+
+  .ai-step-content-{{ ai_gen_id }} {
+    flex: 1;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-step-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_font_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    font-weight: 600;
+  }
+
+  .ai-step-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_font_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-steps-section-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding | times: 0.6 }}px 16px;
+    }
+
+    .ai-step-item-{{ ai_gen_id }} {
+      gap: {{ block.settings.step_horizontal_gap | times: 0.7 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-steps-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-steps-container-{{ ai_gen_id }}">
+    {% if block.settings.section_label != blank %}
+      <div class="ai-steps-label-{{ ai_gen_id }}">
+        {{ block.settings.section_label }}
+      </div>
+    {% endif %}
+
+    <div class="ai-steps-list-{{ ai_gen_id }}">
+      {% if block.settings.step_1_heading != blank %}
+        <div class="ai-step-item-{{ ai_gen_id }}">
+          <div class="ai-step-number-{{ ai_gen_id }}">1</div>
+          <div class="ai-step-content-{{ ai_gen_id }}">
+            <h3 class="ai-step-heading-{{ ai_gen_id }}">{{ block.settings.step_1_heading }}</h3>
+            {% if block.settings.step_1_text != blank %}
+              <p class="ai-step-text-{{ ai_gen_id }}">{{ block.settings.step_1_text }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.step_2_heading != blank %}
+        <div class="ai-step-item-{{ ai_gen_id }}">
+          <div class="ai-step-number-{{ ai_gen_id }}">2</div>
+          <div class="ai-step-content-{{ ai_gen_id }}">
+            <h3 class="ai-step-heading-{{ ai_gen_id }}">{{ block.settings.step_2_heading }}</h3>
+            {% if block.settings.step_2_text != blank %}
+              <p class="ai-step-text-{{ ai_gen_id }}">{{ block.settings.step_2_text }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.step_3_heading != blank %}
+        <div class="ai-step-item-{{ ai_gen_id }}">
+          <div class="ai-step-number-{{ ai_gen_id }}">3</div>
+          <div class="ai-step-content-{{ ai_gen_id }}">
+            <h3 class="ai-step-heading-{{ ai_gen_id }}">{{ block.settings.step_3_heading }}</h3>
+            {% if block.settings.step_3_text != blank %}
+              <p class="ai-step-text-{{ ai_gen_id }}">{{ block.settings.step_3_text }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Numbered steps",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section label"
+    },
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Label text",
+      "default": "Cómo funciona"
+    },
+    {
+      "type": "range",
+      "id": "label_font_size",
+      "label": "Label font size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "label_spacing",
+      "label": "Label spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "step_1_heading",
+      "label": "Heading",
+      "default": "Crea tu cuenta"
+    },
+    {
+      "type": "textarea",
+      "id": "step_1_text",
+      "label": "Text",
+      "default": "Regístrate con tu información de contacto y tu número de identificación — cédula o NIT. Solo necesitas un correo, una contraseña y datos básicos de tu negocio."
+    },
+    {
+      "type": "header",
+      "content": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "step_2_heading",
+      "label": "Heading",
+      "default": "Sube tus diseños"
+    },
+    {
+      "type": "textarea",
+      "id": "step_2_text",
+      "label": "Text",
+      "default": "Carga tus archivos desde tu gestor de diseños. Aceptamos PNG, JPG, PDF, AI y SVG — ya sea un diseño en rapport (que se repite en toda la tela) o un diseño a la medida de un producto específico, como una cobija o una toalla."
+    },
+    {
+      "type": "header",
+      "content": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "step_3_heading",
+      "label": "Heading",
+      "default": "Pide tu tela y productos"
+    },
+    {
+      "type": "textarea",
+      "id": "step_3_text",
+      "label": "Text",
+      "default": "Desde tu Sutex Design Manager, selecciona la tela, elige el producto y haz tu pedido directamente. Tu diseño llega impreso y listo para producción, directo a tu puerta."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 600,
+      "max": 1400,
+      "step": 100,
+      "unit": "px",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "step_gap",
+      "label": "Gap between steps",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "step_horizontal_gap",
+      "label": "Gap between number and text",
+      "min": 15,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "steps_top_spacing",
+      "label": "Steps top spacing",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Step style"
+    },
+    {
+      "type": "range",
+      "id": "step_padding",
+      "label": "Step padding",
+      "min": 0,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "step_background_color",
+      "label": "Step background",
+      "default": "transparent"
+    },
+    {
+      "type": "range",
+      "id": "step_border_radius",
+      "label": "Step border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Number style"
+    },
+    {
+      "type": "range",
+      "id": "number_size",
+      "label": "Number circle size",
+      "min": 40,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "number_font_size",
+      "label": "Number font size",
+      "min": 16,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "number_background_color",
+      "label": "Number background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "number_text_color",
+      "label": "Number text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading font size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Heading spacing",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "label": "Text font size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Numbered steps"
+    }
+  ]
+}
+{% endschema %}

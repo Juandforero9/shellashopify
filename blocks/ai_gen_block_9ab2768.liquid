@@ -1,0 +1,77 @@
+{% doc %}
+  @prompt
+    horizontal line in blue
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-horizontal-line-{{ ai_gen_id }} {
+    width: 100%;
+    margin: {{ block.settings.spacing_top }}px 0 {{ block.settings.spacing_bottom }}px 0;
+  }
+
+  .ai-horizontal-line-{{ ai_gen_id }}__line {
+    width: 100%;
+    height: {{ block.settings.line_thickness }}px;
+    background-color: {{ block.settings.line_color }};
+    border: none;
+    margin: 0;
+  }
+{% endstyle %}
+
+<div class="ai-horizontal-line-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <hr class="ai-horizontal-line-{{ ai_gen_id }}__line">
+</div>
+
+{% schema %}
+{
+  "name": "Horizontal line",
+  "settings": [
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Line color",
+      "default": "#0000FF"
+    },
+    {
+      "type": "range",
+      "id": "line_thickness",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Line thickness",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Top spacing",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom spacing",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Horizontal line"
+    }
+  ]
+}
+{% endschema %}

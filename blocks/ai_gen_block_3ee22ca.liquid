@@ -1,0 +1,349 @@
+{% doc %}
+  @prompt
+    Create a new 'Image with text' section for the homepage with the following editable settings in the theme editor: an image picker on the left (50/50 layout), and on the right: an editable heading, editable body text with bullet point support, an editable button label, and an editable button link. The background should be configurable (default to very light gray). Style should match the theme's typography and primary button style. Pre-fill with this content — Heading: ¿Necesitas producción a gran escala? Somos tu aliado corporativo. Body: Desde el desarrollo de colecciones de moda hasta la dotación de hoteles y grandes proyectos de interiorismo, en Sutex tenemos la capacidad industrial para respaldar tu visión. Combinamos nuestra tecnología de impresión sin agua con tiempos de entrega inigualables. Bullet points: Capacidad Industrial: Producción ágil para pedidos de alto volumen. Asesoría Personalizada: Un equipo experto dedicado exclusivamente a tu cuenta. Calidad Constante: Exactitud de color y acabados premium en cada metro. Button label: Contactar a un Asesor Corporativo.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-image-text-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding }}px 0;
+  }
+
+  .ai-image-text-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-image-text-wrapper-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .ai-image-text-image-column-{{ ai_gen_id }} {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .ai-image-text-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .ai-image-text-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .ai-image-text-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .ai-image-text-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-image-text-content-column-{{ ai_gen_id }} {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .ai-image-text-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    margin: 0 0 20px;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-image-text-body-{{ ai_gen_id }} {
+    font-size: {{ block.settings.body_size }}px;
+    line-height: 1.6;
+    margin: 0 0 24px;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-image-text-body-{{ ai_gen_id }} ul {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+  }
+
+  .ai-image-text-body-{{ ai_gen_id }} ul li {
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  .ai-image-text-body-{{ ai_gen_id }} ul li:before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    color: {{ block.settings.bullet_color }};
+    font-weight: bold;
+  }
+
+  .ai-image-text-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: {{ block.settings.button_bg_color }};
+        color: {{ block.settings.button_text_color }} !important;
+    border: 1px solid {{ block.settings.button_border_color }};
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: {{ block.settings.button_size }}px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .ai-image-text-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_bg_color }};
+    color: {{ block.settings.button_hover_text_color }};
+    border-color: {{ block.settings.button_hover_border_color }};
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-image-text-wrapper-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .ai-image-text-image-column-{{ ai_gen_id }},
+    .ai-image-text-content-column-{{ ai_gen_id }} {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .ai-image-text-heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.85);
+    }
+
+    .ai-image-text-body-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.body_size }}px * 0.95);
+    }
+  }
+{% endstyle %}
+
+<div class="ai-image-text-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-image-text-container-{{ ai_gen_id }}">
+    <div class="ai-image-text-wrapper-{{ ai_gen_id }}">
+      <div class="ai-image-text-image-column-{{ ai_gen_id }}">
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | image_url: width: 800 }}"
+            srcset="{{ block.settings.image | image_url: width: 400 }} 400w, {{ block.settings.image | image_url: width: 580 }} 580w, {{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1160 }} 1160w"
+            sizes="(min-width: 769px) 580px, calc(100vw - 40px)"
+            alt="{{ block.settings.image.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+            class="ai-image-text-image-{{ ai_gen_id }}"
+          >
+        {% else %}
+          <div class="ai-image-text-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+            <div class="ai-image-text-empty-state-{{ ai_gen_id }}">
+              Agrega una imagen aquí
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-image-text-content-column-{{ ai_gen_id }}">
+        {% if block.settings.heading != blank %}
+          <h2 class="ai-image-text-heading-{{ ai_gen_id }}">
+            {{ block.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if block.settings.body_text != blank %}
+          <div class="ai-image-text-body-{{ ai_gen_id }}">
+            {{ block.settings.body_text }}
+          </div>
+        {% endif %}
+
+        {% if block.settings.button_label != blank %}
+          <a
+            href="{{ block.settings.button_link }}"
+            class="ai-image-text-button-{{ ai_gen_id }}"
+          >
+            {{ block.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Imagen con texto",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Imagen"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen"
+    },
+    {
+      "type": "header",
+      "content": "Contenido"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Encabezado",
+      "default": "¿Necesitas producción a gran escala? Somos tu aliado corporativo."
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "Texto del cuerpo",
+      "default": "<p>Desde el desarrollo de colecciones de moda hasta la dotación de hoteles y grandes proyectos de interiorismo, en Sutex tenemos la capacidad industrial para respaldar tu visión. Combinamos nuestra tecnología de impresión sin agua con tiempos de entrega inigualables.</p><ul><li><strong>Capacidad Industrial:</strong> Producción ágil para pedidos de alto volumen.</li><li><strong>Asesoría Personalizada:</strong> Un equipo experto dedicado exclusivamente a tu cuenta.</li><li><strong>Calidad Constante:</strong> Exactitud de color y acabados premium en cada metro.</li></ul>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Etiqueta del botón",
+      "default": "Contactar a un Asesor Corporativo"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace del botón"
+    },
+    {
+      "type": "header",
+      "content": "Estilo"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de fondo",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "bullet_color",
+      "label": "Color de viñetas",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Tamaño del encabezado",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "body_size",
+      "label": "Tamaño del texto",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Espaciado vertical",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Botón"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Color de fondo",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Color del texto",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Color del borde",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Color de fondo (hover)",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Color del texto (hover)",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Color del borde (hover)",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "label": "Tamaño del texto",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    }
+  ],
+  "presets": [
+    {
+      "name": "Imagen con texto"
+    }
+  ],
+  "tag": null
+}
+{% endschema %}

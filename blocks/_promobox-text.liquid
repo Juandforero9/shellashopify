@@ -1,0 +1,229 @@
+{%- assign text_line = block.settings.text_line -%}
+{%- assign size_class = block.settings.size_class | default: 0 -%}
+{%- assign size_class_mobile = block.settings.size_class_mobile | default: 0 -%}
+{%- assign size_class_mobile_enable = block.settings.size_class_mobile_enable -%}
+{%- assign spacing_top = block.settings.spacing_top | default: 0 -%}
+{%- assign spacing_top_mobile = block.settings.spacing_top_mobile | default: 0 -%}
+{%- assign spacing_top_mobile_enable = block.settings.spacing_top_mobile_enable -%}
+{%- assign extra_classes = block.settings.extra_classes -%}
+{%- assign text_uppercase = block.settings.text_uppercase -%}
+{%- assign position_relative = block.settings.position_relative -%}
+{%- assign underline_style = block.settings.underline_style | default: 'none' -%}
+{%- assign link_url = block.settings.link_url -%}
+{%- assign color_text = block.settings.color_text -%}
+{%- assign block_id = 'promobox-text-' | append: block.id -%}
+
+{%- assign link_tag = 'div' -%}
+{%- if link_url != blank -%}
+    {%- assign link_tag = 'a' -%}
+{%- endif -%}
+
+{%- case underline_style -%}
+    {%- when 'underline' -%}
+        {%- assign underline_classes = 'text-underline' -%}
+    {%- when 'underline-hover' -%}
+        {%- assign underline_classes = 'text-underline-hover' -%}
+    {%- when 'underline-hover-disable' -%}
+        {%- assign underline_classes = 'text-underline text-underline-hover-disable' -%}
+{%- endcase -%}
+
+{%- if text_line != blank -%}
+    <style>
+        #{{ block_id }} {
+            margin-top: {{ spacing_top }}px;
+            {%- if color_text != blank -%}
+                color: {{ color_text }};
+            {%- endif -%}
+        }
+        {%- if spacing_top_mobile_enable -%}
+        @media (max-width: 540px) {
+            #{{ block_id }} {
+                {%- if spacing_top_mobile_enable -%}
+                margin-top: {{ spacing_top_mobile }}px;
+                {%- endif -%}
+            }
+        }
+        {%- endif -%}
+    </style>
+    <{{ link_tag }}{% if link_url != blank %} href="{{ link_url }}"{% endif %} class="d-block" {{ block.shopify_attributes }}>
+        <p id="{{ block_id }}" class="promobox__text {{ size_class }}{% if size_class_mobile_enable %} {{ size_class_mobile }}{% endif %}{% if text_uppercase %} text-uppercase{% endif %} {{ underline_classes }}{% if extra_classes != blank %} {{ extra_classes }}{% endif %}">{{ text_line }}</p>
+    </{{ link_tag }}>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:blocks._promobox-text.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_line",
+      "label": "t:settings.text_line",
+      "default": "t:text_defaults.text_line"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "t:settings.link_url"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:settings.color_text"
+    },
+    {
+      "type": "select",
+      "id": "size_class",
+      "label": "t:settings.size_class",
+      "default": "fs",
+      "options": [
+        {
+          "value": "h1",
+          "label": "t:options.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:options.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:options.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:options.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:options.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:options.h6"
+        },
+        {
+          "value": "fs",
+          "label": "t:options.fs"
+        },
+        {
+          "value": "fs-lg",
+          "label": "t:options.fs-lg"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "size_class_mobile_enable",
+      "label": "t:settings.size_class_mobile_enable",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "size_class_mobile",
+      "label": "t:settings.size_class_mobile",
+      "default": "fs-lg-sm-down",
+      "options": [
+        {
+          "value": "h1-sm-down",
+          "label": "t:options.h1-sm-down"
+        },
+        {
+          "value": "h2-sm-down",
+          "label": "t:options.h2-sm-down"
+        },
+        {
+          "value": "h3-sm-down",
+          "label": "t:options.h3-sm-down"
+        },
+        {
+          "value": "h4-sm-down",
+          "label": "t:options.h4-sm-down"
+        },
+        {
+          "value": "h5-sm-down",
+          "label": "t:options.h5-sm-down"
+        },
+        {
+          "value": "h6-sm-down",
+          "label": "t:options.h6-sm-down"
+        },
+        {
+          "value": "fs-sm-down",
+          "label": "t:options.fs-sm-down"
+        },
+        {
+          "value": "fs-lg-sm-down",
+          "label": "t:options.fs-lg-sm-down"
+        }
+      ],
+      "visible_if": "{{ block.settings.size_class_mobile_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "t:settings_scoped.spacing_top.top_margin__R5I__C",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "checkbox",
+      "id": "spacing_top_mobile_enable",
+      "label": "t:settings_scoped.spacing_top_mobile_enable.set_mobile_top_margin__7vR5Em",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "spacing_top_mobile",
+      "label": "t:settings_scoped.spacing_top_mobile.mobile_top_margin__l0JpVw",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.spacing_top_mobile_enable }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "text_uppercase",
+      "label": "t:settings.text_uppercase"
+    },
+    {
+      "type": "select",
+      "id": "underline_style",
+      "label": "t:settings.underline_style",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "underline",
+          "label": "t:options.underline"
+        },
+        {
+          "value": "underline-hover",
+          "label": "t:options.underline-hover"
+        },
+        {
+          "value": "underline-hover-disable",
+          "label": "t:options.underline-hover-disable"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "extra_classes",
+      "label": "t:settings.extra_classes"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks._promobox-text.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,56 @@
+{% liquid
+  for block in section.blocks
+    if forloop.first
+      assign blocks_json = blocks_json | append: '{'
+    endif
+
+    assign type = block.type
+
+    if type contains 'menu-'
+      case type
+        when 'menu-1'
+          assign type = 'images'
+        when 'menu-2'
+          assign type = 'featured-collection'
+        when 'menu-3'
+          assign type = 'collection-list'
+      endcase
+    endif
+
+    assign block_settings_json = block.settings | json
+    assign blocks_json = blocks_json | append: '"' | append: type | append: '-' | append: block.id | append: '"' | append: ':' | append: block_settings_json
+
+    if forloop.last
+      assign blocks_json = blocks_json | append: '}'
+    else
+      assign blocks_json = blocks_json | append: ','
+    endif
+  endfor
+%}
+
+<script>
+  try {
+    if (!window.auroraTheme) {
+      window.auroraTheme = {}
+    }
+
+    const settings = {{ section.settings | json }}
+    const element = document.getElementById('shopify-section-{{ section.id }}')
+    const blocks = {% if section.blocks.size > 0 %}{{ blocks_json }}{% else %}undefined{% endif %}
+
+    window.auroraTheme = {
+      ...window.auroraTheme,
+      sections: {
+        ...window.auroraTheme.sections,
+        '{{ section.id }}': {
+          settings,
+          element,
+          blocks,
+          apps: document.querySelectorAll('[data-custom-app]')
+        },
+      },
+    }
+  } catch {
+
+  }
+</script>

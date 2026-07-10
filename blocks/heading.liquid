@@ -1,0 +1,18 @@
+
+{%- if block.settings.title != blank -%}
+    <h2 {{ block.shopify_attributes }} id="{{ block.id }}" class="h4 home-section-title mb-30 text-center">{{ block.settings.title | remove: '<p>' | remove: '</p>' | remove: ' class="text-underline"' | replace: '&lt;', '<' | replace: '&gt;', '>' }}</h2>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:blocks.heading.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "t:settings.title"
+    }
+  ]
+}
+{% endschema %}
