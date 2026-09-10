@@ -24,10 +24,20 @@
     {%- if settings.product_show_custom_options and settings.product_enable_variants_section -%}
     {% section 'product-variants' %}
     {%- endif -%}
-    {% include 'popups' with quick_view_content: content %}
+    {% include 'popups' with quick_view_content, quick_view_content: content %}
     </body>
     </html>
 {%- else -%}
     {{ content }}
 {%- endif -%}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'popups' with quick_view_content: content %}"
+  to: "{% include 'popups' with quick_view_content, quick_view_content: content %}"
+  position: 1246..1321
+{% endcomment %}

@@ -7,7 +7,7 @@
 {%- endunless -%}
 {% capture variants_select_html %}
     <div class="product-page-info__variants mb-15 d-none">
-        {% include 'product-get-variants' with product: product current_variant: current_variant show_custom_options: settings.product_show_custom_options, product_form_id: product_form_id %}
+        {% include 'product-get-variants' with product, product: product, current_variant: current_variant, show_custom_options: settings.product_show_custom_options, product_form_id: product_form_id %}
     </div>
 {% endcapture %}
 <div class="product-page-info{% if centered %} product-page-info--max-width mx-auto{% endif %}">
@@ -42,7 +42,7 @@
             {%- when 'collections' -%}
             {%- if product.collections.size > 0 -%}
                 <div class="product-page-info__collections mb-3 text-center{% unless centered %} text-md-left{% endunless %}" {{ block.shopify_attributes }}>
-                    {% render 'product-get-collections' with product: product %}
+                    {% render 'product-get-collections' with product, product: product %}
                 </div>
             {%- endif -%}
             {%- when 'title' -%}
@@ -58,7 +58,7 @@
                 <div class="product-page-info__reviews{% if centered %} product-page-info__reviews--center{% endif %} text-center{% unless centered %} text-md-left{% endunless %}" {{ block.shopify_attributes }}>
                     {%- if settings.reviews_type == 'default' -%}
                         <div>
-                            {% render 'product-get-review' with product: product type: 2 centered: centered hide_counter: settings.product_info_hide_reviews_counter hide_mobile_counter: false %}
+                            {% render 'product-get-review' with product, product: product, type: 2, centered: centered, hide_counter: settings.product_info_hide_reviews_counter, hide_mobile_counter: false %}
                         </div>
                     {%- elsif settings.reviews_type == 'growave' and settings.app_growave_enable == true -%}
                         {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-profile' %}{% endcapture %}
@@ -228,7 +228,7 @@
             {%- if countdown_date -%}
                 <div class="product-page-info__countdown mb-15" {{ block.shopify_attributes }}>
                     {% capture countdown_title %}{{ 'products.product.countdown.title' | t }}{% endcapture %}
-                    {% render 'product-get-countdown' with countdown_date: countdown_date, countdown_type: 2, countdown_title: countdown_title, centered: centered %}
+                    {% render 'product-get-countdown' with countdown_date, countdown_date: countdown_date, countdown_type: 2, countdown_title: countdown_title, centered: centered %}
                 </div>
             {%- endif -%}
             {%- when 'stock_countdown' -%}
@@ -273,7 +273,7 @@
                         {%- unless is_quick_view -%}
                             {%- assign trigger_id = 'footbar' -%}
                         {%- endunless -%}
-                        {% include 'product-get-options' with options_type: 2 centered: centered options_show_title: true change_history: change_history %}
+                        {% include 'product-get-options' with options_type, options_type: 2, centered: centered, options_show_title: true, change_history: change_history %}
                     </div>
                 {%- endunless -%}
                 {{ variants_select_html }}
@@ -321,7 +321,7 @@
                     {%- unless is_quick_view -%}
                         {%- assign quantity_connect = 'footbar' -%}
                     {%- endunless -%}
-                    {% render 'product-get-quantity' with quantity_show_title: true quantity_connect: quantity_connect, product_form_id: product_form_id %}
+                    {% render 'product-get-quantity' with quantity_show_title, quantity_show_title: true, quantity_connect: quantity_connect, product_form_id: product_form_id %}
                 </div>
             {%- endif -%}
             {%- assign has_selling_plan = false -%}
@@ -338,11 +338,11 @@
                 {% endfor %}
             {% endcapture %}
             <select name="selling_plan"{% unless settings.product_info_show_selling_plan and has_selling_plan %} class="d-none"{% endunless %}>{{ selling_plan_html }}</select>
-            {% include 'product-page-get-buttons' with product_form_id: product_form_id %}
+            {% include 'product-page-get-buttons' with product_form_id, product_form_id: product_form_id %}
             {%- when 'free_shipping' -%}
             {%- if settings.cart_show_free_shipping -%}
                 <div class="product-page-info__free-shipping mb-40" {{ block.shopify_attributes }}>
-                    {% render 'free-shipping' with mobile_centered: true centered: centered %}
+                    {% render 'free-shipping' with mobile_centered, mobile_centered: true, centered: centered %}
                 </div>
             {%- endif -%}
             {%- when 'pickup_availability' -%}
@@ -356,7 +356,7 @@
             {%- when 'payments' -%}
             <div class="product-page-info__payments product-page-info__field d-flex flex-column align-items-start{% if centered %} align-items-md-center{% endif %} mb-15" {{ block.shopify_attributes }}>
                 <label class="mb-6">{{ 'products.product.payments' | t }}:</label>
-                {% include 'payments' with payments_sequence: settings.payment_sequence_product %}
+                {% include 'payments' with payments_sequence, payments_sequence: settings.payment_sequence_product %}
             </div>
             {%- when 'payments_custom' -%}
             <div class="product-page-info__payments product-page-info__field d-flex flex-column align-items-start{% if centered %} align-items-md-center{% endif %} mb-15" {{ block.shopify_attributes }}>
@@ -406,3 +406,56 @@
 
 {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-get-variants' with product: product current_variant:
+    current_variant show_custom_options: settings.product_show_custom_options, product_form_id:
+    product_form_id %}"
+  to: "{% include 'product-get-variants' with product, product: product, current_variant:
+    current_variant, show_custom_options: settings.product_show_custom_options, product_form_id:
+    product_form_id %}"
+  position: 329..523
+- from: "{% render 'product-get-collections' with product: product %}"
+  to: "{% render 'product-get-collections' with product, product: product %}"
+  position: 2494..2563
+- from: "{% render 'product-get-review' with product: product type: 2 centered: centered
+    hide_counter: settings.product_info_hide_reviews_counter hide_mobile_counter:
+    false %}"
+  to: "{% render 'product-get-review' with product, product: product, type: 2, centered:
+    centered, hide_counter: settings.product_info_hide_reviews_counter, hide_mobile_counter:
+    false %}"
+  position: 3468..3647
+- from: "{% render 'product-get-countdown' with countdown_date: countdown_date, countdown_type:
+    2, countdown_title: countdown_title, centered: centered %}"
+  to: "{% render 'product-get-countdown' with countdown_date, countdown_date: countdown_date,
+    countdown_type: 2, countdown_title: countdown_title, centered: centered %}"
+  position: 15792..15953
+- from: "{% include 'product-get-options' with options_type: 2 centered: centered
+    options_show_title: true change_history: change_history %}"
+  to: "{% include 'product-get-options' with options_type, options_type: 2, centered:
+    centered, options_show_title: true, change_history: change_history %}"
+  position: 20706..20854
+- from: "{% render 'product-get-quantity' with quantity_show_title: true quantity_connect:
+    quantity_connect, product_form_id: product_form_id %}"
+  to: "{% render 'product-get-quantity' with quantity_show_title, quantity_show_title:
+    true, quantity_connect: quantity_connect, product_form_id: product_form_id %}"
+  position: 24575..24732
+- from: "{% include 'product-page-get-buttons' with product_form_id: product_form_id
+    %}"
+  to: "{% include 'product-page-get-buttons' with product_form_id, product_form_id:
+    product_form_id %}"
+  position: 25654..25749
+- from: "{% render 'free-shipping' with mobile_centered: true centered: centered %}"
+  to: "{% render 'free-shipping' with mobile_centered, mobile_centered: true, centered:
+    centered %}"
+  position: 25971..26063
+- from: "{% include 'payments' with payments_sequence: settings.payment_sequence_product
+    %}"
+  to: "{% include 'payments' with payments_sequence, payments_sequence: settings.payment_sequence_product
+    %}"
+  position: 26975..27076
+{% endcomment %}

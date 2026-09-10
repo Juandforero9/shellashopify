@@ -135,7 +135,7 @@
                              data-height="{{ block.settings.grid_height }}"
                         >
                             <div class="d-flex flex-center {{ content_align_x }}">
-                                {% render 'promobox' with block: block get_only_content: true %}
+                                {% render 'promobox' with block, block: block, get_only_content: true %}
                             </div>
                         </div>
                     {%- endif -%}
@@ -160,4 +160,13 @@
             {%- endif -%}
         </div>
     {%- endif -%}
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'promobox' with block: block get_only_content: true %}"
+  to: "{% render 'promobox' with block, block: block, get_only_content: true %}"
+  position: 9358..9430
+{%- endcomment -%}

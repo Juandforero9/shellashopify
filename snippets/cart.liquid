@@ -36,7 +36,7 @@
                                                     <div class="d-flex align-items-center align-items-sm-start align-items-xl-center flex-sm-column flex-xl-row w-100">
                                                         {%- if item.image != blank -%}
                                                             <a href="{{ item.url | within: collections.all }}" class="cart__image mb-sm-15 mb-xl-0 mr-20 mr-sm-0 mr-xl-20">
-                                                                {% render 'rimage' with image: item.image size: '150x' format: image_format image_class: 'w-100' %}
+                                                                {% render 'rimage' with image, image: item.image, size: '150x', format: image_format, image_class: 'w-100' %}
                                                             </a>
                                                         {%- endif -%}
                                                         <div class="d-flex flex-column">
@@ -78,13 +78,13 @@
                                                 <div class="col-sm-7 col-lg-8 col-xl-6">
                                                     <div class="row d-flex align-items-center">
                                                         <div class="col col-sm-4 col-lg-4">
-                                                            {% include 'product-get-price' with price: item.price compare_at_price: item.original_price current_variant: item available: true %}
+                                                            {% include 'product-get-price' with price, price: item.price, compare_at_price: item.original_price, current_variant: item, available: true %}
                                                         </div>
                                                         <div class="col col-sm-4 col-lg-4">
                                                             <input type="number" class="mb-0 text-center text-sm-left js-input-quantity-cart" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="1">
                                                         </div>
                                                         <div class="col col-sm-4 col-lg-4 text-right">
-                                                            {% include 'product-get-price' with price: item.line_price compare_at_price: null current_variant: item available: true %}
+                                                            {% include 'product-get-price' with price, price: item.line_price, compare_at_price: nil, current_variant: item, available: true %}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -224,4 +224,25 @@
         </div>
     {%- endif -%}
     </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: item.image size: '150x' format: image_format
+    image_class: 'w-100' %}"
+  to: "{% render 'rimage' with image, image: item.image, size: '150x', format: image_format,
+    image_class: 'w-100' %}"
+  position: 3100..3209
+- from: "{% include 'product-get-price' with price: item.price compare_at_price: item.original_price
+    current_variant: item available: true %}"
+  to: "{% include 'product-get-price' with price, price: item.price, compare_at_price:
+    item.original_price, current_variant: item, available: true %}"
+  position: 7148..7290
+- from: "{% include 'product-get-price' with price: item.line_price compare_at_price:
+    null current_variant: item available: true %}"
+  to: "{% include 'product-get-price' with price, price: item.line_price, compare_at_price:
+    nil, current_variant: item, available: true %}"
+  position: 7902..8033
+{%- endcomment -%}

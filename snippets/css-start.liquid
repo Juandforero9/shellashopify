@@ -201,14 +201,14 @@
         opacity: {{ settings.layout_preloader_opacity }};
     }
     
-    {% render 'css-style-button' with class: '.product-collection__button-add-to-cart .btn' type: product_collection_add_to_cart_btn_type %}
-    {% render 'css-style-button' with class: '.product-page-info__button-add-to-cart .btn' type: product_page_add_to_cart_btn_type %}
-    {% render 'css-style-button' with class: '.product-page-info__button-add-to-wishlist .btn' type: product_page_wishlist_btn_type %}
-    {% render 'css-style-button' with class: '.product-page-info__button-add-to-compare .btn' type: product_page_compare_btn_type %}
-    {% render 'css-style-button' with class: '.one-product-info__button-add-to-cart .btn' type: one_product_add_to_cart_btn_type %}
-    {% render 'css-style-button' with class: '.carousel-articles .btn' type: article_carousel_btn_type %}
-    {% render 'css-style-button' with class: '.pagination .btn' type: pagination_btn_type %}
-    {% render 'css-style-button' with class: '.empty-btn' type: empty_btn_type %}
+    {% render 'css-style-button' with class, class: '.product-collection__button-add-to-cart .btn', type: product_collection_add_to_cart_btn_type %}
+    {% render 'css-style-button' with class, class: '.product-page-info__button-add-to-cart .btn', type: product_page_add_to_cart_btn_type %}
+    {% render 'css-style-button' with class, class: '.product-page-info__button-add-to-wishlist .btn', type: product_page_wishlist_btn_type %}
+    {% render 'css-style-button' with class, class: '.product-page-info__button-add-to-compare .btn', type: product_page_compare_btn_type %}
+    {% render 'css-style-button' with class, class: '.one-product-info__button-add-to-cart .btn', type: one_product_add_to_cart_btn_type %}
+    {% render 'css-style-button' with class, class: '.carousel-articles .btn', type: article_carousel_btn_type %}
+    {% render 'css-style-button' with class, class: '.pagination .btn', type: pagination_btn_type %}
+    {% render 'css-style-button' with class, class: '.empty-btn', type: empty_btn_type %}
 
     @media (min-width: 1025px) {
         .btn,
@@ -419,4 +419,50 @@
           .forEach(element => element.rel = 'stylesheet');
     }
   })();
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'css-style-button' with class: '.product-collection__button-add-to-cart
+    .btn' type: product_collection_add_to_cart_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.product-collection__button-add-to-cart
+    .btn', type: product_collection_add_to_cart_btn_type %}"
+  position: 9602..9746
+- from: "{% render 'css-style-button' with class: '.product-page-info__button-add-to-cart
+    .btn' type: product_page_add_to_cart_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.product-page-info__button-add-to-cart
+    .btn', type: product_page_add_to_cart_btn_type %}"
+  position: 9752..9889
+- from: "{% render 'css-style-button' with class: '.product-page-info__button-add-to-wishlist
+    .btn' type: product_page_wishlist_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.product-page-info__button-add-to-wishlist
+    .btn', type: product_page_wishlist_btn_type %}"
+  position: 9895..10033
+- from: "{% render 'css-style-button' with class: '.product-page-info__button-add-to-compare
+    .btn' type: product_page_compare_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.product-page-info__button-add-to-compare
+    .btn', type: product_page_compare_btn_type %}"
+  position: 10039..10175
+- from: "{% render 'css-style-button' with class: '.one-product-info__button-add-to-cart
+    .btn' type: one_product_add_to_cart_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.one-product-info__button-add-to-cart
+    .btn', type: one_product_add_to_cart_btn_type %}"
+  position: 10181..10316
+- from: "{% render 'css-style-button' with class: '.carousel-articles .btn' type:
+    article_carousel_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.carousel-articles .btn',
+    type: article_carousel_btn_type %}"
+  position: 10322..10431
+- from: "{% render 'css-style-button' with class: '.pagination .btn' type: pagination_btn_type
+    %}"
+  to: "{% render 'css-style-button' with class, class: '.pagination .btn', type: pagination_btn_type
+    %}"
+  position: 10437..10533
+- from: "{% render 'css-style-button' with class: '.empty-btn' type: empty_btn_type
+    %}"
+  to: "{% render 'css-style-button' with class, class: '.empty-btn', type: empty_btn_type
+    %}"
+  position: 10539..10624
+{%- endcomment -%}

@@ -5,7 +5,7 @@
     {%- assign image_format = null -%}
 {%- endif -%}
 {%- assign product_margin_bottom = product_margin_bottom | default: 30 -%}
-{% include 'product-res-variables' with url_without_collection: true %}
+{% include 'product-res-variables' with url_without_collection, url_without_collection: true %}
 {%- assign image_size = image_size | default: '600x' -%}
 {%- assign show_label_in_stock = show_label_in_stock | default: settings.product_collection_show_label_in_stock -%}
 {%- assign show_label_pre_order = show_label_pre_order | default: settings.product_collection_show_label_pre_order -%}
@@ -121,7 +121,7 @@
     <div class="product-collection__wrapper mb-30 mb-lg-{{ product_margin_bottom }}">
         <div class="d-flex flex-column">
             <div class="product-collection__image product-image product-image--hover-{{ settings.product_hover_animation_type }} position-relative w-100 js-product-images-navigation js-product-images-hovered-end{% if settings.product_replace_images_hover %} js-product-images-hover{% endif %}"{% if settings.product_replace_images_hover and hover_image != blank %} data-js-product-image-hover="{{ img_hover_url }}" data-js-product-image-hover-id="{{ hover_image.id }}"{% endif %}>
-                {% render 'product-get-images' with url: url image: current_image image_size: image_size title: title %}
+                {% render 'product-get-images' with url, url: url, image: current_image, image_size: image_size, title: title %}
                 {%- if show_label_in_stock or show_label_pre_order or show_label_out_stock or show_label_sale or show_label_new or show_label_hot -%}
                     {%- assign label_present = true -%}
                 {%- else -%}
@@ -154,7 +154,7 @@
                         {%- endif -%}
                         {%- if show_button_quick_view -%}
                             <div class="product-image__overlay-top-right product-collection__button-quick-view position-lg-relative d-none d-lg-flex mb-lg-10 ml-lg-auto">
-                                {% render 'product-get-button-quick-view' with product_enable_tooltips: product_enable_tooltips %}
+                                {% render 'product-get-button-quick-view' with product_enable_tooltips, product_enable_tooltips: product_enable_tooltips %}
                             </div>
                         {%- endif -%}
                     </div>
@@ -164,12 +164,12 @@
                         <a href="{{ url }}" class="absolute-stretch cursor-default"></a>
                         {%- if show_countdown -%}
                             <div class="product-image__overlay-bottom-left product-collection__countdown position-relative mt-10">
-                                {% render 'product-get-countdown' with countdown_date: countdown_date centered: centered %}
+                                {% render 'product-get-countdown' with countdown_date, countdown_date: countdown_date, centered: centered %}
                             </div>
                         {%- endif -%}
                         {%- if show_images_navigation -%}
                             <div class="product-image__overlay-bottom-right product-collection__images-navigation position-relative d-none d-lg-block mt-10 ml-auto">
-                                {% render 'product-get-images-navigation' with product: product %}
+                                {% render 'product-get-images-navigation' with product, product: product %}
                             </div>
                         {%- endif -%}
                     </div>
@@ -186,7 +186,7 @@
                     {% when 'collections' %}
                         {%- if product.collections.size > 0 -%}
                             <div class="product-collection__more-info mb-{% if product_collection_content_offsets == 1 %}3{% else %}6{% endif %}">
-                                {% render 'product-get-collections' with product: product %}
+                                {% render 'product-get-collections' with product, product: product %}
                             </div>
                         {%- endif -%}
                     {% when 'vendor' %}
@@ -252,7 +252,7 @@
                 <div class="product-collection__control d-flex flex-column w-100">
                     {%- if show_options and show_custom_options -%}
                         <div class="product-collection__options">
-                            {% include 'product-get-options' with select_dropdown_position: 'top' %}
+                            {% include 'product-get-options' with select_dropdown_position, select_dropdown_position: 'top' %}
                         </div>
                     {%- else -%}
                         {%- assign variants_size = product.variants | size -%}
@@ -269,12 +269,12 @@
                     <input type="hidden" name="selling_plan" value="{{ current_selling_plan_allocation.selling_plan.id | default: '' }}">
                     {%- if show_button_add_to_cart or show_options -%}
                         <div class="product-collection__variants mb-10{% if show_options == false or show_custom_options %} d-none{% elsif product.variants.size == 1 and product.variants.first.title contains 'Default' %} d-none{% endif %}">
-                            {% render 'product-get-variants' with product: product current_variant: current_variant show_options: show_options show_custom_options: show_custom_options, product_form_id: product_form_id %}
+                            {% render 'product-get-variants' with product, product: product, current_variant: current_variant, show_options: show_options, show_custom_options: show_custom_options, product_form_id: product_form_id %}
                         </div>
                     {%- endif -%}
                     {%- if show_quantity -%}
                         <div class="product-collection__quantity d-flex justify-content-center mb-10">
-                            {% render 'product-get-quantity' with quantity_type: 5, product_form_id: product_form_id %}
+                            {% render 'product-get-quantity' with quantity_type, quantity_type: 5, product_form_id: product_form_id %}
                         </div>
                     {%- endif -%}
                     {%- if show_button_add_to_cart or show_button_add_to_wishlist or show_button_add_to_compare or show_button_quick_view -%}
@@ -305,7 +305,7 @@
                                     {%- endif -%}
                                     {%- if show_button_quick_view -%}
                                         <div class="product-collection__button-quick-view-mobile d-lg-none mb-10">
-                                            {% render 'product-get-button-quick-view' with type: 'btn-text' product_enable_tooltips: product_enable_tooltips %}
+                                            {% render 'product-get-button-quick-view' with type, type: 'btn-text', product_enable_tooltips: product_enable_tooltips %}
                                         </div>
                                     {%- endif -%}
                                 </div>
@@ -316,7 +316,7 @@
                 {%- if show_reviews -%}
                     <div class="product-collection__reviews">
                         {%- if settings.reviews_type == 'default' -%}
-                            {% render 'product-get-review' with product: product hide_counter: hide_reviews_counter hide_mobile_counter: hide_reviews_mobile_counter %}
+                            {% render 'product-get-review' with product, product: product, hide_counter: hide_reviews_counter, hide_mobile_counter: hide_reviews_mobile_counter %}
                         {%- elsif settings.reviews_type == 'growave' and settings.app_growave_enable == true -%}
                             {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
                             {%- unless the_snippet_review_avg contains 'Liquid error' or product.metafields.ssw['review'].avg == 0 -%}
@@ -342,7 +342,7 @@
                     {%- if show_reviews -%}
                         <div class="product-collection__list-v2-reviews">
                             {%- if settings.reviews_type == 'default' -%}
-                                {% render 'product-get-review' with product: product hide_counter: false hide_mobile_counter: hide_reviews_mobile_counter %}
+                                {% render 'product-get-review' with product, product: product, hide_counter: false, hide_mobile_counter: hide_reviews_mobile_counter %}
                             {%- elsif settings.reviews_type == 'growave' and settings.app_growave_enable == true -%}
                                 {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
                                 {%- unless the_snippet_review_avg contains 'Liquid error' or product.metafields.ssw['review'].avg == 0 -%}
@@ -359,12 +359,12 @@
                     {%- endif -%}
                     {%- if show_list_quantity -%}
                         <div class="product-collection__list-v2-quantity mt-20">
-                            {% render 'product-get-quantity' with quantity_type: 2, product_form_id: product_form_id %}
+                            {% render 'product-get-quantity' with quantity_type, quantity_type: 2, product_form_id: product_form_id %}
                         </div>
                     {%- endif -%}
                     {%- if show_button_add_to_cart -%}
                         <div class="product-collection__list-v2-button-add-to-cart mt-25">
-                            {% include 'product-get-button-cart' with button_colorize: 2 %}
+                            {% include 'product-get-button-cart' with button_colorize, button_colorize: 2 %}
                         </div>
                     {%- endif -%}
                     {%- if show_button_add_to_wishlist or show_button_add_to_compare -%}
@@ -432,4 +432,75 @@
         </script>
     {%- endif -%}
 </product-item>
-{% include 'product-res-variables-clear' %}
+{% include 'product-res-variables-clear' %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-res-variables' with url_without_collection: true %}"
+  to: "{% include 'product-res-variables' with url_without_collection, url_without_collection:
+    true %}"
+  position: 262..357
+- from: "{% render 'product-get-images' with url: url image: current_image image_size:
+    image_size title: title %}"
+  to: "{% render 'product-get-images' with url, url: url, image: current_image, image_size:
+    image_size, title: title %}"
+  position: 8290..8402
+- from: "{% render 'product-get-button-quick-view' with product_enable_tooltips: product_enable_tooltips
+    %}"
+  to: "{% render 'product-get-button-quick-view' with product_enable_tooltips, product_enable_tooltips:
+    product_enable_tooltips %}"
+  position: 10690..10813
+- from: "{% render 'product-get-countdown' with countdown_date: countdown_date centered:
+    centered %}"
+  to: "{% render 'product-get-countdown' with countdown_date, countdown_date: countdown_date,
+    centered: centered %}"
+  position: 11511..11619
+- from: "{% render 'product-get-images-navigation' with product: product %}"
+  to: "{% render 'product-get-images-navigation' with product, product: product %}"
+  position: 11954..12029
+- from: "{% render 'product-get-collections' with product: product %}"
+  to: "{% render 'product-get-collections' with product, product: product %}"
+  position: 13113..13182
+- from: "{% include 'product-get-options' with select_dropdown_position: 'top' %}"
+  to: "{% include 'product-get-options' with select_dropdown_position, select_dropdown_position:
+    'top' %}"
+  position: 17962..18060
+- from: "{% render 'product-get-variants' with product: product current_variant: current_variant
+    show_options: show_options show_custom_options: show_custom_options, product_form_id:
+    product_form_id %}"
+  to: "{% render 'product-get-variants' with product, product: product, current_variant:
+    current_variant, show_options: show_options, show_custom_options: show_custom_options,
+    product_form_id: product_form_id %}"
+  position: 19324..19528
+- from: "{% render 'product-get-quantity' with quantity_type: 5, product_form_id:
+    product_form_id %}"
+  to: "{% render 'product-get-quantity' with quantity_type, quantity_type: 5, product_form_id:
+    product_form_id %}"
+  position: 19775..19881
+- from: "{% render 'product-get-button-quick-view' with type: 'btn-text' product_enable_tooltips:
+    product_enable_tooltips %}"
+  to: "{% render 'product-get-button-quick-view' with type, type: 'btn-text', product_enable_tooltips:
+    product_enable_tooltips %}"
+  position: 22629..22751
+- from: "{% render 'product-get-review' with product: product hide_counter: hide_reviews_counter
+    hide_mobile_counter: hide_reviews_mobile_counter %}"
+  to: "{% render 'product-get-review' with product, product: product, hide_counter:
+    hide_reviews_counter, hide_mobile_counter: hide_reviews_mobile_counter %}"
+  position: 23229..23379
+- from: "{% render 'product-get-review' with product: product hide_counter: false
+    hide_mobile_counter: hide_reviews_mobile_counter %}"
+  to: "{% render 'product-get-review' with product, product: product, hide_counter:
+    false, hide_mobile_counter: hide_reviews_mobile_counter %}"
+  position: 25121..25256
+- from: "{% render 'product-get-quantity' with quantity_type: 2, product_form_id:
+    product_form_id %}"
+  to: "{% render 'product-get-quantity' with quantity_type, quantity_type: 2, product_form_id:
+    product_form_id %}"
+  position: 26524..26630
+- from: "{% include 'product-get-button-cart' with button_colorize: 2 %}"
+  to: "{% include 'product-get-button-cart' with button_colorize, button_colorize:
+    2 %}"
+  position: 26875..26955
+{%- endcomment -%}

@@ -21,9 +21,18 @@
 {%- endif -%}
 {%- if settings.layout_enable_page_preloader -%}
 	<div id="page-preloader">
-        {% render 'preloader-spinner' with fullpage: true %}
+        {% render 'preloader-spinner' with fullpage, fullpage: true %}
     </div>
 {%- endif -%}
 <script>
     theme.WindowAnaliz.initScrollPaddingStyle();
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'preloader-spinner' with fullpage: true %}"
+  to: "{% render 'preloader-spinner' with fullpage, fullpage: true %}"
+  position: 812..874
+{%- endcomment -%}

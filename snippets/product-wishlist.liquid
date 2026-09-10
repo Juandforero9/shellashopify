@@ -31,7 +31,7 @@
                     {% when 'collections' %}
                         {%- if product.collections.size > 0 -%}
                             <div class="product-collection__more-info mb-3">
-                                {% render 'product-get-collections' with product: product %}
+                                {% render 'product-get-collections' with product, product: product %}
                             </div>
                         {%- endif -%}
                     {% when 'vendor' %}
@@ -58,7 +58,7 @@
                 <div class="d-flex flex-column">
                     {%- if show_button_add_to_cart -%}
                         <div class="product-wishlist__variants d-none">
-                            {% render 'product-get-variants' with product: product current_variant: current_variant show_options: show_options show_custom_options: show_custom_options, product_form_id: product_form_id %}
+                            {% render 'product-get-variants' with product, product: product, current_variant: current_variant, show_options: show_options, show_custom_options: show_custom_options, product_form_id: product_form_id %}
                         </div>
                     {%- endif -%}
                     {%- if show_button_add_to_cart or show_button_quick_view -%}
@@ -67,7 +67,7 @@
                             {%- if show_button_quick_view -%}
                                 <div class="product-collection__buttons-section d-flex d-lg-none px-lg-10">
                                     <div class="product-wishlist__button-quick-view-mobile mb-10">
-                                        {% render 'product-get-button-quick-view' with type: 'btn-text' product_enable_tooltips: product_enable_tooltips %}
+                                        {% render 'product-get-button-quick-view' with type, type: 'btn-text', product_enable_tooltips: product_enable_tooltips %}
                                     </div>
                                 </div>
                             {%- endif -%}
@@ -80,4 +80,25 @@
             </div>
         </div>
     </product-item>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-get-collections' with product: product %}"
+  to: "{% render 'product-get-collections' with product, product: product %}"
+  position: 2870..2939
+- from: "{% render 'product-get-variants' with product: product current_variant: current_variant
+    show_options: show_options show_custom_options: show_custom_options, product_form_id:
+    product_form_id %}"
+  to: "{% render 'product-get-variants' with product, product: product, current_variant:
+    current_variant, show_options: show_options, show_custom_options: show_custom_options,
+    product_form_id: product_form_id %}"
+  position: 4372..4576
+- from: "{% render 'product-get-button-quick-view' with type: 'btn-text' product_enable_tooltips:
+    product_enable_tooltips %}"
+  to: "{% render 'product-get-button-quick-view' with type, type: 'btn-text', product_enable_tooltips:
+    product_enable_tooltips %}"
+  position: 5211..5333
+{%- endcomment -%}

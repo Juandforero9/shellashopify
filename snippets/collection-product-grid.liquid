@@ -299,7 +299,7 @@
                                                                     <div>
                                                                         {%- if item.image -%}
                                                                             <a href="{{ item.url }}" class="d-block mb-20" title="{{ item.title | escape }}">
-                                                                                {% render 'rimage' with image: item.image alt: item.image.alt %}
+                                                                                {% render 'rimage' with image, image: item.image, alt: item.image.alt %}
                                                                             </a>
                                                                         {%- endif -%}
                                                                     </div>
@@ -541,4 +541,13 @@
     <script>
         theme.AssetsLoader.require('scripts', 'sticky_sidebar');
     </script>
-{%- endif -%}
+{%- endif -%}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: item.image alt: item.image.alt %}"
+  to: "{% render 'rimage' with image, image: item.image, alt: item.image.alt %}"
+  position: 30215..30287
+{%- endcomment -%}

@@ -67,7 +67,7 @@
     {%- endif -%}
     {%- if settings.product_collection_show_button_quick_view -%}
         <div class="popup__body position-relative d-none flex-center px-15 py-30{% if quick_view_content != blank %} show visible{% endif %}" data-js-popup-name="quick-view" data-popup-center data-js-popup-ajax>
-            {% include 'popup-quick-view' with content: quick_view_content %}
+            {% include 'popup-quick-view' with content, content: quick_view_content %}
         </div>
     {%- endif -%}
     {%- if template_handle == 'password' -%}
@@ -140,4 +140,13 @@
 {%- endif -%}
 <script>
     theme.AssetsLoader.loadInlineStyles();
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'popup-quick-view' with content: quick_view_content %}"
+  to: "{% include 'popup-quick-view' with content, content: quick_view_content %}"
+  position: 4936..5010
+{%- endcomment -%}

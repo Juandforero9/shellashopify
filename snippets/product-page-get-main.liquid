@@ -17,7 +17,7 @@
                 {%- endif -%}
             </div>
             <div class="col-12 col-md-{{ 12 | minus: gallery_size }}">
-                {% include 'product-page-get-info' with product_form_id: product_form_id %}
+                {% include 'product-page-get-info' with product_form_id, product_form_id: product_form_id %}
             </div>
         </div>
     </single-product>
@@ -34,7 +34,7 @@
                 {%- endif -%}
             </div>
             <div class="col-12 col-md-{{ 12 | minus: gallery_size }}">
-                {% include 'product-page-get-info' with product_form_id: product_form_id %}
+                {% include 'product-page-get-info' with product_form_id, product_form_id: product_form_id %}
                 {%- if section.settings.show_tabs -%}
                     <div class="product-page__tabs mt-30 mb-40">
                         {% include 'product-page-get-tabs' %}
@@ -59,7 +59,7 @@
                 {%- if enable_sticky_gallery -%}
                     <div data-js-sticky-sidebar-body{% if is_quick_view %} data-js-disable-offsets{% endif %}>
                 {%- endif -%}
-                        {% include 'product-page-get-info' with product_form_id: product_form_id %}
+                        {% include 'product-page-get-info' with product_form_id, product_form_id: product_form_id %}
                         {%- if section.settings.show_tabs -%}
                             <div class="product-page__tabs mt-30 pb-40">
                                 {% include 'product-page-get-tabs' %}
@@ -87,7 +87,7 @@
                 {%- if enable_sticky_gallery -%}
                     <div data-js-sticky-sidebar-body{% if is_quick_view %} data-js-disable-offsets{% endif %}>
                 {%- endif -%}
-                        {% include 'product-page-get-info' with product_form_id: product_form_id %}
+                        {% include 'product-page-get-info' with product_form_id, product_form_id: product_form_id %}
                         {%- if section.settings.show_tabs -%}
                             <div class="product-page__tabs mt-30 pb-40">
                                 {% include 'product-page-get-tabs' %}
@@ -102,11 +102,42 @@
 {%- elsif template_layout == '5' -%}
     <single-product class="product-page-main d-block"{% include 'product-get-attributes' %} data-js-product-clone-id="footbar">
         {% include 'product-page-get-gallery' %}
-        {% include 'product-page-get-info' with product_form_id: product_form_id %}
+        {% include 'product-page-get-info' with product_form_id, product_form_id: product_form_id %}
     </single-product>
 {%- endif -%}
 {%- if enable_sticky_gallery -%}
     <script>
         theme.AssetsLoader.require('scripts', 'sticky_sidebar');
     </script>
-{%- endif -%}
+{%- endif -%}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-page-get-info' with product_form_id: product_form_id
+    %}"
+  to: "{% include 'product-page-get-info' with product_form_id, product_form_id: product_form_id
+    %}"
+  position: 1221..1313
+- from: "{% include 'product-page-get-info' with product_form_id: product_form_id
+    %}"
+  to: "{% include 'product-page-get-info' with product_form_id, product_form_id: product_form_id
+    %}"
+  position: 2187..2279
+- from: "{% include 'product-page-get-info' with product_form_id: product_form_id
+    %}"
+  to: "{% include 'product-page-get-info' with product_form_id, product_form_id: product_form_id
+    %}"
+  position: 3671..3763
+- from: "{% include 'product-page-get-info' with product_form_id: product_form_id
+    %}"
+  to: "{% include 'product-page-get-info' with product_form_id, product_form_id: product_form_id
+    %}"
+  position: 5304..5396
+- from: "{% include 'product-page-get-info' with product_form_id: product_form_id
+    %}"
+  to: "{% include 'product-page-get-info' with product_form_id, product_form_id: product_form_id
+    %}"
+  position: 6074..6166
+{%- endcomment -%}
